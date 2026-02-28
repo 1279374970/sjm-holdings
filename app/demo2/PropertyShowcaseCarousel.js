@@ -224,7 +224,7 @@ export default function PropertyShowcaseCarousel() {
                 <div className="w-full border-t border-white/70">
                   <div className="mx-auto flex w-full max-w-[1440px] items-end justify-between gap-4 px-4 py-5 md:px-8 md:py-7 lg:px-[60px] lg:py-10">
                     <div className="flex w-full max-w-[795px] flex-col gap-5">
-                      <p className="font-serif text-[24px] font-extralight leading-[1.15] tracking-[-0.02em] md:text-[32px] md:leading-[38px]">
+                      <p className="font-petrona text-[24px] font-extralight leading-[1.15] tracking-[-0.02em] md:text-[32px] md:leading-[38px]">
                         {slide.label}
                       </p>
                       <div className="flex items-center gap-2">

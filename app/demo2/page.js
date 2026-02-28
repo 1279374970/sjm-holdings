@@ -141,7 +141,7 @@ function ScenicPanel({
       />
       {label ? (
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-black/80 via-black/35 to-transparent px-5 pb-4 pt-20 text-white md:px-6 md:pb-5">
-          <p className="font-serif text-[24px] font-extralight leading-[1.15] tracking-[-0.02em] md:text-[32px] md:leading-[38px]">
+          <p className="font-petrona text-[24px] font-extralight leading-[1.15] tracking-[-0.02em] md:text-[32px] md:leading-[38px]">
             {label}
           </p>
           {ctaLabel ? (
@@ -172,7 +172,7 @@ function NewsPreview() {
         <p className="text-[13px] font-semibold uppercase tracking-[0.02em] leading-4">
           {featuredNews.date}
         </p>
-        <p className="mt-4 font-serif text-[20px] font-extralight leading-[28px]">
+        <p className="mt-4 font-petrona text-[20px] font-extralight leading-[28px]">
           {featuredNews.title}
         </p>
       </div>
@@ -186,13 +186,13 @@ export default function Demo2Page() {
       <section className="relative bg-[var(--demo-green)] lg:min-h-[778px]">
         <div className="fixed left-0 right-0 top-0 z-50 bg-gradient-to-b from-black/55 to-transparent">
           <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-4 py-4 md:px-8 lg:px-[60px]">
-            <div className="relative h-7 w-[122px] shrink-0">
+            <div className="relative h-9 w-[157px] shrink-0">
               <Image
                 src="/demo2/sjm-logo.png"
                 alt="SJM Holdings"
                 fill
                 priority
-                sizes="122px"
+                sizes="157px"
                 className="object-contain object-left"
               />
             </div>
@@ -234,7 +234,7 @@ export default function Demo2Page() {
         <div className="flex w-full flex-col pb-8 pt-28 md:pb-10 md:pt-32 lg:pb-12 lg:pt-[206px]">
           <div className="mx-auto w-full max-w-[1440px] px-4 md:px-8 lg:px-[32px]">
             <div className="mb-8 grid gap-8 lg:mb-10 lg:grid-cols-[minmax(0,1fr)_445px] lg:px-[28px]">
-              <h1 className="font-serif text-4xl font-extralight leading-[1.12] tracking-[-0.03em] text-white md:text-5xl lg:text-[60px] lg:leading-[72px]">
+              <h1 className="font-petrona text-4xl font-extralight leading-[1.12] tracking-[-0.03em] text-white md:text-5xl lg:text-[60px] lg:leading-[72px]">
                 Welcome to
                 <br />
                 SJM Holdings Limited
@@ -262,7 +262,7 @@ export default function Demo2Page() {
         <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 px-4 py-12 md:px-8 lg:gap-10 lg:px-[60px] lg:pb-16 lg:pt-[149px]">
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-[120px]">
             <div>
-              <h2 className="font-serif text-4xl font-extralight tracking-[-0.01em] text-[#001625] lg:text-[48px]">
+              <h2 className="font-petrona text-4xl font-extralight tracking-[-0.01em] text-[#001625] lg:text-[48px]">
                 SJM Holdings Limited
               </h2>
               <p className="mt-8 max-w-[860px] text-[16px] leading-8 text-[#3f4644]">
@@ -284,7 +284,7 @@ export default function Demo2Page() {
                   00880.HK
                 </span>
               </div>
-              <p className="mt-1 font-serif text-[40px] font-light leading-[1.2] text-[#141414]">
+              <p className="mt-1 font-petrona text-[40px] font-light leading-[1.2] text-[#141414]">
                 HK$2.85
               </p>
               <div className="mt-2 flex items-center gap-2">
@@ -317,7 +317,7 @@ export default function Demo2Page() {
 
       <section className="bg-[var(--demo-cream)]">
         <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-8 lg:px-[60px] lg:py-16">
-          <h2 className="font-serif text-4xl font-extralight tracking-[-0.01em] text-[#001625] lg:text-[48px]">
+          <h2 className="font-petrona text-4xl font-extralight tracking-[-0.01em] text-[#001625] lg:text-[48px]">
             Latest News
           </h2>
 
@@ -336,7 +336,7 @@ export default function Demo2Page() {
                     {item.date}
                   </p>
                   <div className="mt-4 flex items-end gap-6">
-                    <p className="flex-1 font-serif text-[20px] font-extralight leading-[28px] text-[#141414]">
+                    <p className="flex-1 font-petrona text-[20px] font-extralight leading-[28px] text-[#141414]">
                       {item.title}
                     </p>
                     <button
@@ -388,7 +388,7 @@ export default function Demo2Page() {
       >
         <div className="absolute inset-0 bg-[#004433]/88" />
         <div className="relative mx-auto flex w-full max-w-[1440px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-8 lg:px-[60px] lg:py-16">
-          <h2 className="font-serif text-4xl font-extralight tracking-[-0.01em] text-white lg:text-[48px]">
+          <h2 className="font-petrona text-4xl font-extralight tracking-[-0.01em] text-white lg:text-[48px]">
             CSR Events
           </h2>
 
@@ -410,7 +410,7 @@ export default function Demo2Page() {
                   <p className="text-[13px] font-semibold uppercase leading-4 tracking-[0.02em] text-[#001625]">
                     {item.date}
                   </p>
-                  <p className="mt-4 font-serif text-[20px] font-extralight leading-[28px]">
+                  <p className="mt-4 font-petrona text-[20px] font-extralight leading-[28px]">
                     {item.title}
                   </p>
                 </div>
@@ -445,31 +445,33 @@ export default function Demo2Page() {
 
       <footer className="bg-[#001e1e] text-white">
         <div className="mx-auto w-full max-w-[1440px] px-4 py-10 md:px-8 lg:px-[80px]">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
-            <div className="relative h-[52px] w-[227px]">
+          <div className="flex flex-col items-center gap-6 lg:flex-row lg:justify-center lg:gap-8">
+            <div className="relative h-[52px] w-[227px] shrink-0">
               <Image
                 src="/demo2/sjm-logo.png"
                 alt="SJM Holdings"
                 fill
                 sizes="227px"
-                className="object-contain object-left"
+                className="object-contain"
               />
             </div>
-            <div className="hidden h-10 w-px bg-white/10 md:block" />
-            {brandLogos.map((brand) => (
-              <div
-                key={brand.alt}
-                className="relative h-12 w-[95px] md:h-[52px] md:w-[112px]"
-              >
-                <Image
-                  src={brand.src}
-                  alt={brand.alt}
-                  fill
-                  sizes="112px"
-                  className="object-contain"
-                />
-              </div>
-            ))}
+            <div className="hidden h-10 w-px bg-white/10 lg:block" />
+            <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-8">
+              {brandLogos.map((brand) => (
+                <div
+                  key={brand.alt}
+                  className="relative h-[80px] w-[80px] md:h-[100px] md:w-[100px]"
+                >
+                  <Image
+                    src={brand.src}
+                    alt={brand.alt}
+                    fill
+                    sizes="100px"
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="mt-8 border-t border-white/10 pt-8 text-center">
