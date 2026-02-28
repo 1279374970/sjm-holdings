@@ -5,7 +5,7 @@ import Image from "next/image";
 import Header from "../demo1/Header";
 
 const IMAGES = {
-  logo: "https://www.figma.com/api/mcp/asset/d1f9731d-0dc6-4e95-94da-5a44af0c78de",
+  logo: "/demo1/sjm-logo.png",
   hero: "/demo1/announcements-hero.png",
 };
 

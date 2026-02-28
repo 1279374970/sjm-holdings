@@ -2,18 +2,13 @@ import Image from "next/image";
 import Header from "./Header";
 
 const IMAGES = {
-  logo: "https://www.figma.com/api/mcp/asset/d1f9731d-0dc6-4e95-94da-5a44af0c78de",
-  hero: "https://www.figma.com/api/mcp/asset/f9d4e489-dc18-41b6-b0ba-9d9383e30656",
-  aboutOverlay:
-    "https://www.figma.com/api/mcp/asset/b08a5d77-2bb1-496e-b2f6-d69003e2b099",
-  greenPattern:
-    "https://www.figma.com/api/mcp/asset/082706bb-76a7-41a6-bde6-cb1bd23bb827",
-  propertyMain:
-    "https://www.figma.com/api/mcp/asset/56abe991-53f0-4d94-9948-e1bbac9c4334",
-  communityFeature:
-    "https://www.figma.com/api/mcp/asset/1498a53a-7acc-4878-bbd8-5020f2d81d82",
-  esgMain:
-    "https://www.figma.com/api/mcp/asset/d4e326e1-7a73-45c2-814a-d3f5546ac66d",
+  logo: "/demo1/sjm-logo.png",
+  hero: "/demo1/hero-macau.jpg",
+  aboutOverlay: "/demo1/section-overlay.png",
+  greenPattern: "/demo1/section-resort.png",
+  propertyMain: "/demo1/property-main.png",
+  communityFeature: "/demo1/csr-card-1.png",
+  esgMain: "/demo1/esg-main.png",
 };
 
 const statsItems = [
@@ -91,32 +86,11 @@ const investorAnnouncements = [
 ];
 
 const investorLinks = [
-  {
-    label: "Financial Reports",
-    iconUrl:
-      "https://www.figma.com/api/mcp/asset/7915224c-8323-4f20-b822-27d9faac746e",
-  },
-  {
-    label: "Environmental, Social and Governance Reports",
-    iconUrl:
-      "https://www.figma.com/api/mcp/asset/4928f4e9-d8ca-413b-99d0-f6681c97f1fc",
-  },
-  {
-    label: "Circulars, Proxy Forms, Letters & Documents on Display",
-    iconUrl:
-      "https://www.figma.com/api/mcp/asset/05574595-aca8-4d97-8983-0a516305eb7e",
-  },
-  {
-    label: "Stock Information",
-    iconUrl:
-      "https://www.figma.com/api/mcp/asset/0e581576-1fcc-4ce0-8a40-9ccc78f03d4e",
-  },
+  { label: "Financial Reports", icon: "doc" },
+  { label: "Environmental, Social and Governance Reports", icon: "leaf" },
+  { label: "Circulars, Proxy Forms, Letters & Documents on Display", icon: "folder" },
+  { label: "Stock Information", icon: "chart" },
 ];
-
-const ICON_SIDEBAR_ARROW =
-  "https://www.figma.com/api/mcp/asset/52613f02-dfb3-4d42-ae22-d6ded7ffdd89";
-const ICON_EMAIL =
-  "https://www.figma.com/api/mcp/asset/ed0043e7-df5d-4f63-ad33-2031854c886b";
 
 const communityArticles = [
   {
@@ -153,26 +127,22 @@ const esgCards = [
   {
     title: "Sustainability",
     body: "Driving long-term sustainability through carbon reduction, energy efficiency, resource optimisation, and green building practices across all operations.",
-    iconUrl:
-      "https://www.figma.com/api/mcp/asset/b247066c-f0c6-4985-8e9c-bfb6560847ef",
+    icon: "leaf",
   },
   {
     title: "Community Support",
     body: "Investing in community development through charitable partnerships, cultural preservation, local employment, and social impact programmes in Macau.",
-    iconUrl:
-      "https://www.figma.com/api/mcp/asset/451acd26-7034-4559-b620-77f58c91804e",
+    icon: "heart",
   },
   {
     title: "Responsible Gaming",
     body: "Promoting a safe and responsible gaming environment through strict compliance, player protection measures, staff training, and public education initiatives.",
-    iconUrl:
-      "https://www.figma.com/api/mcp/asset/513e5f80-c3c3-4add-84cf-e744344c01d9",
+    icon: "shield",
   },
   {
     title: "ESG Reports",
     body: "Maintaining transparent ESG disclosures aligned with international standards and HKEX requirements, with clear metrics, targets, and performance tracking.",
-    iconUrl:
-      "https://www.figma.com/api/mcp/asset/b62535dc-35d9-43cf-8a71-f03d1a1468e7",
+    icon: "file",
   },
 ];
 
@@ -727,31 +697,24 @@ export default function Demo1Page() {
 
             {/* Sidebar links + IR Contact */}
             <div className="flex w-full flex-col gap-4 lg:w-[380px] lg:shrink-0">
-              {investorLinks.map((link) => (
-                <button
-                  type="button"
-                  key={link.label}
-                  className="flex items-center gap-4 border border-white/[0.08] bg-white/[0.05] px-[17px] py-[15px] text-left transition hover:border-[#a8996e]/40 hover:bg-white/[0.08]"
-                >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      alt=""
-                      src={link.iconUrl}
-                      className="h-4 w-4"
-                    />
-                  </span>
-                  <span className="flex-1 text-[12px] leading-[16px] tracking-[0.3px] text-white/80">
-                    {link.label}
-                  </span>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    alt=""
-                    src={ICON_SIDEBAR_ARROW}
-                    className="h-3.5 w-3.5 shrink-0"
-                  />
-                </button>
-              ))}
+              {investorLinks.map((link) => {
+                const IconComp = sidebarIconMap[link.icon];
+                return (
+                  <button
+                    type="button"
+                    key={link.label}
+                    className="flex items-center gap-4 border border-white/[0.08] bg-white/[0.05] px-[17px] py-[15px] text-left transition hover:border-[#a8996e]/40 hover:bg-white/[0.08]"
+                  >
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center text-[#a8996e]">
+                      {IconComp && <IconComp className="h-4 w-4" />}
+                    </span>
+                    <span className="flex-1 text-[12px] leading-[16px] tracking-[0.3px] text-white/80">
+                      {link.label}
+                    </span>
+                    <ChevronRightIcon className="h-3.5 w-3.5 shrink-0 text-[#a8996e]" />
+                  </button>
+                );
+              })}
 
               {/* IR Contact */}
               <div className="flex flex-col gap-3 border border-[rgba(168,153,110,0.3)] bg-[rgba(168,153,110,0.05)] px-[21px] pb-[23px] pt-[21px]">
@@ -763,8 +726,7 @@ export default function Demo1Page() {
                   Department, please contact us.
                 </p>
                 <div className="flex items-start gap-3">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="" src={ICON_EMAIL} className="mt-0.5 h-4 w-4 shrink-0" />
+                  <EmailIcon className="mt-0.5 h-4 w-4 shrink-0 text-[#a8996e]" />
                   <div className="flex flex-col gap-1">
                     <span className="text-[12px] leading-[18px] uppercase tracking-[0.9px] text-white/40">
                       Email
@@ -903,14 +865,15 @@ export default function Demo1Page() {
 
           {/* ESG Cards */}
           <div className="mt-[60px] grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {esgCards.map((card) => (
+            {esgCards.map((card) => {
+                const EsgIcon = esgIconMap[card.icon];
+                return (
                 <article
                   key={card.title}
                   className="flex flex-col gap-5 border border-[rgba(35,31,32,0.1)] bg-white p-[25px]"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center border border-[rgba(0,155,121,0.05)] bg-[rgba(0,155,121,0.05)]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img alt="" src={card.iconUrl} className="h-4 w-4" />
+                  <div className="flex h-10 w-10 items-center justify-center border border-[rgba(0,155,121,0.05)] bg-[rgba(0,155,121,0.05)] text-[#009b79]">
+                    {EsgIcon && <EsgIcon className="h-4 w-4" />}
                   </div>
                   <div className="flex flex-col gap-3">
                     <h3 className="text-[14px] font-medium leading-[20px] tracking-[0.35px] text-[#231f20]">
@@ -922,7 +885,8 @@ export default function Demo1Page() {
                   </div>
                   <DividerLink color="accent">LEARN MORE</DividerLink>
                 </article>
-            ))}
+                );
+            })}
           </div>
         </div>
       </section>
