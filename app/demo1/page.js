@@ -36,14 +36,14 @@ const pressReleases = [
     title:
       "SJM Leads Asian Wine Scene with Seven Awards at Star Wine List 2026",
     tag: "Awards",
-    tagColor: "gold",
+    tagColor: "green",
   },
   {
     date: "11 Feb 2026",
     title:
       "SJM\u2019s Grand Lisboa Palace Resort Macau Becomes the Only Integrated Resort in the World with All Hotels Forbes Travel Guide Five-Star Rated",
     tag: "Awards",
-    tagColor: "gold",
+    tagColor: "green",
   },
   {
     date: "04 Feb 2026",
