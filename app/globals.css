@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-poppins: "Poppins", "Noto Sans SC", "Noto Sans TC", "Noto Sans HK",
+    "Noto Sans JP", "Noto Sans KR", system-ui, sans-serif;
+  --font-petrona: "Petrona", "Noto Serif SC", "Noto Serif TC",
+    "Noto Serif HK", "Noto Serif JP", "Noto Serif KR", Georgia, serif;
+  --font-sans: var(--font-poppins);
+  --font-serif: var(--font-petrona);
+  --font-mono:
+    "IBM Plex Mono", "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
