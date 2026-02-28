@@ -99,14 +99,32 @@ const investorAnnouncements = [
 ];
 
 const investorLinks = [
-  { label: "Financial Reports", icon: "doc" },
-  { label: "Environmental, Social and Governance Reports", icon: "leaf" },
+  {
+    label: "Financial Reports",
+    iconUrl:
+      "https://www.figma.com/api/mcp/asset/7915224c-8323-4f20-b822-27d9faac746e",
+  },
+  {
+    label: "Environmental, Social and Governance Reports",
+    iconUrl:
+      "https://www.figma.com/api/mcp/asset/4928f4e9-d8ca-413b-99d0-f6681c97f1fc",
+  },
   {
     label: "Circulars, Proxy Forms, Letters & Documents on Display",
-    icon: "folder",
+    iconUrl:
+      "https://www.figma.com/api/mcp/asset/05574595-aca8-4d97-8983-0a516305eb7e",
   },
-  { label: "Stock Information", icon: "chart" },
+  {
+    label: "Stock Information",
+    iconUrl:
+      "https://www.figma.com/api/mcp/asset/0e581576-1fcc-4ce0-8a40-9ccc78f03d4e",
+  },
 ];
+
+const ICON_SIDEBAR_ARROW =
+  "https://www.figma.com/api/mcp/asset/52613f02-dfb3-4d42-ae22-d6ded7ffdd89";
+const ICON_EMAIL =
+  "https://www.figma.com/api/mcp/asset/ed0043e7-df5d-4f63-ad33-2031854c886b";
 
 const communityArticles = [
   {
@@ -143,22 +161,26 @@ const esgCards = [
   {
     title: "Sustainability",
     body: "Driving long-term sustainability through carbon reduction, energy efficiency, resource optimisation, and green building practices across all operations.",
-    icon: "leaf",
+    iconUrl:
+      "https://www.figma.com/api/mcp/asset/b247066c-f0c6-4985-8e9c-bfb6560847ef",
   },
   {
     title: "Community Support",
     body: "Investing in community development through charitable partnerships, cultural preservation, local employment, and social impact programmes in Macau.",
-    icon: "heart",
+    iconUrl:
+      "https://www.figma.com/api/mcp/asset/451acd26-7034-4559-b620-77f58c91804e",
   },
   {
     title: "Responsible Gaming",
     body: "Promoting a safe and responsible gaming environment through strict compliance, player protection measures, staff training, and public education initiatives.",
-    icon: "shield",
+    iconUrl:
+      "https://www.figma.com/api/mcp/asset/513e5f80-c3c3-4add-84cf-e744344c01d9",
   },
   {
     title: "ESG Reports",
     body: "Maintaining transparent ESG disclosures aligned with international standards and HKEX requirements, with clear metrics, targets, and performance tracking.",
-    icon: "file",
+    iconUrl:
+      "https://www.figma.com/api/mcp/asset/b62535dc-35d9-43cf-8a71-f03d1a1468e7",
   },
 ];
 
@@ -211,7 +233,7 @@ function GlobeIcon({ className = "" }) {
   );
 }
 
-function ArrowUpRightIcon({ className = "" }) {
+function ChevronRightIcon({ className = "" }) {
   return (
     <svg
       viewBox="0 0 16 16"
@@ -220,9 +242,9 @@ function ArrowUpRightIcon({ className = "" }) {
       aria-hidden="true"
     >
       <path
-        d="M4.5 11.5L11.5 4.5M11.5 4.5H5.5M11.5 4.5V10.5"
+        d="M6 3.5L10.5 8L6 12.5"
         stroke="currentColor"
-        strokeWidth="1.2"
+        strokeWidth="1.4"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -747,7 +769,7 @@ export default function Demo1Page() {
                       </p>
                     </div>
                     <div className="flex shrink-0 items-center">
-                      <ArrowUpRightIcon className="h-4 w-4 text-[#8e9590]" />
+                      <ChevronRightIcon className="h-4 w-4 text-[#8e9590]" />
                     </div>
                   </article>
                 ))}
@@ -821,7 +843,7 @@ export default function Demo1Page() {
                       {item.title}
                     </p>
                     <div className="flex shrink-0 items-start pt-0.5">
-                      <ArrowUpRightIcon className="h-4 w-4 text-[#a8996e]" />
+                      <ChevronRightIcon className="h-4 w-4 text-[rgba(255,255,255,0.2)]" />
                     </div>
                   </article>
                 ))}
@@ -834,24 +856,31 @@ export default function Demo1Page() {
 
             {/* Sidebar links + IR Contact */}
             <div className="flex w-full flex-col gap-4 lg:w-[380px] lg:shrink-0">
-              {investorLinks.map((link) => {
-                const Icon = sidebarIconMap[link.icon];
-                return (
-                  <button
-                    type="button"
-                    key={link.label}
-                    className="flex items-center gap-4 border border-white/[0.08] bg-white/[0.05] px-[17px] py-[15px] text-left transition hover:border-[#a8996e]/40 hover:bg-white/[0.08]"
-                  >
-                    <span className="flex h-9 w-9 items-center justify-center">
-                      <Icon className="h-4 w-4 text-white/60" />
-                    </span>
-                    <span className="flex-1 text-[12px] leading-[16px] tracking-[0.3px] text-white/80">
-                      {link.label}
-                    </span>
-                    <LinkArrowIcon className="h-3.5 w-3.5 shrink-0 text-[#a8996e]" />
-                  </button>
-                );
-              })}
+              {investorLinks.map((link) => (
+                <button
+                  type="button"
+                  key={link.label}
+                  className="flex items-center gap-4 border border-white/[0.08] bg-white/[0.05] px-[17px] py-[15px] text-left transition hover:border-[#a8996e]/40 hover:bg-white/[0.08]"
+                >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      alt=""
+                      src={link.iconUrl}
+                      className="h-4 w-4"
+                    />
+                  </span>
+                  <span className="flex-1 text-[12px] leading-[16px] tracking-[0.3px] text-white/80">
+                    {link.label}
+                  </span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    alt=""
+                    src={ICON_SIDEBAR_ARROW}
+                    className="h-3.5 w-3.5 shrink-0"
+                  />
+                </button>
+              ))}
 
               {/* IR Contact */}
               <div className="flex flex-col gap-3 border border-[rgba(168,153,110,0.3)] bg-[rgba(168,153,110,0.05)] px-[21px] pb-[23px] pt-[21px]">
@@ -863,7 +892,8 @@ export default function Demo1Page() {
                   Department, please contact us.
                 </p>
                 <div className="flex items-start gap-3">
-                  <EmailIcon className="mt-0.5 h-4 w-4 shrink-0 text-white/40" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img alt="" src={ICON_EMAIL} className="mt-0.5 h-4 w-4 shrink-0" />
                   <div className="flex flex-col gap-1">
                     <span className="text-[12px] leading-[18px] uppercase tracking-[0.9px] text-white/40">
                       Email
@@ -1003,15 +1033,14 @@ export default function Demo1Page() {
 
           {/* ESG Cards */}
           <div className="mt-[60px] grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {esgCards.map((card) => {
-              const Icon = esgIconMap[card.icon];
-              return (
+            {esgCards.map((card) => (
                 <article
                   key={card.title}
                   className="flex flex-col gap-5 border border-[rgba(35,31,32,0.1)] bg-white p-[25px]"
                 >
                   <div className="flex h-10 w-10 items-center justify-center border border-[rgba(0,155,121,0.05)] bg-[rgba(0,155,121,0.05)]">
-                    <Icon className="h-4 w-4 text-[#009b79]" />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img alt="" src={card.iconUrl} className="h-4 w-4" />
                   </div>
                   <div className="flex flex-col gap-3">
                     <h3 className="text-[14px] font-medium leading-[20px] tracking-[0.35px] text-[#231f20]">
@@ -1023,8 +1052,7 @@ export default function Demo1Page() {
                   </div>
                   <DividerLink color="accent">LEARN MORE</DividerLink>
                 </article>
-              );
-            })}
+            ))}
           </div>
         </div>
       </section>
