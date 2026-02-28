@@ -82,6 +82,10 @@ const sectionHeadings = [
   "Celebrating Tradition and Giving Back",
 ];
 
+export function generateStaticParams() {
+  return Array.from({ length: 9 }, (_, i) => ({ id: String(i + 1) }));
+}
+
 export default function CsrEventDetailPage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f7f6f0] font-sans text-[#1f2524]">
