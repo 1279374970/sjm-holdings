@@ -18,7 +18,7 @@ const IMAGES = {
 
 const statsItems = [
   { value: "60+", label: "Years of Excellence" },
-  { value: "7", label: "Integrated Resorts" },
+  { value: "9", label: "Integrated Resorts" },
   { value: "6", label: "Licensed Concessionaires" },
   { value: "00880.HK", label: "HKEX Listed" },
 ];
