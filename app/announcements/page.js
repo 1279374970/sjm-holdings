@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "../demo1/Header";
 
 const IMAGES = {
@@ -232,9 +233,10 @@ export default function AnnouncementsPage() {
               {/* Results List */}
               <div className="flex flex-1 flex-col">
                 {announcements.map((item, idx) => (
-                  <article
+                  <Link
                     key={`${item.date}-${item.title.slice(0, 30)}-${idx}`}
-                    className="flex gap-6 border-b border-[rgba(35,31,32,0.1)] py-6"
+                    href={`/announcements/${idx + 1}`}
+                    className="flex gap-6 border-b border-[rgba(35,31,32,0.1)] py-6 transition hover:bg-[rgba(0,155,121,0.03)]"
                   >
                     <div className="flex w-[80px] shrink-0 flex-col justify-center">
                       <p className="text-right text-[12px] leading-[18px] text-[#8e9590]">
@@ -254,7 +256,7 @@ export default function AnnouncementsPage() {
                     <div className="flex shrink-0 flex-col justify-center">
                       <ChevronRightIcon className="h-4 w-4 text-[rgba(35,31,32,0.2)]" />
                     </div>
-                  </article>
+                  </Link>
                 ))}
 
                 {/* Pagination */}

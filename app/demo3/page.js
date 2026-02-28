@@ -9,6 +9,8 @@ const DEARFLIP_CORE_ID = "demo3-dearflip-core";
 
 const DEARFLIP_CSS_SRC =
   "/vendor/dearflip/css/dflip.min.css";
+const THEMIFY_ICONS_CSS_SRC =
+  "/vendor/dearflip/css/themify-icons.min.css";
 const DEARFLIP_JQUERY_SRC =
   "/vendor/dearflip/js/libs/jquery.min.js";
 const DEARFLIP_CORE_SRC =
@@ -67,6 +69,7 @@ export default function Demo3Page() {
     async function initFlipbook() {
       try {
         ensureStyleSheet(DEARFLIP_CSS_ID, DEARFLIP_CSS_SRC);
+        ensureStyleSheet("demo3-themify-icons", THEMIFY_ICONS_CSS_SRC);
 
         await loadScript({
           id: DEARFLIP_JQUERY_ID,
