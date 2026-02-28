@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Header from "./Header";
 
 const IMAGES = {
   logo: "https://www.figma.com/api/mcp/asset/d1f9731d-0dc6-4e95-94da-5a44af0c78de",
@@ -14,15 +15,6 @@ const IMAGES = {
   esgMain:
     "https://www.figma.com/api/mcp/asset/d4e326e1-7a73-45c2-814a-d3f5546ac66d",
 };
-
-const navItems = [
-  "About us",
-  "Properties",
-  "Media releases",
-  "Investor relations",
-  "Environment, Social and Governance",
-  "Career",
-];
 
 const statsItems = [
   { value: "60+", label: "Years of Excellence" },
@@ -185,53 +177,6 @@ const esgCards = [
 ];
 
 /* ── SVG Icon Components ── */
-
-function SearchIcon({ className = "" }) {
-  return (
-    <svg
-      viewBox="0 0 15 15"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <circle
-        cx="6.5"
-        cy="6.5"
-        r="5"
-        stroke="currentColor"
-        strokeWidth="1.3"
-      />
-      <path
-        d="M10.5 10.5L13.5 13.5"
-        stroke="currentColor"
-        strokeWidth="1.3"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function GlobeIcon({ className = "" }) {
-  return (
-    <svg
-      viewBox="0 0 14 14"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.1" />
-      <ellipse
-        cx="7"
-        cy="7"
-        rx="2.8"
-        ry="5.5"
-        stroke="currentColor"
-        strokeWidth="1.1"
-      />
-      <path d="M1.5 7H12.5" stroke="currentColor" strokeWidth="1.1" />
-    </svg>
-  );
-}
 
 function ChevronRightIcon({ className = "" }) {
   return (
@@ -481,83 +426,7 @@ function DividerLink({ children, color = "accent" }) {
 export default function Demo1Page() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f7f6f0] font-sans text-[#1f2524]">
-      {/* ── Header ── */}
-      <header className="fixed inset-x-0 top-0 z-50">
-        {/* Stock ticker */}
-        <div className="border-b border-[rgba(168,153,110,0.2)] bg-[#001c1c]">
-          <div className="mx-auto flex h-10 w-full max-w-[1680px] items-center justify-between px-5 sm:px-8 lg:px-[60px] xl:px-[120px]">
-            <div className="flex items-center gap-4 text-[13px] leading-[19.2px] tracking-[0.32px] uppercase">
-              <span className="text-white/80">HKEX</span>
-              <span className="hidden text-white sm:inline">00880.HK</span>
-              <span className="hidden text-white sm:inline">HK$3.850</span>
-              <span className="flex items-center gap-1.5 text-[#00a76d]">
-                <svg
-                  viewBox="0 0 10 8"
-                  fill="currentColor"
-                  className="h-2 w-2.5"
-                  aria-hidden="true"
-                >
-                  <path d="M5 0L10 8H0L5 0Z" />
-                </svg>
-                +0.050(+1.32%)
-              </span>
-            </div>
-            <div className="flex items-center gap-2 text-[12px] leading-[16px] tracking-[0.3px] text-white">
-              <span className="h-1 w-1 rounded-full bg-[#00a76d]" />
-              <span>16:08 HKT · 15-min delayed</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Main nav */}
-        <div className="bg-[rgba(0,30,30,0.6)] backdrop-blur-[5px]">
-          <div className="mx-auto flex h-[100px] w-full max-w-[1680px] items-center justify-between px-5 sm:px-8 lg:px-[60px] xl:px-[120px]">
-            <div className="relative h-9 w-[157px]">
-              <Image
-                src={IMAGES.logo}
-                alt="SJM Holdings"
-                fill
-                priority
-                sizes="157px"
-                className="object-contain object-left"
-              />
-            </div>
-
-            <nav className="hidden items-center gap-[21.6px] xl:flex">
-              {navItems.map((item) => (
-                <button
-                  type="button"
-                  key={item}
-                  className="px-1 text-[14px] leading-[19.2px] uppercase text-white/80 transition hover:text-[#a8996e]"
-                >
-                  {item}
-                </button>
-              ))}
-              <button
-                type="button"
-                className="flex items-center gap-2 px-1 text-[14px] leading-[19.2px] uppercase text-white/80 transition hover:text-[#a8996e]"
-              >
-                <SearchIcon className="h-[15px] w-[15px]" />
-                Search
-              </button>
-              <button
-                type="button"
-                className="flex items-center gap-2 px-1 text-[14px] leading-[19.2px] uppercase text-white/80 transition hover:text-[#a8996e]"
-              >
-                <GlobeIcon className="h-[14px] w-[14px]" />
-                EN
-              </button>
-            </nav>
-
-            <button
-              type="button"
-              className="rounded-full border border-white/25 px-4 py-1.5 text-[12px] uppercase tracking-wider text-white xl:hidden"
-            >
-              Menu
-            </button>
-          </div>
-        </div>
-      </header>
+      <Header logoSrc={IMAGES.logo} />
 
       {/* ── Hero ── */}
       <section className="relative flex min-h-[780px] flex-col justify-end pt-[140px]">
@@ -573,7 +442,7 @@ export default function Demo1Page() {
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,30,30,0.6)] via-transparent to-transparent" />
 
         <div className="relative mx-auto flex w-full max-w-[1680px] flex-1 flex-col justify-center px-5 pb-24 sm:px-8 lg:px-[60px] xl:px-[120px]">
-          <div className="flex max-w-[1280px] flex-col gap-[30px] pt-[100px] lg:px-[80px]">
+          <div className="flex max-w-[1280px] flex-col gap-[30px] pt-[60px] lg:pt-[95px] lg:px-[80px]">
             <h1 className="font-petrona text-[42px] font-extralight leading-[1] tracking-[-1px] text-white sm:text-[54px] sm:tracking-[-1.5px] lg:text-[80px] lg:leading-[80px] lg:tracking-[-2.25px]">
               <span className="block">Welcome to</span>
               <span className="block text-[#a8996e]">SJM Holdings</span>
@@ -949,7 +818,7 @@ export default function Demo1Page() {
                 </div>
 
                 {/* Text-only articles */}
-                <div className="flex flex-1 flex-col gap-6">
+                <div className="flex flex-1 flex-col justify-between">
                   {communityArticles.slice(1).map((item) => (
                     <article
                       key={item.title}
@@ -964,6 +833,22 @@ export default function Demo1Page() {
                     </article>
                   ))}
                 </div>
+                {/* Stats grid */}
+                <div className="grid w-full grid-cols-2 gap-4 lg:w-[380px] lg:shrink-0">
+                  {communityStats.map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="flex flex-col justify-center border border-[rgba(168,153,110,0.3)] bg-[rgba(168,153,110,0.05)] px-6 py-5"
+                    >
+                      <p className="font-petrona text-[32px] font-extralight text-white/80 sm:text-[40px]">
+                        {stat.value}
+                      </p>
+                      <p className="mt-3 text-[11px] uppercase leading-[18px] tracking-[2.7px] text-[#a8996e] sm:text-[12px]">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="pt-4">
@@ -971,23 +856,6 @@ export default function Demo1Page() {
                   ALL Investor Relations
                 </DividerLink>
               </div>
-            </div>
-
-            {/* Stats grid */}
-            <div className="grid w-full grid-cols-2 gap-4 self-start lg:w-[380px] lg:shrink-0">
-              {communityStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="flex flex-col justify-center border border-[rgba(168,153,110,0.3)] bg-[rgba(168,153,110,0.05)] px-6 py-5"
-                >
-                  <p className="font-petrona text-[32px] font-extralight text-white/80 sm:text-[40px]">
-                    {stat.value}
-                  </p>
-                  <p className="mt-3 text-[11px] uppercase leading-[18px] tracking-[2.7px] text-[#a8996e] sm:text-[12px]">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
