@@ -401,7 +401,7 @@ const esgIconMap = {
 
 /* ── Divider Link ── */
 
-function DividerLink({ children, color = "accent" }) {
+function DividerLink({ children, color = "accent", href }) {
   const colorMap = {
     accent: "text-[#009b79]",
     gold: "text-[#a8996e]",
@@ -410,14 +410,16 @@ function DividerLink({ children, color = "accent" }) {
     accent: "bg-[#009b79]",
     gold: "bg-[#a8996e]",
   };
+  const Tag = href ? "a" : "button";
+  const extraProps = href ? { href } : { type: "button" };
   return (
-    <button
-      type="button"
+    <Tag
+      {...extraProps}
       className={`inline-flex items-center gap-3 text-[12px] leading-[16px] uppercase tracking-[2.4px] transition hover:opacity-80 ${colorMap[color]}`}
     >
       {children}
       <span className={`h-px w-8 ${barMap[color]}`} />
-    </button>
+    </Tag>
   );
 }
 
@@ -719,7 +721,7 @@ export default function Demo1Page() {
               </div>
 
               <div className="pt-4">
-                <DividerLink color="gold">ALL Investor Relations</DividerLink>
+                <DividerLink color="gold" href="/announcements">ALL Investor Relations</DividerLink>
               </div>
             </div>
 
@@ -852,7 +854,7 @@ export default function Demo1Page() {
               </div>
 
               <div className="pt-4">
-                <DividerLink color="gold">
+                <DividerLink color="gold" href="/csr-events">
                   ALL Investor Relations
                 </DividerLink>
               </div>

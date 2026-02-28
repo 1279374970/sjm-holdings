@@ -4,12 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const navItems = [
-  "About us",
-  "Properties",
-  "Media releases",
-  "Investor relations",
-  "Environment, Social and Governance",
-  "Career",
+  { label: "About us" },
+  { label: "Properties", href: "/properties" },
+  { label: "Media releases" },
+  { label: "Investor relations" },
+  { label: "Environment, Social and Governance" },
+  { label: "Career" },
 ];
 
 function SearchIcon({ className = "" }) {
@@ -176,8 +176,8 @@ export default function Header({ logoSrc }) {
       <div
         style={{
           height: navHeight,
-          backgroundColor: useLightTheme ? "#f7f6f0" : "rgba(0,30,30,0.6)",
-          backdropFilter: useLightTheme ? "none" : "blur(5px)",
+          backgroundColor: useLightTheme ? "#f7f6f0" : "rgba(0,30,30,0.5)",
+          backdropFilter: useLightTheme ? "none" : "blur(10px)",
           WebkitBackdropFilter: useLightTheme ? "none" : "blur(5px)",
           boxShadow: showShadow ? "0 0 10px rgba(0,0,0,0.3)" : "none",
           transition: TRANSITION,
@@ -260,25 +260,31 @@ export default function Header({ logoSrc }) {
           ) : (
             <>
               <nav className="hidden items-center gap-[21.6px] xl:flex">
-                {navItems.map((item) => (
-                  <button
-                    type="button"
-                    key={item}
-                    className="px-1 text-[14px] uppercase leading-[19.2px]"
-                    style={{
-                      color: textColor,
-                      transition: TRANSITION,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = textHoverColor;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = textColor;
-                    }}
-                  >
-                    {item}
-                  </button>
-                ))}
+                {navItems.map((item) => {
+                  const Tag = item.href ? "a" : "button";
+                  const extraProps = item.href
+                    ? { href: item.href }
+                    : { type: "button" };
+                  return (
+                    <Tag
+                      key={item.label}
+                      {...extraProps}
+                      className="px-1 text-[14px] uppercase leading-[19.2px]"
+                      style={{
+                        color: textColor,
+                        transition: TRANSITION,
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = textHoverColor;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = textColor;
+                      }}
+                    >
+                      {item.label}
+                    </Tag>
+                  );
+                })}
                 <button
                   type="button"
                   className="flex items-center gap-2 px-1 text-[14px] uppercase leading-[19.2px]"
