@@ -61,11 +61,31 @@ function GlobeIcon({ className = "" }) {
 
 const TRANSITION = "all 500ms cubic-bezier(0.4, 0, 0.2, 1)";
 
+function CloseIcon({ className = "" }) {
+  return (
+    <svg
+      viewBox="0 0 14 14"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M1 1L13 13M13 1L1 13"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export default function Header({ logoSrc }) {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isTopBarVisible, setIsTopBarVisible] = useState(true);
   const [isScrollingUp, setIsScrollingUp] = useState(false);
   const [isNavHovered, setIsNavHovered] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const searchInputRef = useRef(null);
 
   const lastScrollTopRef = useRef(0);
   const tickingRef = useRef(false);
@@ -175,77 +195,135 @@ export default function Header({ logoSrc }) {
               sizes="157px"
               className="object-contain object-left"
               style={{
-                filter: useLightTheme ? "brightness(0)" : "none",
+                opacity: useLightTheme ? 0 : 1,
+                transition: TRANSITION,
+              }}
+            />
+            <Image
+              src="/demo1/sjm-logo-active.png"
+              alt="SJM Holdings"
+              fill
+              sizes="157px"
+              className="object-contain object-left"
+              style={{
+                opacity: useLightTheme ? 1 : 0,
                 transition: TRANSITION,
               }}
             />
           </div>
 
-          <nav className="hidden items-center gap-[21.6px] xl:flex">
-            {navItems.map((item) => (
+          {isSearchOpen ? (
+            <>
+              <div
+                className="hidden flex-1 items-center justify-end lg:flex"
+                style={{ color: useLightTheme ? "#3f4644" : "white", transition: TRANSITION }}
+              >
+                <div className="mr-4 flex h-10 items-center gap-2.5">
+                  <SearchIcon className="h-[14px] w-[14px] shrink-0" />
+                  <input
+                    ref={searchInputRef}
+                    type="text"
+                    placeholder="PLEASE INPUT KEYWORDS TO SEARCH"
+                    className="search-input w-[280px] bg-transparent text-[14px] leading-[19.2px] outline-none"
+                    style={{
+                      color: "inherit",
+                      "--search-placeholder": useLightTheme ? "rgba(63,70,68,0.4)" : "rgba(255,255,255,0.4)",
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Escape") setIsSearchOpen(false);
+                      if (e.key === "Enter" && e.currentTarget.value.trim()) {
+                        window.location.href = `/search?q=${encodeURIComponent(e.currentTarget.value.trim())}`;
+                      }
+                    }}
+                    onBlur={() => setIsSearchOpen(false)}
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center">
+                <button
+                  type="button"
+                  className="flex items-center gap-2 px-1 text-[14px] uppercase leading-[19.2px]"
+                  style={{ color: textColor, transition: TRANSITION }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = textHoverColor;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = textColor;
+                  }}
+                >
+                  <GlobeIcon className="h-[14px] w-[14px]" />
+                  EN
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <nav className="hidden items-center gap-[21.6px] xl:flex">
+                {navItems.map((item) => (
+                  <button
+                    type="button"
+                    key={item}
+                    className="px-1 text-[14px] uppercase leading-[19.2px]"
+                    style={{
+                      color: textColor,
+                      transition: TRANSITION,
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = textHoverColor;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = textColor;
+                    }}
+                  >
+                    {item}
+                  </button>
+                ))}
+                <button
+                  type="button"
+                  className="flex items-center gap-2 px-1 text-[14px] uppercase leading-[19.2px]"
+                  style={{ color: textColor, transition: TRANSITION }}
+                  onClick={() => {
+                    setIsSearchOpen(true);
+                    setTimeout(() => searchInputRef.current?.focus(), 50);
+                  }}
+                >
+                  <SearchIcon className="h-[15px] w-[15px]" />
+                  Search
+                </button>
+                <button
+                  type="button"
+                  className="flex items-center gap-2 px-1 text-[14px] uppercase leading-[19.2px]"
+                  style={{ color: textColor, transition: TRANSITION }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = textHoverColor;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = textColor;
+                  }}
+                >
+                  <GlobeIcon className="h-[14px] w-[14px]" />
+                  EN
+                </button>
+              </nav>
+
               <button
                 type="button"
-                key={item}
-                className="px-1 text-[14px] uppercase leading-[19.2px]"
+                className="rounded-full px-4 py-1.5 text-[12px] uppercase tracking-wider xl:hidden"
                 style={{
-                  color: textColor,
+                  color: useLightTheme ? "#3f4644" : "white",
+                  borderColor: useLightTheme
+                    ? "rgba(63,70,68,0.25)"
+                    : "rgba(255,255,255,0.25)",
+                  borderWidth: 1,
+                  borderStyle: "solid",
                   transition: TRANSITION,
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = textHoverColor;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = textColor;
-                }}
               >
-                {item}
+                Menu
               </button>
-            ))}
-            <button
-              type="button"
-              className="flex items-center gap-2 px-1 text-[14px] uppercase leading-[19.2px]"
-              style={{ color: textColor, transition: TRANSITION }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = textHoverColor;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = textColor;
-              }}
-            >
-              <SearchIcon className="h-[15px] w-[15px]" />
-              Search
-            </button>
-            <button
-              type="button"
-              className="flex items-center gap-2 px-1 text-[14px] uppercase leading-[19.2px]"
-              style={{ color: textColor, transition: TRANSITION }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = textHoverColor;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = textColor;
-              }}
-            >
-              <GlobeIcon className="h-[14px] w-[14px]" />
-              EN
-            </button>
-          </nav>
-
-          <button
-            type="button"
-            className="rounded-full px-4 py-1.5 text-[12px] uppercase tracking-wider xl:hidden"
-            style={{
-              color: useLightTheme ? "#3f4644" : "white",
-              borderColor: useLightTheme
-                ? "rgba(63,70,68,0.25)"
-                : "rgba(255,255,255,0.25)",
-              borderWidth: 1,
-              borderStyle: "solid",
-              transition: TRANSITION,
-            }}
-          >
-            Menu
-          </button>
+            </>
+          )}
         </div>
       </div>
     </header>
