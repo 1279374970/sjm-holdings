@@ -254,7 +254,7 @@ export default function Header({ logoSrc }) {
                   }}
                 >
                   <GlobeIcon className="h-[14px] w-[14px]" />
-                  EN
+                  中文
                 </button>
               </div>
             </>
@@ -310,7 +310,7 @@ export default function Header({ logoSrc }) {
                   }}
                 >
                   <GlobeIcon className="h-[14px] w-[14px]" />
-                  EN
+                  中文
                 </button>
               </nav>
 

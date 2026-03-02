@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -58,86 +58,136 @@ function ArrowRightIcon({ className = "" }) {
 }
 
 const ITEMS_PER_PAGE = 3;
-const TRANSITION_MS = 240;
+const DRAG_THRESHOLD = 50;
 
 export default function CsrEventsPaginated() {
   const [page, setPage] = useState(0);
-  const [animating, setAnimating] = useState(false);
-  const [phase, setPhase] = useState("idle"); // "idle" | "out" | "in"
-  const [direction, setDirection] = useState(1); // 1 = forward, -1 = back
-
   const totalPages = Math.ceil(csrItems.length / ITEMS_PER_PAGE);
-  const visibleItems = csrItems.slice(
-    page * ITEMS_PER_PAGE,
-    (page + 1) * ITEMS_PER_PAGE,
-  );
 
-  const changePage = useCallback(
-    (newPage, dir) => {
-      if (animating || newPage === page) return;
-      setDirection(dir);
-      setAnimating(true);
-      setPhase("out");
-      setTimeout(() => {
-        setPage(newPage);
-        setPhase("in");
-        setTimeout(() => {
-          setPhase("idle");
-          setAnimating(false);
-        }, TRANSITION_MS);
-      }, TRANSITION_MS);
-    },
-    [animating, page],
-  );
+  const dragStartX = useRef(null);
+  const dragDelta = useRef(0);
+  const isDragging = useRef(false);
 
-  const gridStyle = {
-    transition: `opacity ${TRANSITION_MS}ms ease, transform ${TRANSITION_MS}ms ease`,
-    opacity: phase === "out" ? 0 : 1,
-    transform:
-      phase === "out"
-        ? `translateX(${direction > 0 ? "-40px" : "40px"})`
-        : phase === "in"
-          ? `translateX(${direction > 0 ? "40px" : "-40px"})`
-          : "translateX(0)",
+  const goNext = () => setPage((p) => Math.min(totalPages - 1, p + 1));
+  const goPrev = () => setPage((p) => Math.max(0, p - 1));
+
+  /* ── pointer drag (desktop + touch) ── */
+  const onPointerDown = (e) => {
+    dragStartX.current = e.clientX;
+    dragDelta.current = 0;
+    isDragging.current = false;
+  };
+
+  const onPointerMove = (e) => {
+    if (dragStartX.current === null) return;
+    dragDelta.current = e.clientX - dragStartX.current;
+    if (Math.abs(dragDelta.current) > 8) isDragging.current = true;
+  };
+
+  const onPointerUp = () => {
+    if (dragStartX.current === null) return;
+    if (isDragging.current) {
+      if (dragDelta.current < -DRAG_THRESHOLD) goNext();
+      else if (dragDelta.current > DRAG_THRESHOLD) goPrev();
+    }
+    dragStartX.current = null;
+    dragDelta.current = 0;
+    isDragging.current = false;
+  };
+
+  /* prevent link click when user was dragging */
+  const onLinkClick = (e) => {
+    if (isDragging.current) e.preventDefault();
   };
 
   return (
     <>
+      {/* Swiper track */}
       <div
-        className="grid gap-5 md:grid-cols-2 xl:grid-cols-3"
-        style={gridStyle}
+        className="overflow-hidden"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerLeave={onPointerUp}
+        style={{ cursor: "grab", userSelect: "none" }}
       >
-        {visibleItems.map((item) => (
-          <Link
-            key={item.title}
-            href="/demo2/csr-events/1"
-            className="group relative block min-h-[320px] overflow-hidden lg:min-h-[356px]"
-          >
-            <Image
-              src={item.image}
-              alt={item.title}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-            <div className="absolute inset-x-5 bottom-5 bg-white p-5 text-[#141414]">
-              <p className="text-[13px] font-semibold uppercase leading-4 tracking-[0.02em] text-[#001625]">
-                {item.date}
-              </p>
-              <p className="mt-4 font-petrona text-[20px] font-extralight leading-[28px]">
-                {item.title}
-              </p>
-            </div>
-          </Link>
-        ))}
+        <div
+          className="flex"
+          style={{
+            transform: `translateX(-${page * 100}%)`,
+            transition: "transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+          }}
+        >
+          {Array.from({ length: totalPages }, (_, pageIdx) => {
+            const pageItems = csrItems.slice(
+              pageIdx * ITEMS_PER_PAGE,
+              (pageIdx + 1) * ITEMS_PER_PAGE,
+            );
+            return (
+              <div
+                key={pageIdx}
+                className="grid w-full shrink-0 gap-5 md:grid-cols-2 xl:grid-cols-3"
+              >
+                {pageItems.map((item) => (
+                  <Link
+                    key={item.title}
+                    href="/demo2/csr-events/1"
+                    onClick={onLinkClick}
+                    className="group relative block min-h-[320px] overflow-hidden lg:min-h-[356px]"
+                    draggable={false}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      draggable={false}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+                    <div className="absolute inset-x-5 bottom-5 bg-white p-5 text-[#141414]">
+                      <p className="text-[13px] font-semibold uppercase leading-4 tracking-[0.02em] text-[#001625]">
+                        {item.date}
+                      </p>
+                      <p className="mt-4 font-petrona text-[20px] font-extralight leading-[28px]">
+                        {item.title}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            );
+          })}
+        </div>
       </div>
 
+      {/* Dot indicators + buttons */}
       <div className="flex items-center justify-end gap-4">
+        {/* Dots */}
+        {/* <div className="mr-auto flex items-center gap-2">
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setPage(i)}
+              aria-label={`Page ${i + 1}`}
+              className="transition-all duration-300"
+            >
+              <span
+                className={`block rounded-full transition-all duration-300 ${
+                  i === page
+                    ? "h-2 w-6 bg-white"
+                    : "h-2 w-2 bg-white/40 hover:bg-white/60"
+                }`}
+              />
+            </button>
+          ))}
+        </div> */}
+
         <button
           type="button"
-          onClick={() => changePage(Math.max(0, page - 1), -1)}
-          disabled={page === 0 || animating}
+          onClick={goPrev}
+          disabled={page === 0}
           className="flex h-[46px] w-[46px] items-center justify-center border border-white/50 text-white/70 transition hover:border-white hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
           aria-label="Previous CSR event"
         >
@@ -145,8 +195,8 @@ export default function CsrEventsPaginated() {
         </button>
         <button
           type="button"
-          onClick={() => changePage(Math.min(totalPages - 1, page + 1), 1)}
-          disabled={page === totalPages - 1 || animating}
+          onClick={goNext}
+          disabled={page === totalPages - 1}
           className="flex h-[46px] w-[46px] items-center justify-center border border-white text-white transition hover:bg-white hover:text-[#001625] disabled:cursor-not-allowed disabled:opacity-40"
           aria-label="Next CSR event"
         >

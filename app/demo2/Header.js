@@ -92,7 +92,7 @@ export default function Demo2Header() {
                 type="button"
                 className="flex items-center px-4 py-[17px] text-[14px] font-medium leading-5 text-white transition hover:text-[var(--demo-gold)]"
               >
-                <span>Language</span>
+                <span>中文</span>
                 <ChevronDownIcon className="ml-1.5 h-[6px] w-[8px]" />
               </button>
             </div>
@@ -143,7 +143,7 @@ export default function Demo2Header() {
                 type="button"
                 className="flex items-center px-4 py-[17px] text-[14px] font-medium leading-5 text-white transition hover:text-[var(--demo-gold)]"
               >
-                <span>Language</span>
+                <span>中文</span>
                 <ChevronDownIcon className="ml-1.5 h-[6px] w-[8px]" />
               </button>
             </div>

@@ -64,11 +64,14 @@ const listEvents = [
 ];
 
 const years = [
-  { label: "All", count: 24 },
-  { label: "2026", count: 8 },
-  { label: "2025", count: 7 },
-  { label: "2024", count: 5 },
-  { label: "2023", count: 4 },
+  { label: "All", count: 59 },
+  { label: "2026", count: 24 },
+  { label: "2025", count: 16 },
+  { label: "2024", count: 19 },
+  { label: "2023", count: 59 },
+  { label: "2022", count: 24 },
+  { label: "2021", count: 16 },
+  { label: "2020", count: 19 },
 ];
 
 const BASE_LIST_EVENTS = listEvents;
@@ -81,8 +84,14 @@ const TOTAL_PAGES = Math.ceil(allListEvents.length / ITEMS_PER_PAGE);
 
 function ChevronDownIcon({ className = "" }) {
   return (
-    <svg viewBox="0 0 8 6" aria-hidden className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 1.25L4 4.75L7 1.25" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+    <svg viewBox="0 0 16 16" fill="none" className={className} aria-hidden>
+      <path
+        d="M3 6L8 11L13 6"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -219,33 +228,49 @@ export default function CsrEventsPage() {
             </div>
 
             {/* Right Filter Sidebar */}
-            <aside className="w-full border border-[rgba(35,31,32,0.08)] bg-white px-8 py-6 lg:w-[360px] lg:shrink-0">
-              <p className="text-[14px] uppercase leading-[1.57] tracking-[0.14em] text-[#a8996e]">
-                FILTER
+            <div className="w-full border border-[rgba(35,31,32,0.08)] bg-white px-8 py-6 lg:w-[360px] lg:shrink-0 lg:self-start">
+              <p className="text-[14px] uppercase leading-[1.57] tracking-[0.143em] text-[#a8996e]">
+                YEARS
               </p>
-              <div className="mt-4 flex flex-col gap-4">
-                {years.map((year) => (
-                  <button
-                    key={year.label}
-                    type="button"
-                    onClick={() => setActiveYear(year.label)}
-                    className={`flex items-center justify-between text-left transition ${
-                      activeYear === year.label ? "text-[#001625]" : "text-[#8e9590] hover:text-[#231f20]"
-                    }`}
-                  >
-                    <span className="text-[14px] leading-[1.29]">{year.label}</span>
-                    <span className="text-[14px] leading-[1.29]">{year.count}</span>
-                  </button>
+
+              <div className="mt-6 flex flex-col gap-4">
+                {years.map((year, idx) => (
+                  <div key={year.label}>
+                    {idx > 0 && (
+                      <div className="mb-4 h-px bg-[rgba(35,31,32,0.06)]" />
+                    )}
+                    <button
+                      type="button"
+                      className="flex w-full items-center justify-between"
+                      onClick={() => setActiveYear(year.label)}
+                    >
+                      <span
+                        className={`text-[14px] leading-[1.29] transition ${
+                          activeYear === year.label
+                            ? "font-medium text-[#231f20]"
+                            : "text-[#231f20] hover:opacity-70"
+                        }`}
+                      >
+                        {year.label}
+                      </span>
+                      <span className="text-[14px] leading-[1.29] text-[#a8996e]">
+                        {year.count}
+                      </span>
+                    </button>
+                  </div>
                 ))}
+
+                {/* View More */}
+                <div className="mt-2 h-px bg-[rgba(35,31,32,0.06)]" />
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-center gap-2 text-[14px] leading-[1.29] text-[#8e9590] transition hover:text-[#231f20]"
+                >
+                  <span>View More</span>
+                  <ChevronDownIcon className="h-4 w-4" />
+                </button>
               </div>
-              <button
-                type="button"
-                className="mt-6 flex items-center gap-2 text-[14px] leading-[1.29] text-[#8e9590] transition hover:text-[#231f20]"
-              >
-                <span>View More</span>
-                <ChevronDownIcon className="h-[6px] w-[8px]" />
-              </button>
-            </aside>
+            </div>
           </div>
         </div>
       </section>
