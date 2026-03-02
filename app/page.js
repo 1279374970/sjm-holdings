@@ -15,7 +15,7 @@ export default function Home() {
         <div className="mt-8 grid gap-3 sm:grid-cols-2">
           <Link
             href="/demo1"
-            className="inline-flex h-12 items-center justify-center rounded-full bg-[#001e1e] px-6 text-[12px] font-medium uppercase tracking-[0.18em] text-white transition hover:bg-[#033333]"
+            className="inline-flex h-12 items-center justify-center rounded-full border border-[#001e1e] px-6 text-[12px] font-medium uppercase tracking-[0.18em] text-[#001e1e] transition hover:bg-[#001e1e] hover:text-white"
           >
             Demo1
           </Link>
