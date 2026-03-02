@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const navItems = [
   { label: "About us" },
@@ -186,7 +187,7 @@ export default function Header({ logoSrc }) {
         onMouseLeave={() => setIsNavHovered(false)}
       >
         <div className="mx-auto flex h-full w-full max-w-[1680px] items-center justify-between px-5 sm:px-8 lg:px-[60px] xl:px-[120px]">
-          <div className="relative h-9 w-[157px]">
+          <Link href="/demo1" className="relative block h-9 w-[157px]">
             <Image
               src={logoSrc}
               alt="SJM Holdings"
@@ -210,7 +211,7 @@ export default function Header({ logoSrc }) {
                 transition: TRANSITION,
               }}
             />
-          </div>
+          </Link>
 
           {isSearchOpen ? (
             <>

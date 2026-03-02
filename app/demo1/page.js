@@ -415,7 +415,7 @@ export default function Demo1Page() {
 
         <div className="relative mx-auto flex w-full max-w-[1680px] flex-1 flex-col justify-center px-5 pb-24 sm:px-8 lg:px-[60px] xl:px-[120px]">
           <div className="flex max-w-[1280px] flex-col gap-[30px] pt-[60px] lg:pt-[95px] lg:px-[80px]">
-            <h1 className="font-petrona text-[42px] font-extralight leading-[1] tracking-[-1px] text-white sm:text-[54px] sm:tracking-[-1.5px] lg:text-[80px] lg:leading-[80px] lg:tracking-[-2.25px]">
+            <h1 className="anim-fade-up anim-delay-200 font-petrona text-[42px] font-extralight leading-[1] tracking-[-1px] text-white sm:text-[54px] sm:tracking-[-1.5px] lg:text-[80px] lg:leading-[80px] lg:tracking-[-2.25px]">
               <span className="block">Welcome to</span>
               <span className="block text-[#a8996e]">SJM Holdings</span>
               <span className="block pt-2 text-[34px] sm:text-[42px] lg:text-[60px] lg:leading-[60px] lg:tracking-[-1.5px]">
@@ -423,16 +423,16 @@ export default function Demo1Page() {
               </span>
             </h1>
 
-            <div className="h-px w-24 bg-[rgba(168,153,110,0.6)]" />
+            <div className="anim-fade-in anim-delay-400 h-px w-24 bg-[rgba(168,153,110,0.6)]" />
 
-            <p className="max-w-[672px] text-[15px] leading-[29.25px] text-white/80 sm:text-[18px]">
+            <p className="anim-fade-up anim-delay-400 max-w-[672px] text-[15px] leading-[29.25px] text-white/80 sm:text-[18px]">
               One of the six gaming concessionaires in Macau, operating iconic
               integrated resorts that define the world&apos;s premier
               entertainment destination. Listed on the Hong Kong Stock Exchange:
               <span className="font-medium text-[#a8996e]"> 00880.HK</span>.
             </p>
 
-            <div>
+            <div className="anim-fade-up anim-delay-500">
               <button
                 type="button"
                 className="inline-flex items-center gap-3 rounded-full border border-[#a8996e] px-[33px] py-[15px] text-[12px] font-medium leading-[16px] uppercase tracking-[2.4px] text-[#a8996e] transition hover:bg-[#a8996e] hover:text-[#072121]"
@@ -450,7 +450,8 @@ export default function Demo1Page() {
               {statsItems.map((item, idx) => (
                 <div
                   key={item.label}
-                  className={`flex flex-col items-center py-3 ${idx > 0 ? "border-l border-white/10" : ""}`}
+                  className={`anim-fade-up flex flex-col items-center py-3 ${idx > 0 ? "border-l border-white/10" : ""}`}
+                  style={{ animationDelay: `${0.5 + idx * 0.1}s` }}
                 >
                   <p className="font-petrona text-[20px] font-extralight text-[#a8996e] sm:text-[24px] sm:leading-[32px]">
                     {item.value}
@@ -590,7 +591,7 @@ export default function Demo1Page() {
                 {pressReleases.map((item) => (
                   <article
                     key={item.title}
-                    className="flex gap-4 border-b border-[rgba(35,31,32,0.1)] py-6 sm:gap-6"
+                    className="flex gap-4 border-b border-[rgba(35,31,32,0.1)] py-6 transition-colors duration-200 hover:bg-[rgba(0,0,0,0.02)] sm:gap-6"
                   >
                     <p className="w-[80px] shrink-0 text-right text-[12px] leading-[18px] text-[#8e9590]">
                       {item.date}
@@ -675,7 +676,7 @@ export default function Demo1Page() {
                 {investorAnnouncements.map((item) => (
                   <article
                     key={`${item.date}-${item.title.slice(0, 20)}`}
-                    className="flex gap-4 border-b border-white/[0.08] py-5 sm:gap-6"
+                    className="flex gap-4 border-b border-white/[0.08] py-5 transition-colors duration-200 hover:bg-white/[0.04] sm:gap-6"
                   >
                     <p className="w-[80px] shrink-0 text-right text-[12px] leading-[15px] text-[#8e9590]">
                       {item.date}
@@ -786,7 +787,7 @@ export default function Demo1Page() {
                   {communityArticles.slice(1).map((item) => (
                     <article
                       key={item.title}
-                      className="flex flex-col gap-3 border-b border-white/[0.08] pb-5"
+                      className="flex flex-col gap-3 border-b border-white/[0.08] pb-5 transition-colors duration-200 hover:bg-white/[0.04]"
                     >
                       <p className="text-[12px] leading-[15px] text-[#8e9590]">
                         {item.date}
@@ -870,7 +871,7 @@ export default function Demo1Page() {
                 return (
                 <article
                   key={card.title}
-                  className="flex flex-col gap-5 border border-[rgba(35,31,32,0.1)] bg-white p-[25px]"
+                  className="flex flex-col gap-5 border border-[rgba(35,31,32,0.1)] bg-white p-[25px] transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
                 >
                   <div className="flex h-10 w-10 items-center justify-center border border-[rgba(0,155,121,0.05)] bg-[rgba(0,155,121,0.05)] text-[#009b79]">
                     {EsgIcon && <EsgIcon className="h-4 w-4" />}

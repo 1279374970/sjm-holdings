@@ -1,15 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import PropertyShowcaseCarousel from "./PropertyShowcaseCarousel";
-
-const navItems = [
-  { label: "About Us", withChevron: true },
-  { label: "Properties", withChevron: true },
-  { label: "Media Releases", withChevron: false },
-  { label: "Investor Relations", withChevron: true },
-  { label: "Environment, Social and Governance", withChevron: true },
-  { label: "Careers", withChevron: false },
-];
+import Demo2Header from "./Header";
 
 const newsItems = [
   {
@@ -184,62 +176,17 @@ export default function Demo2Page() {
   return (
     <main className="min-h-screen bg-white font-sans text-[#001625] [--demo-green:#004433] [--demo-cream:#f7f6f0] [--demo-gold:#a8996e]">
       <section className="relative bg-[var(--demo-green)] lg:min-h-[778px]">
-        <div className="fixed left-0 right-0 top-0 z-50 bg-gradient-to-b from-black/55 to-transparent">
-          <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-4 py-4 md:px-8 lg:px-[60px]">
-            <div className="relative h-9 w-[157px] shrink-0">
-              <Image
-                src="/demo2/sjm-logo.png"
-                alt="SJM Holdings"
-                fill
-                priority
-                sizes="157px"
-                className="object-contain object-left"
-              />
-            </div>
-
-            <div className="hidden items-center lg:flex">
-              {navItems.map((item) => (
-                <button
-                  type="button"
-                  key={item.label}
-                  className="group flex items-center px-4 py-[17px] text-[14px] font-medium leading-5 text-white transition hover:text-[var(--demo-gold)]"
-                >
-                  <span>{item.label}</span>
-                  {item.withChevron ? (
-                    <ChevronDownIcon className="ml-1.5 h-[6px] w-[8px] opacity-90 transition group-hover:opacity-100" />
-                  ) : null}
-                </button>
-              ))}
-            </div>
-
-            <div className="flex items-center text-white">
-              <button
-                type="button"
-                className="hidden h-[27px] w-[39px] items-center justify-center text-white/90 transition hover:text-white lg:flex"
-                aria-label="Search"
-              >
-                <SearchIcon className="h-[15px] w-[15px]" />
-              </button>
-              <button
-                type="button"
-                className="flex items-center px-4 py-[17px] text-[14px] font-medium leading-5 text-white transition hover:text-[var(--demo-gold)]"
-              >
-                <span>Language</span>
-                <ChevronDownIcon className="ml-1.5 h-[6px] w-[8px]" />
-              </button>
-            </div>
-          </div>
-        </div>
+        <Demo2Header />
 
         <div className="flex w-full flex-col pb-8 pt-28 md:pb-10 md:pt-32 lg:pb-12 lg:pt-[206px]">
           <div className="mx-auto w-full max-w-[1440px] px-4 md:px-8 lg:px-[32px]">
             <div className="mb-8 grid gap-8 lg:mb-10 lg:grid-cols-[minmax(0,1fr)_445px] lg:px-[28px]">
-              <h1 className="font-petrona text-4xl font-extralight leading-[1.12] tracking-[-0.03em] text-white md:text-5xl lg:text-[60px] lg:leading-[72px]">
+              <h1 className="anim-fade-up anim-delay-200 font-petrona text-4xl font-extralight leading-[1.12] tracking-[-0.03em] text-white md:text-5xl lg:text-[60px] lg:leading-[72px]">
                 Welcome to
                 <br />
                 SJM Holdings Limited
               </h1>
-              <p className="max-w-[445px] self-end pb-2 text-sm leading-[22px] text-white/90 md:text-base">
+              <p className="anim-fade-up anim-delay-400 max-w-[445px] self-end pb-2 text-sm leading-[22px] text-white/90 md:text-base">
                 One of the six gaming concessionaires in Macau, operating iconic
                 integrated resorts that define the world&apos;s premier
                 entertainment destination.
@@ -247,7 +194,7 @@ export default function Demo2Page() {
             </div>
           </div>
 
-          <div className="relative z-10 -mb-6 px-[32px] md:-mb-10 lg:-mb-[84px]">
+          <div className="anim-scale-up anim-delay-300 relative z-10 -mb-6 px-[32px] md:-mb-10 lg:-mb-[84px]">
             <ScenicPanel
               className="h-[220px] w-full md:h-[320px] lg:h-[480px]"
               src="/demo2/hero-main.jpg"
@@ -262,7 +209,7 @@ export default function Demo2Page() {
         <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 px-4 py-12 md:px-8 lg:gap-10 lg:px-[60px] lg:pb-16 lg:pt-[149px]">
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-[120px]">
             <div>
-              <h2 className="font-petrona text-4xl font-extralight tracking-[-0.01em] text-[#001625] lg:text-[48px]">
+              <h2 className="anim-fade-up font-petrona text-4xl font-extralight tracking-[-0.01em] text-[#001625] lg:text-[48px]">
                 SJM Holdings Limited
               </h2>
               <p className="mt-8 max-w-[860px] text-[16px] leading-8 text-[#3f4644]">
@@ -277,7 +224,7 @@ export default function Demo2Page() {
               </p>
             </div>
 
-            <aside className="border border-black/10 bg-white px-[33px] py-[25px]">
+            <aside className="anim-fade-up anim-delay-200 border border-black/10 bg-white px-[33px] py-[25px]">
               <div className="flex items-center gap-2 text-[12px] uppercase leading-[18px] tracking-[0.21em] text-[#141414]/50">
                 <span>HKEX</span>
                 <span className="tracking-[0.08em] text-[var(--demo-gold)]">
@@ -317,7 +264,7 @@ export default function Demo2Page() {
 
       <section className="bg-[var(--demo-cream)]">
         <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-8 lg:px-[60px] lg:py-16">
-          <h2 className="font-petrona text-4xl font-extralight tracking-[-0.01em] text-[#001625] lg:text-[48px]">
+          <h2 className="anim-fade-up font-petrona text-4xl font-extralight tracking-[-0.01em] text-[#001625] lg:text-[48px]">
             Latest News
           </h2>
 
@@ -330,7 +277,7 @@ export default function Demo2Page() {
               {newsItems.map((item) => (
                 <article
                   key={item.title}
-                  className="border border-black/10 bg-white p-5"
+                  className="border border-black/10 bg-white p-5 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-sm"
                 >
                   <p className="text-[13px] font-semibold uppercase leading-4 tracking-[0.02em] text-[#001625]">
                     {item.date}
@@ -367,12 +314,12 @@ export default function Demo2Page() {
             >
               <ArrowRightIcon className="h-[10px] w-[6px]" />
             </button>
-            <button
-              type="button"
-              className="h-[46px] border border-[#001625] px-[17px] text-[14px] font-medium leading-5 text-[#001625] transition hover:bg-[#001625] hover:text-white"
+            <Link
+              href="/demo2/news"
+              className="inline-flex h-[46px] items-center border border-[#001625] px-[17px] text-[14px] font-medium leading-5 text-[#001625] transition hover:bg-[#001625] hover:text-white"
             >
               See All News
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -388,7 +335,7 @@ export default function Demo2Page() {
       >
         <div className="absolute inset-0 bg-[#004433]/88" />
         <div className="relative mx-auto flex w-full max-w-[1440px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-8 lg:px-[60px] lg:py-16">
-          <h2 className="font-petrona text-4xl font-extralight tracking-[-0.01em] text-white lg:text-[48px]">
+          <h2 className="anim-fade-up font-petrona text-4xl font-extralight tracking-[-0.01em] text-white lg:text-[48px]">
             CSR Events
           </h2>
 
@@ -433,12 +380,12 @@ export default function Demo2Page() {
             >
               <ArrowRightIcon className="h-[10px] w-[6px]" />
             </button>
-            <button
-              type="button"
-              className="h-[46px] border border-white px-[17px] text-[14px] font-medium leading-5 text-white transition hover:bg-white hover:text-[#001625]"
+            <Link
+              href="/demo2/csr-events"
+              className="inline-flex h-[46px] items-center border border-white px-[17px] text-[14px] font-medium leading-5 text-white transition hover:bg-white hover:text-[#001625]"
             >
               See All Events
-            </button>
+            </Link>
           </div>
         </div>
       </section>

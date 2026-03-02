@@ -38,3 +38,71 @@ body {
   color: var(--search-placeholder);
   transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ── Entrance Animations ── */
+@keyframes sjm-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sjm-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes sjm-scale-up {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes sjm-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.anim-fade-up   { animation: sjm-fade-up   0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-fade-in   { animation: sjm-fade-in   0.65s ease both; }
+.anim-scale-up  { animation: sjm-scale-up  1s    cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-slide-right { animation: sjm-slide-right 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+.anim-delay-100 { animation-delay: 0.1s; }
+.anim-delay-200 { animation-delay: 0.2s; }
+.anim-delay-300 { animation-delay: 0.3s; }
+.anim-delay-400 { animation-delay: 0.4s; }
+.anim-delay-500 { animation-delay: 0.5s; }
+.anim-delay-600 { animation-delay: 0.6s; }
+.anim-delay-700 { animation-delay: 0.7s; }
+
+/* ── Scroll-driven reveal (CSS animation-timeline: view) ── */
+/* Progressive enhancement — unsupported browsers simply skip it */
+@supports (animation-timeline: view()) {
+  .prop-reveal {
+    animation: sjm-fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 28%;
+  }
+
+  .prop-image-reveal {
+    animation: sjm-scale-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}

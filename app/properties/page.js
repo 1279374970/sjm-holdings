@@ -93,10 +93,10 @@ export default function PropertiesPage() {
       {/* Intro */}
       <section className="bg-[#f7f6f0]">
         <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-6 px-5 py-14 sm:px-8 lg:flex-row lg:items-stretch lg:gap-0 lg:px-[120px] lg:py-[80px]">
-          <h1 className="flex-1 font-petrona text-[48px] font-extralight leading-[1] text-[#231f20]">
+          <h1 className="anim-fade-up flex-1 font-petrona text-[48px] font-extralight leading-[1] text-[#231f20]">
             Properties
           </h1>
-          <p className="flex-1 text-[16px] leading-[26px] text-[#3f4644]">
+          <p className="anim-fade-up anim-delay-200 flex-1 text-[16px] leading-[26px] text-[#3f4644]">
             Established in prime locations throughout Macau, SJM offers iconic
             settings for exceptional accommodations, entertainment, shopping,
             gastronomy, MICE experiences, and more. From integrated resorts and
@@ -114,39 +114,39 @@ export default function PropertiesPage() {
             return (
               <div
                 key={prop.name}
-                className="relative flex min-h-[560px] flex-col lg:flex-row"
+                className="group prop-reveal relative flex min-h-[560px] flex-col lg:flex-row"
               >
                 {imageOnLeft ? (
                   <>
                     {/* Image left */}
-                    <div className="relative h-[300px] w-full lg:absolute lg:left-0 lg:top-0 lg:h-[560px] lg:w-[61%]">
+                    <div className="relative h-[300px] w-full overflow-hidden lg:absolute lg:left-0 lg:top-0 lg:h-[560px] lg:w-[61%]">
                       <Image
                         src={prop.image}
                         alt={prop.name}
                         fill
                         sizes="(max-width: 1024px) 100vw, 61vw"
-                        className="object-cover"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       />
                     </div>
                     {/* Text right */}
-                    <div className="flex flex-col justify-center gap-6 bg-[#f7f6f0] px-5 py-10 lg:ml-auto lg:w-[39%] lg:py-0 lg:pl-5 lg:pr-5">
+                    <div className="flex flex-col justify-center gap-6 bg-[#f7f6f0] px-5 py-10 lg:ml-auto lg:w-[39%] lg:py-0 lg:pl-[44px] lg:pr-5">
                       <PropertyContent prop={prop} />
                     </div>
                   </>
                 ) : (
                   <>
                     {/* Text left */}
-                    <div className="order-2 flex flex-col justify-center gap-6 bg-[#f7f6f0] px-5 py-10 lg:order-1 lg:w-[39%] lg:py-0 lg:pl-5 lg:pr-5">
+                    <div className="order-2 flex flex-col justify-center gap-6 bg-[#f7f6f0] px-5 py-10 lg:order-1 lg:w-[39%] lg:py-0 lg:pl-[44px] lg:pr-5">
                       <PropertyContent prop={prop} />
                     </div>
                     {/* Image right */}
-                    <div className="relative order-1 h-[300px] w-full lg:absolute lg:right-0 lg:top-0 lg:order-2 lg:h-[560px] lg:w-[61%]">
+                    <div className="relative order-1 h-[300px] w-full overflow-hidden lg:absolute lg:right-0 lg:top-0 lg:order-2 lg:h-[560px] lg:w-[61%]">
                       <Image
                         src={prop.image}
                         alt={prop.name}
                         fill
                         sizes="(max-width: 1024px) 100vw, 61vw"
-                        className="object-cover"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       />
                     </div>
                   </>
