@@ -76,7 +76,7 @@ export default function FlipbookViewer() {
 
         const el = document.getElementById("announcementBook");
         if (el && el.dataset.initialized !== "true") {
-          window.jQuery(el).flipBook("/pdf/demo3.pdf", {
+          window.jQuery(el).flipBook("/pdf/2026-01-15-09-55-57.pdf", {
             webgl: false,
             soundEnable: false,
             autoEnableOutline: false,
@@ -97,20 +97,15 @@ export default function FlipbookViewer() {
 
   return (
     <main className="fixed inset-0 z-0 flex flex-col bg-[#1a1a1a]">
-      {/* Top bar */}
-      <div className="relative z-10 flex h-[56px] shrink-0 items-center justify-between border-b border-white/10 bg-[#001e1e] px-5 sm:px-8">
-        <p className="truncate pr-4 text-[13px] leading-[18px] text-white/70 sm:text-[14px]">
-          Announcement Document Viewer
-        </p>
-        <button
-          type="button"
-          onClick={() => router.back()}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 text-white/60 transition hover:border-white/40 hover:text-white"
-          aria-label="Close and go back"
-        >
-          <CloseIcon className="h-4 w-4" />
-        </button>
-      </div>
+      {/* Close button */}
+      <button
+        type="button"
+        onClick={() => router.back()}
+        className="absolute right-5 top-4 z-20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black/40 text-white/80 transition hover:bg-black/60 hover:text-white sm:right-8"
+        aria-label="Close and go back"
+      >
+        <CloseIcon className="h-4 w-4" />
+      </button>
 
       {/* Flipbook fullscreen area */}
       <div className="relative flex-1">

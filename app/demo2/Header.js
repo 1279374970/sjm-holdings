@@ -53,7 +53,7 @@ export default function Demo2Header() {
   const searchInputRef = useRef(null);
 
   return (
-    <div className="fixed left-0 right-0 top-0 z-50 bg-gradient-to-b from-black/55 to-transparent">
+    <div className="fixed left-0 right-0 top-0 z-50 bg-[rgba(0,68,51,0.8)] backdrop-blur-[20px]">
       <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-4 py-4 md:px-8 lg:px-[60px]">
         <Link href="/demo2" className="relative block h-9 w-[157px] shrink-0">
           <Image
