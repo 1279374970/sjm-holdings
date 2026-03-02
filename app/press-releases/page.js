@@ -10,7 +10,7 @@ const IMAGES = {
   hero: "/demo1/announcements-hero.png",
 };
 
-const announcements = [
+const pressReleases = [
   {
     date: "24 Feb 2026",
     title: "SJM Rings in the Chinese New Year with Auspicious Lion Dance Parades",
@@ -70,20 +70,20 @@ const announcements = [
 ];
 
 const categories = [
-  { name: "All", count: 925 },
-  { name: "Awards", count: 107 },
-  { name: "Events", count: 93 },
+  { name: "All", count: 382 },
+  { name: "Events", count: 107 },
+  { name: "Awards", count: 93 },
   { name: "Entertainment", count: 91 },
   { name: "Corporate", count: 82 },
 ];
 
 const years = [
-  { name: "All", count: 925 },
+  { name: "All", count: 382 },
   { name: "2026", count: 7 },
   { name: "2025", count: 93 },
   { name: "2024", count: 91 },
   { name: "2023", count: 82 },
-  { name: "2025", count: 93, id: "2025-dup" },
+  { name: "2025-dup", count: 93, id: "2025-dup" },
 ];
 
 function ChevronRightIcon({ className = "" }) {
@@ -194,16 +194,16 @@ function FilterCard({ title, items, goldBars = false }) {
   );
 }
 
-const allAnnouncements = Array.from({ length: 5 }, (_, p) =>
-  announcements.map((item, i) => ({ ...item, _key: `${p}-${i}` }))
+const allPressReleases = Array.from({ length: 5 }, (_, p) =>
+  pressReleases.map((item, i) => ({ ...item, _key: `${p}-${i}` }))
 ).flat();
 
 const ITEMS_PER_PAGE = 10;
 
-export default function AnnouncementsPage() {
+export default function PressReleasesPage() {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(allAnnouncements.length / ITEMS_PER_PAGE);
-  const visibleItems = allAnnouncements.slice(
+  const totalPages = Math.ceil(allPressReleases.length / ITEMS_PER_PAGE);
+  const visibleItems = allPressReleases.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE,
   );
@@ -222,20 +222,15 @@ export default function AnnouncementsPage() {
           sizes="100vw"
           className="object-cover"
         />
-        {/* <div className="absolute inset-0 bg-[rgba(0,0,0,0.5)] backdrop-blur-[10px]" />
-        <div
-          className="absolute inset-0"
-          style={{ boxShadow: "inset 0 0 10px rgba(0,0,0,0.3)" }}
-        /> */}
       </section>
 
-      {/* Announcements Section */}
+      {/* Press Releases Section */}
       <section className="bg-[#f7f6f0]">
         <div className="mx-auto w-full max-w-[1680px] px-5 py-14 sm:px-8 lg:px-[120px] lg:py-[80px]">
           <div className="flex flex-col gap-10">
             {/* Heading */}
             <h1 className="font-petrona text-[48px] font-extralight leading-[1] text-[#231f20]">
-              Announcements, Notices & Returns
+              Latest <span className="text-[#009b79]">Press Releases.</span>
             </h1>
 
             {/* Content: Results + Sidebar */}

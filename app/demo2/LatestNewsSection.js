@@ -45,6 +45,18 @@ const newsItems = [
     title:
       "SJM Celebrates 55th Anniversary with a Series of Community and Charity Initiatives",
   },
+  {
+    id: 7,
+    date: "08 Jan 2026",
+    title:
+      "SJM Holdings Announces Strategic Expansion Plan for Grand Lisboa Palace Phase II",
+  },
+  {
+    id: 8,
+    date: "02 Jan 2026",
+    title:
+      "SJM's Kam Pek Casino Recognised for Excellence in Customer Service and Responsible Gaming",
+  },
 ];
 
 function ChevronDownIcon({ className = "" }) {

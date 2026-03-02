@@ -86,6 +86,11 @@ const newsItems = [
   },
 ];
 
+const BASE_NEWS = newsItems;
+const allNewsItems = Array.from({ length: 5 }, (_, p) =>
+  BASE_NEWS.map((item) => ({ ...item, id: item.id + p * BASE_NEWS.length }))
+).flat();
+
 const yearFilters = [
   { name: "All", count: 59 },
   { name: "2026", count: 24 },
@@ -152,7 +157,12 @@ function ChevronDownIcon({ className = "" }) {
 export default function Demo2NewsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [activeYear, setActiveYear] = useState("All");
-  const totalPages = 5;
+  const ITEMS_PER_PAGE = 10;
+  const totalPages = Math.ceil(allNewsItems.length / ITEMS_PER_PAGE);
+  const visibleNews = allNewsItems.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE,
+  );
 
   return (
     <main className="min-h-screen bg-[#f7f6f0] font-sans text-[#231f20]">
@@ -192,10 +202,10 @@ export default function Demo2NewsPage() {
             {/* Results column */}
             <div className="flex flex-1 flex-col gap-10">
               <div className="flex flex-col">
-                {newsItems.map((item, idx) => (
+                {visibleNews.map((item, idx) => (
                   <div key={item.id}>
                     <Link
-                      href={`/announcements/${item.id}`}
+                      href={`/announcements/1`}
                       className="block transition hover:opacity-75"
                     >
                       <div className="flex flex-col gap-2">
@@ -210,7 +220,7 @@ export default function Demo2NewsPage() {
                         </p>
                       </div>
                     </Link>
-                    {idx < newsItems.length - 1 && (
+                    {idx < visibleNews.length - 1 && (
                       <div className="my-5 h-px bg-[rgba(35,31,32,0.06)]" />
                     )}
                   </div>

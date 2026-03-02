@@ -633,7 +633,7 @@ export default function Demo1Page() {
               </div>
 
               <div className="pt-4">
-                <DividerLink color="accent" href="/announcements">All Press Releases</DividerLink>
+                <DividerLink color="accent" href="/press-releases">All Press Releases</DividerLink>
               </div>
             </div>
 

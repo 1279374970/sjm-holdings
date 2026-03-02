@@ -71,7 +71,13 @@ const years = [
   { label: "2023", count: 4 },
 ];
 
-const TOTAL_PAGES = 3;
+const BASE_LIST_EVENTS = listEvents;
+const allListEvents = Array.from({ length: 3 }, (_, p) =>
+  BASE_LIST_EVENTS.map((item) => ({ ...item, id: String(Number(item.id) + p * BASE_LIST_EVENTS.length) }))
+).flat();
+
+const ITEMS_PER_PAGE = 5;
+const TOTAL_PAGES = Math.ceil(allListEvents.length / ITEMS_PER_PAGE);
 
 function ChevronDownIcon({ className = "" }) {
   return (
@@ -100,6 +106,10 @@ function ArrowRightIcon({ className = "" }) {
 export default function CsrEventsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [activeYear, setActiveYear] = useState("All");
+  const visibleEvents = allListEvents.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE,
+  );
 
   return (
     <div className="min-h-screen bg-[#f7f6f0] font-sans">
@@ -153,9 +163,9 @@ export default function CsrEventsPage() {
 
               {/* Text Items List */}
               <div className="mt-5 flex flex-col gap-5">
-                {listEvents.map((event, idx) => (
+                {visibleEvents.map((event, idx) => (
                   <div key={event.id}>
-                    <Link href={`/demo2/csr-events/${event.id}`} className="block py-1 transition hover:opacity-80">
+                    <Link href={`/demo2/csr-events/1`} className="block py-1 transition hover:opacity-80">
                       <p className="text-[13px] font-semibold uppercase leading-[1.23] tracking-[0.02em] text-[#001625]">
                         {event.date}
                       </p>
@@ -166,7 +176,7 @@ export default function CsrEventsPage() {
                         {event.description}
                       </p>
                     </Link>
-                    {idx < listEvents.length - 1 && (
+                    {idx < visibleEvents.length - 1 && (
                       <div className="mt-5 h-px bg-[rgba(35,31,32,0.06)]" />
                     )}
                   </div>
