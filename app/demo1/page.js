@@ -485,13 +485,13 @@ export default function Demo1Page() {
         <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-10 px-5 py-14 sm:px-8 lg:flex-row lg:items-center lg:gap-16 lg:px-[60px] lg:py-[80px] xl:px-[120px]">
           <div className="flex flex-1 flex-col gap-8">
             <div className="flex flex-col">
-              <span className="font-petrona text-[36px] font-extralight capitalize leading-[75px] text-[#231f20] sm:text-[48px] lg:text-[60px]">
+              <span className="font-petrona text-[36px] font-extralight capitalize leading-[53.5px] text-[#231f20] sm:text-[48px] sm:leading-[71.3px] lg:text-[60px] lg:leading-[75px]">
                 Macau&apos;s pioneering
               </span>
-              <span className="font-petrona text-[36px] font-extralight capitalize leading-[75px] text-[#009b79] sm:text-[48px] lg:text-[60px]">
+              <span className="font-petrona text-[36px] font-extralight capitalize leading-[53.5px] text-[#009b79] sm:text-[48px] sm:leading-[71.3px] lg:text-[60px] lg:leading-[75px]">
                 integrated resort
               </span>
-              <span className="font-petrona text-[36px] font-extralight capitalize leading-[75px] text-[#231f20] sm:text-[48px] lg:text-[60px]">
+              <span className="font-petrona text-[36px] font-extralight capitalize leading-[53.5px] text-[#231f20] sm:text-[48px] sm:leading-[71.3px] lg:text-[60px] lg:leading-[75px]">
                 concessionaire.
               </span>
             </div>
@@ -802,7 +802,7 @@ export default function Demo1Page() {
                 </Link>
 
                 {/* Text-only articles */}
-                <div className="flex flex-1 flex-col justify-between">
+                <div className="flex flex-1 flex-col gap-5 justify-between lg:gap-0">
                   {communityArticles.slice(1).map((item) => (
                     <Link
                       key={item.id}
