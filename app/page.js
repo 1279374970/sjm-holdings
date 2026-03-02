@@ -25,12 +25,12 @@ export default function Home() {
           >
             Demo2
           </Link>
-          <Link
+          {/* <Link
             href="/demo3"
             className="inline-flex h-12 items-center justify-center rounded-full border border-[#8b7d57] bg-[#a8996e] px-6 text-[12px] font-medium uppercase tracking-[0.18em] text-white transition hover:bg-[#8f8158]"
           >
             Demo3
-          </Link>
+          </Link> */}
         </div>
       </section>
     </main>
