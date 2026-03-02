@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Header from "./Header";
 
 const IMAGES = {
@@ -20,6 +21,7 @@ const statsItems = [
 
 const pressReleases = [
   {
+    id: 1,
     date: "24 Feb 2026",
     title:
       "SJM Rings in the Chinese New Year with Auspicious Lion Dance Parades",
@@ -27,6 +29,7 @@ const pressReleases = [
     tagColor: "green",
   },
   {
+    id: 2,
     date: "22 Feb 2026",
     title:
       "SJM Leads Asian Wine Scene with Seven Awards at Star Wine List 2026",
@@ -34,6 +37,7 @@ const pressReleases = [
     tagColor: "green",
   },
   {
+    id: 3,
     date: "11 Feb 2026",
     title:
       "SJM\u2019s Grand Lisboa Palace Resort Macau Becomes the Only Integrated Resort in the World with All Hotels Forbes Travel Guide Five-Star Rated",
@@ -41,6 +45,7 @@ const pressReleases = [
     tagColor: "green",
   },
   {
+    id: 4,
     date: "04 Feb 2026",
     title:
       "SJM Presents Macau Debut of World-Renowned Magician and Mentalist Drummond Money-Coutts",
@@ -57,28 +62,33 @@ const pressCategories = [
 ];
 
 const investorAnnouncements = [
-  { date: "23 Feb 2026", title: "Date of Board Meeting" },
+  { id: 1, date: "23 Feb 2026", title: "Date of Board Meeting" },
   {
+    id: 2,
     date: "20 Feb 2026",
     title:
       "Notice of Listing on The Stock Exchange of Hong Kong Limited \u2013 SJM International Limited \u2013 USD540,000,000 6.500% Senior Notes Due 2031",
   },
   {
+    id: 3,
     date: "04 Feb 2026",
     title:
       "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/01/2026",
   },
   {
+    id: 4,
     date: "19 Jan 2026",
     title:
       "Settlement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026",
   },
   {
+    id: 5,
     date: "16 Jan 2026",
     title:
       "Publication of Offering Memorandum \u2013 SJM International Limited \u2013 USD540,000,000 6.500% Senior Notes Due 2031",
   },
   {
+    id: 6,
     date: "15 Jan 2026",
     title:
       "Notice of Listing on The Stock Exchange of Hong Kong Limited \u2013 SJM International Limited \u2013 USD540,000,000 6.500% Senior Notes Due 2031",
@@ -94,22 +104,26 @@ const investorLinks = [
 
 const communityArticles = [
   {
+    id: 1,
     date: "24 Feb",
     title:
       "SJM Joins Hands with the Community to Celebrate the Year of the Horse",
     featured: true,
   },
   {
+    id: 2,
     date: "24 Feb",
     title:
       "SJM Volunteer Team 10th Anniversary Celebration Dinner | A Decade of Unity and Giving Back",
   },
   {
+    id: 3,
     date: "24 Feb",
     title:
       "SJM Supports the USJ SDG Week 2026 to Explore the Future of Sustainable Development",
   },
   {
+    id: 4,
     date: "24 Feb",
     title:
       '\u201CSJM Talent Development Programme\u201D Graduation Ceremony Highlights Local Talent Development Achievements',
@@ -589,8 +603,9 @@ export default function Demo1Page() {
             <div className="flex-1">
               <div className="flex flex-col">
                 {pressReleases.map((item) => (
-                  <article
-                    key={item.title}
+                  <Link
+                    key={item.id}
+                    href={`/announcements/${item.id}`}
                     className="flex gap-4 border-b border-[rgba(35,31,32,0.1)] py-6 transition-colors duration-200 hover:bg-[rgba(0,0,0,0.02)] sm:gap-6"
                   >
                     <p className="w-[80px] shrink-0 text-right text-[12px] leading-[18px] text-[#8e9590]">
@@ -613,12 +628,12 @@ export default function Demo1Page() {
                     <div className="flex shrink-0 items-center">
                       <ChevronRightIcon className="h-4 w-4 text-[#8e9590]" />
                     </div>
-                  </article>
+                  </Link>
                 ))}
               </div>
 
               <div className="pt-4">
-                <DividerLink color="accent">All Press Releases</DividerLink>
+                <DividerLink color="accent" href="/announcements">All Press Releases</DividerLink>
               </div>
             </div>
 
@@ -674,8 +689,9 @@ export default function Demo1Page() {
             <div className="flex-1">
               <div className="flex flex-col">
                 {investorAnnouncements.map((item) => (
-                  <article
-                    key={`${item.date}-${item.title.slice(0, 20)}`}
+                  <Link
+                    key={item.id}
+                    href={`/announcements/${item.id}`}
                     className="flex gap-4 border-b border-white/[0.08] py-5 transition-colors duration-200 hover:bg-white/[0.04] sm:gap-6"
                   >
                     <p className="w-[80px] shrink-0 text-right text-[12px] leading-[15px] text-[#8e9590]">
@@ -687,7 +703,7 @@ export default function Demo1Page() {
                     <div className="flex shrink-0 items-start pt-0.5">
                       <ChevronRightIcon className="h-4 w-4 text-[rgba(255,255,255,0.2)]" />
                     </div>
-                  </article>
+                  </Link>
                 ))}
               </div>
 
@@ -764,14 +780,17 @@ export default function Demo1Page() {
             <div className="flex-1">
               <div className="flex flex-col gap-6 lg:flex-row lg:gap-16">
                 {/* Featured article with image */}
-                <div className="w-full border-b border-white/[0.08] pb-5 lg:w-[540px] lg:shrink-0">
-                  <div className="relative mb-3 h-[200px] w-full sm:h-[260px] lg:h-[317px]">
+                <Link
+                  href={`/csr-events/${communityArticles[0].id}`}
+                  className="group w-full border-b border-white/[0.08] pb-5 transition-colors duration-200 hover:bg-white/[0.04] lg:w-[540px] lg:shrink-0"
+                >
+                  <div className="relative mb-3 h-[200px] w-full overflow-hidden sm:h-[260px] lg:h-[317px]">
                     <Image
                       src={IMAGES.communityFeature}
                       alt={communityArticles[0].title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 540px"
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
                   <p className="text-[12px] leading-[15px] text-[#8e9590]">
@@ -780,13 +799,14 @@ export default function Demo1Page() {
                   <p className="mt-3 text-[14px] leading-[22.75px] text-white/80">
                     {communityArticles[0].title}
                   </p>
-                </div>
+                </Link>
 
                 {/* Text-only articles */}
                 <div className="flex flex-1 flex-col justify-between">
                   {communityArticles.slice(1).map((item) => (
-                    <article
-                      key={item.title}
+                    <Link
+                      key={item.id}
+                      href={`/csr-events/${item.id}`}
                       className="flex flex-col gap-3 border-b border-white/[0.08] pb-5 transition-colors duration-200 hover:bg-white/[0.04]"
                     >
                       <p className="text-[12px] leading-[15px] text-[#8e9590]">
@@ -795,7 +815,7 @@ export default function Demo1Page() {
                       <p className="text-[14px] leading-[22.75px] text-white/80">
                         {item.title}
                       </p>
-                    </article>
+                    </Link>
                   ))}
                 </div>
                 {/* Stats grid */}

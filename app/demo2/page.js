@@ -1,52 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import PropertyShowcaseCarousel from "./PropertyShowcaseCarousel";
 import Demo2Header from "./Header";
-
-const newsItems = [
-  {
-    date: "24 Feb 2026",
-    title: "SJM Rings in the Chinese New Year with Auspicious Lion Dance Parades",
-  },
-  {
-    date: "22 Feb 2026",
-    title: "SJM Leads Asian Wine Scene with Seven Awards at Star Wine List 2026",
-  },
-  {
-    date: "11 Feb 2026",
-    title:
-      "SJM's Grand Lisboa Palace Resort Macau becomes the only integrated resort in the world with all hotels Forbes Five-Star rated",
-  },
-  {
-    date: "04 Feb 2026",
-    title:
-      "SJM presents Macau debut of world-renowned magician and mentalist Drummond Money-Coutts",
-  },
-];
-
-const featuredNews = {
-  date: "25 Feb 2026",
-  title: "SJM Rings in the Chinese New Year with Auspicious Lion Dance Parades",
-  href: "/news/featured",
-};
-
-const csrItems = [
-  {
-    date: "10 Dec 2025",
-    title: "SJM joins hands with the community to celebrate the Year of the Horse",
-    image: "/demo2/csr-1.jpg",
-  },
-  {
-    date: "10 Dec 2025",
-    title: "SJM Volunteer Team 10th Anniversary Celebration Dinner",
-    image: "/demo2/csr-2.jpg",
-  },
-  {
-    date: "10 Dec 2025",
-    title: "SJM Talent Development Programme Graduation Ceremony",
-    image: "/demo2/csr-3.jpg",
-  },
-];
+import LatestNewsSection from "./LatestNewsSection";
+import CsrEventsPaginated from "./CsrEventsPaginated";
 
 const brandLogos = [
   { src: "/demo2/logo-glp.png", alt: "Grand Lisboa Palace" },
@@ -150,28 +106,6 @@ function ScenicPanel({
   );
 }
 
-function NewsPreview() {
-  return (
-    <Link href={featuredNews.href} className="group relative block h-full overflow-hidden">
-      <Image
-        src="/demo2/news-main.jpg"
-        alt="Latest news highlight"
-        fill
-        sizes="(max-width: 1024px) 100vw, 60vw"
-        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-      />
-      <div className="absolute bottom-5 left-5 right-5 bg-[#004433] p-5 text-white md:right-auto md:w-[476px]">
-        <p className="text-[13px] font-semibold uppercase tracking-[0.02em] leading-4">
-          {featuredNews.date}
-        </p>
-        <p className="mt-4 font-petrona text-[20px] font-extralight leading-[28px]">
-          {featuredNews.title}
-        </p>
-      </div>
-    </Link>
-  );
-}
-
 export default function Demo2Page() {
   return (
     <main className="min-h-screen bg-white font-sans text-[#001625] [--demo-green:#004433] [--demo-cream:#f7f6f0] [--demo-gold:#a8996e]">
@@ -263,64 +197,8 @@ export default function Demo2Page() {
       <PropertyShowcaseCarousel />
 
       <section className="bg-[var(--demo-cream)]">
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-8 lg:px-[60px] lg:py-16">
-          <h2 className="anim-fade-up font-petrona text-4xl font-extralight tracking-[-0.01em] text-[#001625] lg:text-[48px]">
-            Latest News
-          </h2>
-
-          <div className="grid gap-5 lg:grid-cols-[1fr_1fr] lg:gap-8">
-            <article className="min-h-[420px] lg:min-h-[560px]">
-              <NewsPreview />
-            </article>
-
-            <div className="flex flex-col gap-4">
-              {newsItems.map((item) => (
-                <article
-                  key={item.title}
-                  className="border border-black/10 bg-white p-5 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-sm"
-                >
-                  <p className="text-[13px] font-semibold uppercase leading-4 tracking-[0.02em] text-[#001625]">
-                    {item.date}
-                  </p>
-                  <div className="mt-4 flex items-end gap-6">
-                    <p className="flex-1 font-petrona text-[20px] font-extralight leading-[28px] text-[#141414]">
-                      {item.title}
-                    </p>
-                    <button
-                      type="button"
-                      className="flex h-12 w-12 shrink-0 items-center justify-center bg-[var(--demo-green)] text-white transition hover:bg-[#005840]"
-                      aria-label="Open news item"
-                    >
-                      <ArrowRightIcon className="h-[10px] w-[6px]" />
-                    </button>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex items-center justify-end gap-4">
-            <button
-              type="button"
-              className="flex h-[46px] w-[46px] items-center justify-center border border-[#cccac4] text-[#7b7770] transition hover:border-[#9f9a91] hover:text-[#4f4c46]"
-              aria-label="Previous news"
-            >
-              <ArrowRightIcon className="h-[10px] w-[6px] rotate-180" />
-            </button>
-            <button
-              type="button"
-              className="flex h-[46px] w-[46px] items-center justify-center border border-[#001625] text-[#001625] transition hover:bg-[#001625] hover:text-white"
-              aria-label="Next news"
-            >
-              <ArrowRightIcon className="h-[10px] w-[6px]" />
-            </button>
-            <Link
-              href="/demo2/news"
-              className="inline-flex h-[46px] items-center border border-[#001625] px-[17px] text-[14px] font-medium leading-5 text-[#001625] transition hover:bg-[#001625] hover:text-white"
-            >
-              See All News
-            </Link>
-          </div>
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-8 lg:px-[100px] lg:py-16">
+          <LatestNewsSection />
         </div>
       </section>
 
@@ -339,54 +217,7 @@ export default function Demo2Page() {
             CSR Events
           </h2>
 
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {csrItems.map((item) => (
-              <article
-                key={item.title}
-                className="group relative min-h-[320px] overflow-hidden lg:min-h-[356px]"
-              >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-                <div className="absolute inset-x-5 bottom-5 bg-white p-5 text-[#141414]">
-                  <p className="text-[13px] font-semibold uppercase leading-4 tracking-[0.02em] text-[#001625]">
-                    {item.date}
-                  </p>
-                  <p className="mt-4 font-petrona text-[20px] font-extralight leading-[28px]">
-                    {item.title}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="flex items-center justify-end gap-4">
-            <button
-              type="button"
-              className="flex h-[46px] w-[46px] items-center justify-center border border-white/50 text-white/70 transition hover:border-white hover:text-white"
-              aria-label="Previous CSR event"
-            >
-              <ArrowRightIcon className="h-[10px] w-[6px] rotate-180" />
-            </button>
-            <button
-              type="button"
-              className="flex h-[46px] w-[46px] items-center justify-center border border-white text-white transition hover:bg-white hover:text-[#001625]"
-              aria-label="Next CSR event"
-            >
-              <ArrowRightIcon className="h-[10px] w-[6px]" />
-            </button>
-            <Link
-              href="/demo2/csr-events"
-              className="inline-flex h-[46px] items-center border border-white px-[17px] text-[14px] font-medium leading-5 text-white transition hover:bg-white hover:text-[#001625]"
-            >
-              See All Events
-            </Link>
-          </div>
+          <CsrEventsPaginated />
         </div>
       </section>
 
