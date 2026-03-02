@@ -233,7 +233,7 @@ export default function Demo2SearchPage() {
             </div>
 
             {/* Filter sidebar */}
-            <div className="w-full border border-[rgba(35,31,32,0.08)] bg-white px-8 py-6 lg:w-[360px] lg:shrink-0 lg:self-start">
+            <div className="w-full border border-[rgba(35,31,32,0.08)] px-8 py-6 lg:w-[360px] lg:shrink-0 lg:self-start">
               <p className="text-[14px] uppercase leading-[1.57] tracking-[0.143em] text-[#a8996e]">
                 FILTER
               </p>
