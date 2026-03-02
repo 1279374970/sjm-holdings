@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const DEARFLIP_CSS_SRC = "/vendor/dearflip/css/dflip.min.css";
 const THEMIFY_ICONS_CSS_SRC = "/vendor/dearflip/css/themify-icons.min.css";
@@ -48,6 +48,7 @@ function CloseIcon({ className = "" }) {
 }
 
 export default function FlipbookViewer() {
+  const router = useRouter();
   const [status, setStatus] = useState("loading");
 
   useEffect(() => {
@@ -101,13 +102,14 @@ export default function FlipbookViewer() {
         <p className="truncate pr-4 text-[13px] leading-[18px] text-white/70 sm:text-[14px]">
           Announcement Document Viewer
         </p>
-        <Link
-          href="/announcements"
+        <button
+          type="button"
+          onClick={() => router.back()}
           className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 text-white/60 transition hover:border-white/40 hover:text-white"
           aria-label="Close and go back"
         >
           <CloseIcon className="h-4 w-4" />
-        </Link>
+        </button>
       </div>
 
       {/* Flipbook fullscreen area */}
@@ -127,12 +129,13 @@ export default function FlipbookViewer() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="flex flex-col items-center gap-3 text-center">
               <p className="text-[14px] text-red-400">Failed to load document viewer.</p>
-              <Link
-                href="/announcements"
+              <button
+                type="button"
+                onClick={() => router.back()}
                 className="text-[13px] text-[#a8996e] underline underline-offset-2 transition hover:text-white"
               >
                 Back to announcements
-              </Link>
+              </button>
             </div>
           </div>
         )}

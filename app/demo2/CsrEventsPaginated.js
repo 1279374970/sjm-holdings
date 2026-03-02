@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -58,18 +58,55 @@ function ArrowRightIcon({ className = "" }) {
 }
 
 const ITEMS_PER_PAGE = 3;
+const TRANSITION_MS = 240;
 
 export default function CsrEventsPaginated() {
   const [page, setPage] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const [phase, setPhase] = useState("idle"); // "idle" | "out" | "in"
+  const [direction, setDirection] = useState(1); // 1 = forward, -1 = back
+
   const totalPages = Math.ceil(csrItems.length / ITEMS_PER_PAGE);
   const visibleItems = csrItems.slice(
     page * ITEMS_PER_PAGE,
     (page + 1) * ITEMS_PER_PAGE,
   );
 
+  const changePage = useCallback(
+    (newPage, dir) => {
+      if (animating || newPage === page) return;
+      setDirection(dir);
+      setAnimating(true);
+      setPhase("out");
+      setTimeout(() => {
+        setPage(newPage);
+        setPhase("in");
+        setTimeout(() => {
+          setPhase("idle");
+          setAnimating(false);
+        }, TRANSITION_MS);
+      }, TRANSITION_MS);
+    },
+    [animating, page],
+  );
+
+  const gridStyle = {
+    transition: `opacity ${TRANSITION_MS}ms ease, transform ${TRANSITION_MS}ms ease`,
+    opacity: phase === "out" ? 0 : 1,
+    transform:
+      phase === "out"
+        ? `translateX(${direction > 0 ? "-40px" : "40px"})`
+        : phase === "in"
+          ? `translateX(${direction > 0 ? "40px" : "-40px"})`
+          : "translateX(0)",
+  };
+
   return (
     <>
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div
+        className="grid gap-5 md:grid-cols-2 xl:grid-cols-3"
+        style={gridStyle}
+      >
         {visibleItems.map((item) => (
           <Link
             key={item.title}
@@ -99,8 +136,8 @@ export default function CsrEventsPaginated() {
       <div className="flex items-center justify-end gap-4">
         <button
           type="button"
-          onClick={() => setPage((p) => Math.max(0, p - 1))}
-          disabled={page === 0}
+          onClick={() => changePage(Math.max(0, page - 1), -1)}
+          disabled={page === 0 || animating}
           className="flex h-[46px] w-[46px] items-center justify-center border border-white/50 text-white/70 transition hover:border-white hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
           aria-label="Previous CSR event"
         >
@@ -108,8 +145,8 @@ export default function CsrEventsPaginated() {
         </button>
         <button
           type="button"
-          onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-          disabled={page === totalPages - 1}
+          onClick={() => changePage(Math.min(totalPages - 1, page + 1), 1)}
+          disabled={page === totalPages - 1 || animating}
           className="flex h-[46px] w-[46px] items-center justify-center border border-white text-white transition hover:bg-white hover:text-[#001625] disabled:cursor-not-allowed disabled:opacity-40"
           aria-label="Next CSR event"
         >

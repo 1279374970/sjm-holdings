@@ -197,7 +197,7 @@ export default function Demo2Page() {
       <PropertyShowcaseCarousel />
 
       <section className="bg-[var(--demo-cream)]">
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-8 lg:px-[100px] lg:py-16">
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-8 lg:px-[60px] lg:py-16">
           <LatestNewsSection />
         </div>
       </section>
