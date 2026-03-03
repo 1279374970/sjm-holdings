@@ -6,36 +6,39 @@ import Link from "next/link";
 
 const csrItems = [
   {
-    date: "10 Dec 2025",
-    title: "SJM Joins Hands with the Community to Celebrate the Year of the Horse",
+    date: "24 Feb 2026",
+    title:
+      "SJM Joins Hands with the Community to Celebrate the Year of the Horse",
     image: "/demo2/csr-1.jpg",
   },
   {
-    date: "10 Dec 2025",
+    date: "24 Feb 2026",
     title:
       "SJM Volunteer Team 10th Anniversary Celebration Dinner | A Decade of Unity and Giving Back",
     image: "/demo2/csr-2.jpg",
   },
   {
-    date: "10 Dec 2025",
+    date: "24 Feb 2026",
+    title:
+      "SJM Supports the USJ SDG Week 2026 to Explore the Future of Sustainable Development",
+    image: "/demo2/csr-3.jpg",
+  },
+  {
+    date: "24 Feb 2026",
     title:
       '\u201cSJM Talent Development Programme\u201d Graduation Ceremony Highlights Local Talent Development Achievements',
-    image: "/demo2/csr-3.jpg",
+    image: "/demo2/csr-4.jpg",
   },
   {
-    date: "18 Nov 2025",
-    title: "SJM Partners with Local NGOs for Community Outreach Programme",
-    image: "/demo2/csr-1.jpg",
+    date: "24 Feb 2026",
+    title: "SJM Sends New Year Spring Blessings to the Community",
+    image: "/demo2/csr-5.jpg",
   },
   {
-    date: "05 Nov 2025",
-    title: "Grand Lisboa Palace Resort Hosts Annual Charity Gala for Education Fund",
-    image: "/demo2/csr-2.jpg",
-  },
-  {
-    date: "22 Oct 2025",
-    title: "SJM Environmental Sustainability Initiative: Clean Macau Campaign 2025",
-    image: "/demo2/csr-3.jpg",
+    date: "24 Feb 2026",
+    title:
+      'Parent-Child Co-learning: \u201cThe Lisboa, Stories of Macau\u201d Exhibition & Workshop',
+    image: "/demo2/csr-6.jpg",
   },
 ];
 

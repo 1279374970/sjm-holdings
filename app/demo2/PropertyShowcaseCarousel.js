@@ -8,19 +8,49 @@ const DRAG_THRESHOLD = 64;
 
 const propertySlides = [
   {
-    src: "/demo2/property-main.jpg",
+    src: "/demo1/prop-grand-lisboa-palace.png",
     alt: "Grand Lisboa Palace Macau",
     label: "Grand Lisboa Palace Macau",
   },
   {
-    src: "/demo2/property-main.jpg",
-    alt: "Grand Lisboa Palace Macau",
-    label: "Grand Lisboa Palace Macau",
+    src: "/demo1/prop-karl-lagerfeld.png",
+    alt: "The Karl Lagerfeld",
+    label: "The Karl Lagerfeld",
   },
   {
-    src: "/demo2/property-main.jpg",
-    alt: "Grand Lisboa Palace Macau",
-    label: "Grand Lisboa Palace Macau",
+    src: "/demo1/prop-palazzo-versace.png",
+    alt: "Palazzo Versace Macau",
+    label: "Palazzo Versace Macau",
+  },
+  {
+    src: "/demo1/prop-grand-lisboa.png",
+    alt: "Grand Lisboa",
+    label: "Grand Lisboa",
+  },
+  {
+    src: "/demo1/prop-hotel-lisboa.png",
+    alt: "Hotel Lisboa",
+    label: "Hotel Lisboa",
+  },
+  {
+    src: "/demo1/prop-oceanus.png",
+    alt: "Oceanus",
+    label: "Oceanus",
+  },
+  {
+    src: "/demo1/prop-larc.png",
+    alt: "L\u2019Arc Macau",
+    label: "L\u2019Arc Macau",
+  },
+  {
+    src: "/demo1/prop-ponte16.png",
+    alt: "Ponte 16",
+    label: "Ponte 16",
+  },
+  {
+    src: "/demo1/prop-kam-pek.png",
+    alt: "Kam Pek Market",
+    label: "Kam Pek Market",
   },
 ];
 
