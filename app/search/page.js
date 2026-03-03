@@ -90,7 +90,7 @@ export default function SearchPage() {
                   {searchResults.map((item, idx) => (
                     <div key={`${item.title.slice(0, 40)}-${idx}`}>
                       <a
-                        href="#"
+                        href="/announcements/2"
                         className="group flex flex-col gap-0.5 rounded-sm transition-colors hover:bg-[rgba(0,0,0,0.02)]"
                       >
                         <p className="flex flex-wrap items-center gap-2 text-[13px] leading-[22.8px] text-[#8e9590] sm:text-[14px]">
