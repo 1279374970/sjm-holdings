@@ -128,7 +128,7 @@ export default function Demo2Page() {
             </div>
           </div>
 
-          <div className="anim-scale-up anim-delay-300 relative z-10 -mb-6 mx-auto w-full max-w-[1600px] px-4 md:-mb-10 md:px-8 lg:-mb-[84px] lg:px-[32px]">
+          <div className="anim-scale-up anim-delay-300 relative z-10 -mb-[50px] mx-auto w-full max-w-[1600px] px-4 md:-mb-[70px] md:px-8 lg:-mb-[84px] lg:px-[32px]">
             <ScenicPanel
               className="h-[220px] w-full md:h-[320px] lg:h-[480px]"
               src="/demo2/hero-main.jpg"
@@ -140,7 +140,7 @@ export default function Demo2Page() {
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto flex w-full max-w-[1600px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-[40px] lg:px-[60px] lg:pb-[64px] lg:pt-[149px] xl:px-[100px]">
+        <div className="mx-auto flex w-full max-w-[1600px] flex-col gap-8 px-4 pb-12 pt-[80px] md:px-8 md:pt-[100px] lg:gap-[40px] lg:px-[60px] lg:pb-[64px] lg:pt-[149px] xl:px-[100px]">
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-[60px] xl:gap-[100px]">
             <div className="flex flex-col gap-[32px]">
               <h2 className="anim-fade-up font-petrona text-4xl font-extralight tracking-[-0.00875em] text-[#001625] lg:text-[48px] lg:leading-[1.128em]">
