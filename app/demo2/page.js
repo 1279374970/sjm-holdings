@@ -83,7 +83,7 @@ function ScenicPanel({
         src={src}
         alt={alt}
         fill
-        sizes="(max-width: 1024px) 100vw, 1320px"
+        sizes="(max-width: 1024px) 100vw, 1536px"
         className="object-cover"
         priority={priority}
       />
@@ -112,15 +112,15 @@ export default function Demo2Page() {
       <section className="relative bg-[var(--demo-green)] lg:min-h-[778px]">
         <Demo2Header />
 
-        <div className="flex w-full flex-col pb-8 pt-28 md:pb-10 md:pt-32 lg:pb-12 lg:pt-[206px]">
-          <div className="mx-auto w-full max-w-[1440px] px-4 md:px-8 lg:px-[32px]">
-            <div className="mb-8 grid gap-8 lg:mb-10 lg:grid-cols-[minmax(0,1fr)_445px] lg:px-[28px]">
-              <h1 className="anim-fade-up anim-delay-200 font-petrona text-4xl font-extralight leading-[1.12] tracking-[-0.03em] text-white md:text-5xl lg:text-[60px] lg:leading-[72px]">
+        <div className="flex w-full flex-col pb-8 pt-28 md:pb-10 md:pt-32 lg:pb-12 lg:pt-[205px]">
+          <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8 lg:px-[60px] xl:px-[100px]">
+            <div className="mb-8 flex flex-col gap-8 lg:mb-10 lg:flex-row lg:items-end lg:justify-between lg:gap-[60px] xl:gap-[231px]">
+              <h1 className="anim-fade-up anim-delay-200 font-petrona text-4xl font-extralight leading-[1.2] tracking-[-0.0375em] text-white md:text-5xl lg:text-[60px] lg:leading-[1.2em]">
                 Welcome to
                 <br />
                 SJM Holdings Limited
               </h1>
-              <p className="anim-fade-up anim-delay-400 max-w-[445px] self-end pb-2 text-sm leading-[22px] text-white/90 md:text-base">
+              <p className="anim-fade-up anim-delay-400 max-w-[445px] shrink-0 pb-2 text-sm leading-[1.5em] text-white/90 md:text-base">
                 One of the six gaming concessionaires in Macau, operating iconic
                 integrated resorts that define the world&apos;s premier
                 entertainment destination.
@@ -128,7 +128,7 @@ export default function Demo2Page() {
             </div>
           </div>
 
-          <div className="anim-scale-up anim-delay-300 relative z-10 -mb-6 px-[32px] md:-mb-10 lg:-mb-[84px]">
+          <div className="anim-scale-up anim-delay-300 relative z-10 -mb-6 mx-auto w-full max-w-[1600px] px-4 md:-mb-10 md:px-8 lg:-mb-[84px] lg:px-[32px]">
             <ScenicPanel
               className="h-[220px] w-full md:h-[320px] lg:h-[480px]"
               src="/demo2/hero-main.jpg"
@@ -140,13 +140,13 @@ export default function Demo2Page() {
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 px-4 py-12 md:px-8 lg:gap-10 lg:px-[60px] lg:pb-16 lg:pt-[149px]">
-          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-[120px]">
-            <div>
-              <h2 className="anim-fade-up font-petrona text-4xl font-extralight tracking-[-0.01em] text-[#001625] lg:text-[48px]">
+        <div className="mx-auto flex w-full max-w-[1600px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-[40px] lg:px-[60px] lg:pb-[64px] lg:pt-[149px] xl:px-[100px]">
+          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-[60px] xl:gap-[100px]">
+            <div className="flex flex-col gap-[32px]">
+              <h2 className="anim-fade-up font-petrona text-4xl font-extralight tracking-[-0.00875em] text-[#001625] lg:text-[48px] lg:leading-[1.128em]">
                 SJM Holdings Limited
               </h2>
-              <p className="mt-8 max-w-[860px] text-[16px] leading-8 text-[#3f4644]">
+              <p className="max-w-[860px] text-[16px] leading-[1.5em] text-[#3f4644]">
                 SJM Holdings Limited (HKEx: 880) and its subsidiaries is a
                 leading owner, operator and developer of casinos and integrated
                 entertainment resorts in Macau. Our principal subsidiary SJM
@@ -158,35 +158,41 @@ export default function Demo2Page() {
               </p>
             </div>
 
-            <aside className="anim-fade-up anim-delay-200 border border-black/10 bg-white px-[33px] py-[25px]">
-              <div className="flex items-center gap-2 text-[12px] uppercase leading-[18px] tracking-[0.21em] text-[#141414]/50">
+            <aside className="anim-fade-up anim-delay-200 flex flex-col gap-[12px] border border-[rgba(35,31,32,0.08)] bg-white px-[32px] py-[24px]">
+              <div className="flex items-center gap-2 text-[12px] uppercase leading-[1.5em] tracking-[0.21em] text-[#141414]/50">
                 <span>HKEX</span>
                 <span className="tracking-[0.08em] text-[var(--demo-gold)]">
                   00880.HK
                 </span>
               </div>
-              <p className="mt-1 font-petrona text-[40px] font-light leading-[1.2] text-[#141414]">
-                HK$2.85
-              </p>
-              <div className="mt-2 flex items-center gap-2">
-                <span className="text-[18px] font-medium leading-7 text-[#009b79]">
-                  +0.05
-                </span>
-                <span className="text-[14px] leading-5 text-[#009b79]">
-                  (+1.79%)
-                </span>
+              <div className="flex flex-col gap-[8px]">
+                <p className="font-petrona text-[40px] font-light leading-[1.128em] text-[#141414]">
+                  HK$2.85
+                </p>
+                <div className="flex items-center gap-2">
+                  <span className="text-[18px] font-medium leading-[1.556em] text-[#009b79]">
+                    +0.05
+                  </span>
+                  <span className="text-[14px] leading-[1.429em] text-[#009b79]">
+                    (+1.79%)
+                  </span>
+                </div>
               </div>
-              <p className="mt-2 text-[12px] leading-[18px] text-[#141414]/30">
-                25 Feb 2026 · 16:08 HKT · 15-minute delayed
-              </p>
+              <div className="flex items-center gap-[8px] text-[12px] leading-[1.5em] text-[#141414]/30">
+                <span>25 Feb 2026</span>
+                <span>·</span>
+                <span>16:08 HKT</span>
+                <span>·</span>
+                <span>15-minute delayed</span>
+              </div>
             </aside>
           </div>
 
-          <div className="flex flex-col gap-3 bg-[var(--demo-cream)] px-6 py-3 md:h-[52px] md:flex-row md:items-center md:gap-6 md:py-0">
-            <p className="text-[13px] font-semibold uppercase leading-4 tracking-[0.02em] text-[var(--demo-gold)]">
+          <div className="flex flex-col gap-3 bg-[var(--demo-cream)] px-[24px] py-[12px] md:flex-row md:items-center md:gap-[24px]">
+            <p className="text-[14px] font-semibold uppercase leading-[1.5em] text-[var(--demo-gold)]">
               Important Warnings / Clarifications
             </p>
-            <p className="text-[14px] leading-5 text-[#3f4644]">
+            <p className="text-[14px] leading-[1.5em] text-[#3f4644]">
               Fraudulent Competitions, Prizes and Lucky Draws NOT authorised by
               SJM
             </p>
@@ -197,7 +203,7 @@ export default function Demo2Page() {
       <PropertyShowcaseCarousel />
 
       <section className="bg-[var(--demo-cream)]">
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-8 lg:px-[60px] lg:py-16">
+        <div className="mx-auto flex w-full max-w-[1600px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-[32px] lg:px-[60px] lg:py-[64px] xl:px-[100px]">
           <LatestNewsSection />
         </div>
       </section>
@@ -212,8 +218,8 @@ export default function Demo2Page() {
         }}
       >
         <div className="absolute inset-0 bg-[#004433]/88" />
-        <div className="relative mx-auto flex w-full max-w-[1440px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-8 lg:px-[60px] lg:py-16">
-          <h2 className="anim-fade-up font-petrona text-4xl font-extralight tracking-[-0.01em] text-white lg:text-[48px]">
+        <div className="relative mx-auto flex w-full max-w-[1600px] flex-col gap-8 px-4 py-12 md:px-8 lg:gap-[32px] lg:px-[60px] lg:py-[64px] xl:px-[100px]">
+          <h2 className="anim-fade-up font-petrona text-4xl font-extralight tracking-[-0.00875em] text-white lg:text-[48px] lg:leading-[1.128em]">
             CSR Events
           </h2>
 
@@ -222,8 +228,8 @@ export default function Demo2Page() {
       </section>
 
       <footer className="bg-[#001e1e] text-white">
-        <div className="mx-auto w-full max-w-[1440px] px-4 py-10 md:px-8 lg:px-[80px]">
-          <div className="flex flex-col items-center gap-6 lg:flex-row lg:justify-center lg:gap-8">
+        <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center gap-[32px] px-4 py-10 md:px-8 lg:px-[60px] lg:py-[40px] xl:px-[100px]">
+          <div className="flex w-full flex-col items-center gap-6 lg:flex-row lg:justify-center lg:gap-[48px]">
             <div className="relative h-[52px] w-[227px] shrink-0">
               <Image
                 src="/demo2/sjm-logo.png"
@@ -233,18 +239,18 @@ export default function Demo2Page() {
                 className="object-contain"
               />
             </div>
-            <div className="hidden h-10 w-px bg-white/10 lg:block" />
-            <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-8">
+            <div className="hidden h-[52px] w-px bg-white/10 lg:block" />
+            <div className="flex flex-1 flex-wrap items-center justify-center gap-6 lg:gap-[48px]">
               {brandLogos.map((brand) => (
                 <div
                   key={brand.alt}
-                  className="relative h-[80px] w-[80px] md:h-[100px] md:w-[100px]"
+                  className="relative h-[80px] w-[80px] flex-1 md:h-[113px]"
                 >
                   <Image
                     src={brand.src}
                     alt={brand.alt}
                     fill
-                    sizes="100px"
+                    sizes="(max-width: 768px) 80px, 120px"
                     className="object-contain"
                   />
                 </div>
@@ -252,11 +258,11 @@ export default function Demo2Page() {
             </div>
           </div>
 
-          <div className="mt-8 border-t border-white/10 pt-8 text-center">
-            <p className="text-[12px] leading-6 tracking-[0.02em] text-[#a78a5d]">
+          <div className="w-full border-t border-white/10 pt-[32px] text-center">
+            <p className="text-[12px] leading-[2em] tracking-[0.02em] text-[#a78a5d]">
               Privacy Statement & Disclaimer
             </p>
-            <p className="text-[12px] leading-6 tracking-[0.02em] text-white">
+            <p className="text-[12px] leading-[2em] tracking-[0.02em] text-white">
               Copyright 2026 © SJM Holdings Limited. All rights reserved.
             </p>
           </div>

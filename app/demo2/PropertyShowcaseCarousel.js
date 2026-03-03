@@ -180,7 +180,7 @@ export default function PropertyShowcaseCarousel() {
   return (
     <section className="bg-white pb-12 md:pb-14 lg:pb-16">
       <div
-        className={`relative h-[56.25vw] min-h-[580px] max-h-[660px] w-full select-none overflow-hidden touch-pan-y ${
+        className={`relative h-[56.25vw] min-h-[420px] w-full select-none overflow-hidden touch-pan-y md:min-h-[480px] lg:h-[640px] lg:min-h-[640px] ${
           isDragging ? "cursor-grabbing" : "cursor-grab"
         }`}
         onPointerDown={handlePointerDown}
@@ -222,19 +222,19 @@ export default function PropertyShowcaseCarousel() {
                 }}
               >
                 <div className="w-full border-t border-white/70">
-                  <div className="mx-auto flex w-full max-w-[1440px] items-end justify-between gap-4 px-4 py-5 md:px-8 md:py-7 lg:px-[60px] lg:py-10">
-                    <div className="flex w-full max-w-[795px] flex-col gap-5">
-                      <p className="font-petrona text-[24px] font-extralight leading-[1.15] tracking-[-0.02em] md:text-[32px] md:leading-[38px]">
+                  <div className="mx-auto flex w-full max-w-[1600px] items-end justify-between gap-4 px-4 py-5 md:px-8 md:py-7 lg:px-[60px] lg:py-[40px] xl:px-[100px]">
+                    <div className="flex w-full max-w-[790px] flex-col gap-[20px]">
+                      <p className="font-petrona text-[24px] font-extralight leading-[1.1875em] md:text-[32px] md:leading-[1.1875em]">
                         {slide.label}
                       </p>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-[8px]">
                         {propertySlides.map((dotSlide, dotIndex) => (
                           <span
                             key={`${dotSlide.src}-${dotIndex}`}
                             className={`h-[5px] rounded-[2px] transition-all duration-300 ${
                               activeDotIndex === dotIndex + 1
                                 ? "w-[50px] bg-white"
-                                : "w-4 bg-white/50"
+                                : "w-[16px] bg-white/50"
                             }`}
                           />
                         ))}
@@ -242,7 +242,7 @@ export default function PropertyShowcaseCarousel() {
                     </div>
                     <button
                       type="button"
-                      className="hidden shrink-0 border border-white px-[17px] py-[13px] text-[14px] font-medium leading-5 text-white transition hover:bg-white hover:text-[#001625] md:flex"
+                      className="hidden shrink-0 border border-white px-[16px] py-[12px] text-[14.6px] font-medium leading-[1.37em] text-white transition hover:bg-white hover:text-[#001625] md:flex"
                     >
                       Learn More
                     </button>

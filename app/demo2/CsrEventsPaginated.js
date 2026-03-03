@@ -7,17 +7,19 @@ import Link from "next/link";
 const csrItems = [
   {
     date: "10 Dec 2025",
-    title: "SJM joins hands with the community to celebrate the Year of the Horse",
+    title: "SJM Joins Hands with the Community to Celebrate the Year of the Horse",
     image: "/demo2/csr-1.jpg",
   },
   {
     date: "10 Dec 2025",
-    title: "SJM Volunteer Team 10th Anniversary Celebration Dinner",
+    title:
+      "SJM Volunteer Team 10th Anniversary Celebration Dinner | A Decade of Unity and Giving Back",
     image: "/demo2/csr-2.jpg",
   },
   {
     date: "10 Dec 2025",
-    title: "SJM Talent Development Programme Graduation Ceremony",
+    title:
+      '\u201cSJM Talent Development Programme\u201d Graduation Ceremony Highlights Local Talent Development Achievements',
     image: "/demo2/csr-3.jpg",
   },
   {
@@ -126,14 +128,14 @@ export default function CsrEventsPaginated() {
             return (
               <div
                 key={pageIdx}
-                className="grid w-full shrink-0 gap-5 md:grid-cols-2 xl:grid-cols-3"
+                className="grid w-full shrink-0 gap-[20px] md:grid-cols-2 xl:grid-cols-3"
               >
                 {pageItems.map((item) => (
                   <Link
                     key={item.title}
                     href="/demo2/csr-events/1"
                     onClick={onLinkClick}
-                    className="group relative block min-h-[320px] overflow-hidden lg:min-h-[356px]"
+                    className="group relative flex min-h-[320px] flex-col overflow-hidden p-[20px] lg:min-h-[356px]"
                     draggable={false}
                   >
                     <Image
@@ -145,11 +147,11 @@ export default function CsrEventsPaginated() {
                       draggable={false}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-                    <div className="absolute inset-x-5 bottom-5 bg-white p-5 text-[#141414]">
-                      <p className="text-[13px] font-semibold uppercase leading-4 tracking-[0.02em] text-[#001625]">
+                    <div className="relative mt-auto flex flex-col gap-[16px] bg-white p-[20px] text-[#141414]">
+                      <p className="text-[13px] font-semibold uppercase leading-[1.23em] tracking-[0.02em] text-[#001625]">
                         {item.date}
                       </p>
-                      <p className="mt-4 font-petrona text-[20px] font-extralight leading-[28px]">
+                      <p className="line-clamp-2 font-petrona text-[20px] font-extralight leading-[1.4em]">
                         {item.title}
                       </p>
                     </div>
@@ -161,8 +163,7 @@ export default function CsrEventsPaginated() {
         </div>
       </div>
 
-      {/* Dot indicators + buttons */}
-      <div className="flex items-center justify-end gap-4">
+      <div className="flex items-center justify-end gap-[16px]">
         {/* Dots */}
         {/* <div className="mr-auto flex items-center gap-2">
           {Array.from({ length: totalPages }, (_, i) => (
@@ -204,7 +205,7 @@ export default function CsrEventsPaginated() {
         </button>
         <Link
           href="/demo2/csr-events"
-          className="inline-flex h-[46px] items-center border border-white px-[17px] text-[14px] font-medium leading-5 text-white transition hover:bg-white hover:text-[#001625]"
+          className="inline-flex h-[46px] items-center border border-white px-[16px] text-[14.3px] font-medium leading-[1.4em] text-white transition hover:bg-white hover:text-[#001625]"
         >
           See All Events
         </Link>
