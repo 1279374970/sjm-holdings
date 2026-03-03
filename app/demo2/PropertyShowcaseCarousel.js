@@ -11,46 +11,55 @@ const propertySlides = [
     src: "/demo1/prop-grand-lisboa-palace.png",
     alt: "Grand Lisboa Palace Macau",
     label: "Grand Lisboa Palace Macau",
+    href: "https://www.grandlisboapalace.com/en",
   },
   {
     src: "/demo1/prop-karl-lagerfeld.png",
     alt: "The Karl Lagerfeld",
     label: "The Karl Lagerfeld",
+    href: "https://www.thekarllagerfeld.mo/en",
   },
   {
     src: "/demo1/prop-palazzo-versace.png",
     alt: "Palazzo Versace Macau",
     label: "Palazzo Versace Macau",
+    href: "https://www.palazzoversace.mo/en",
   },
   {
     src: "/demo1/prop-grand-lisboa.png",
     alt: "Grand Lisboa",
     label: "Grand Lisboa",
+    href: "https://www.grandlisboa.com/en",
   },
   {
     src: "/demo1/prop-hotel-lisboa.png",
     alt: "Hotel Lisboa",
     label: "Hotel Lisboa",
+    href: "https://hotelisboa.com/?lang=en",
   },
   {
     src: "/demo1/prop-oceanus.png",
     alt: "Oceanus",
     label: "Oceanus",
+    href: "https://www.oceanus-macau.com/#!en",
   },
   {
     src: "/demo1/prop-larc.png",
     alt: "L\u2019Arc Macau",
     label: "L\u2019Arc Macau",
+    href: "https://www.larcmacau.com/en/",
   },
   {
     src: "/demo1/prop-ponte16.png",
     alt: "Ponte 16",
     label: "Ponte 16",
+    href: "https://ponte16.com.mo/en",
   },
   {
     src: "/demo1/prop-kam-pek.png",
     alt: "Kam Pek Market",
     label: "Kam Pek Market",
+    href: "https://www.kampekmarket.com/en",
   },
 ];
 
@@ -270,12 +279,15 @@ export default function PropertyShowcaseCarousel() {
                         ))}
                       </div>
                     </div>
-                    <button
-                      type="button"
+                    <a
+                      href={slide.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onPointerDown={(e) => e.stopPropagation()}
                       className="hidden shrink-0 border border-white px-[16px] py-[12px] text-[14.6px] font-medium leading-[1.37em] text-white transition hover:bg-white hover:text-[#001625] md:flex"
                     >
                       Learn More
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

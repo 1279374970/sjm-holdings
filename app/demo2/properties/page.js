@@ -18,6 +18,7 @@ const properties = [
     description:
       "A world of elegant opulence awaits at two MICHELIN Key Grand Lisboa Palace Macau. Here, Chinoiserie and contemporary Western design exist in exquisite harmony, accented by maritime-inspired elements that pay homage to Macau\u2019s cultural heritage.",
     image: "/demo1/prop-grand-lisboa-palace.png",
+    href: "https://www.grandlisboapalace.com/en",
   },
   {
     location: "MACAU COTAI",
@@ -25,6 +26,7 @@ const properties = [
     description:
       "The world\u2019s only hotel tower entirely designed by the late fashion icon, THE KARL LAGERFELD invites you to experience the transcendent world of Karl through an immersive, two MICHELIN Key journey into the fashion genius\u2019s ethos, vision and distinctive aesthetics.",
     image: "/demo1/prop-karl-lagerfeld.png",
+    href: "https://www.thekarllagerfeld.mo/en",
   },
   {
     location: "MACAU COTAI",
@@ -32,6 +34,7 @@ const properties = [
     description:
       "The first of its kind in Asia, two MICHELIN Key Palazzo Versace Macau offers an immersive fashion-inspired lifestyle experience where every element is meticulously infused with the stylistic and creative direction of Donatella Versace.",
     image: "/demo1/prop-palazzo-versace.png",
+    href: "https://www.palazzoversace.mo/en",
   },
   {
     location: "MACAU PENINSULA",
@@ -39,6 +42,7 @@ const properties = [
     description:
       "An iconic hotel located in the heart of Macau that holds quadruple Forbes Travel Guide Five-Star awards for its opulent accommodations, acclaimed dining and exceptional entertainment experiences.",
     image: "/demo1/prop-grand-lisboa.png",
+    href: "https://www.grandlisboa.com/en",
   },
   {
     location: "MACAU PENINSULA",
@@ -46,6 +50,7 @@ const properties = [
     description:
       "An original hospitality experience that transformed the history of Macau, becoming its first five-star hotel property.",
     image: "/demo1/prop-hotel-lisboa.png",
+    href: "https://hotelisboa.com/?lang=en",
   },
   {
     location: "MACAU PENINSULA",
@@ -53,6 +58,7 @@ const properties = [
     description:
       "A conveniently situated, strikingly designed contemporary complex with diversified entertainment and leisure facilities.",
     image: "/demo1/prop-oceanus.png",
+    href: "https://www.oceanus-macau.com/#!en",
   },
   {
     location: "MACAU PENINSULA",
@@ -60,6 +66,7 @@ const properties = [
     description:
       "A majestic and iconic landmark in the city, L\u2019Arc Macau offers a luxurious and elegant stay featuring exceptional amenities, diverse entertainment and delectable dining experiences, perfect for everything from solo travellers to family vacations.",
     image: "/demo1/prop-larc.png",
+    href: "https://www.larcmacau.com/en/",
   },
   {
     location: "MACAU PENINSULA",
@@ -67,6 +74,7 @@ const properties = [
     description:
       "A resort experience in Macau\u2019s Inner Harbour with spectacular views of the UNESCO World Heritage site.",
     image: "/demo1/prop-ponte16.png",
+    href: "https://ponte16.com.mo/en",
   },
   {
     location: "MACAU PENINSULA",
@@ -74,6 +82,7 @@ const properties = [
     description:
       "Kam Pek Market is a dynamic new dining hotspot and social hub where locals and tourists can explore and celebrate Macau\u2019s many cultural and culinary charms, set inside a heritage building that has been artfully rejuvenated under SJM\u2019s revitalisation project.",
     image: "/demo1/prop-kam-pek.png",
+    href: "https://www.kampekmarket.com/en",
   },
 ];
 
@@ -152,12 +161,14 @@ export default function Demo2PropertiesPage() {
                       {prop.description}
                     </p>
                     <div>
-                      <button
-                        type="button"
+                      <a
+                        href={prop.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex h-[44px] items-center border border-[#141414] px-[21px] text-[12px] font-medium uppercase leading-4 tracking-[0.2em] text-[#141414] transition hover:bg-[#141414] hover:text-white"
                       >
                         Learn More
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
