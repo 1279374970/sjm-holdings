@@ -76,16 +76,16 @@ function PrinterIcon() {
 }
 
 const articleParagraphs = [
-  { type: "body", text: '12 February 2026 – As the Lunar New Year ushers in the Year of the Horse, SJM Resorts, S.A. ("SJM") continues its community commitment with a vibrant series of celebrations. Living up to its philosophy of giving back to society, SJM collaborated with local welfare organisations throughout January and February to bring festive joy to the community. The initiatives encompassed family-oriented activities, cultural celebrations and community outreach programs, bringing communities together while preserving cherished traditions and strengthening family bonds.' },
+  { type: "body", text: '12 February 2026 \u2013 As the Lunar New Year ushers in the Year of the Horse, SJM Resorts, S.A. (\u201CSJM\u201D) continues its community commitment with a vibrant series of celebrations. Living up to its philosophy of giving back to society, SJM collaborated with local welfare organisations throughout January and February to bring festive joy to the community. The initiatives encompassed family-oriented activities, cultural celebrations and community outreach programs, bringing communities together while preserving cherished traditions and strengthening family bonds.' },
   { type: "heading", text: "Sharing Warmth with the Community" },
-  { type: "body", text: "From January through February, the SJM Volunteer Team rolled out its annual Lunar New Year Caring Campaign, reaching families and individuals across Macau. Volunteers visited a variety of community organisations—including the Against Child Abuse (Macau) Association Child Protection Centre, Macau Down Syndrome Association, Escola São José de Ká-Hó, Macau Special Olympics and the Macau Deaf Association—delivering gift packs and heartfelt greetings to 750 households and more than 2,000 beneficiaries. Beyond distributing gifts, volunteers spent meaningful time engaging with community members, offering companionship and bringing an extra touch of warmth to the New Year season." },
-  { type: "body", text: "In alignment with the Healthy Macao Blueprint, SJM also partnered with the Macao New Chinese Youth Association to host a health seminar at the Lok Yin Elderly Service Centre of the Women's General Association of Macau. Attended by 80 seniors, the session covered nutrition, healthy eating and awareness of swallowing difficulties commonly experienced by older adults. Participants also received New Year calligraphy blessings and gift bags, rounding off a meaningful and joyful afternoon." },
+  { type: "body", text: "From January through February, the SJM Volunteer Team rolled out its annual Lunar New Year Caring Campaign, reaching families and individuals across Macau. Volunteers visited a variety of community organisations\u2014including the Against Child Abuse (Macau) Association Child Protection Centre, Macau Down Syndrome Association, Escola S\u00E3o Jos\u00E9 de K\u00E1-H\u00F3, Macau Special Olympics and the Macau Deaf Association\u2014delivering gift packs and heartfelt greetings to 750 households and more than 2,000 beneficiaries. Beyond distributing gifts, volunteers spent meaningful time engaging with community members, offering companionship and bringing an extra touch of warmth to the New Year season." },
+  { type: "body", text: "In alignment with the Healthy Macao Blueprint, SJM also partnered with the Macao New Chinese Youth Association to host a health seminar at the Lok Yin Elderly Service Centre of the Women\u2019s General Association of Macau. Attended by 80 seniors, the session covered nutrition, healthy eating and awareness of swallowing difficulties commonly experienced by older adults. Participants also received New Year calligraphy blessings and gift bags, rounding off a meaningful and joyful afternoon." },
   { type: "heading", text: "Enhancing Family Cohesion through Festive Programmes" },
-  { type: "body", text: "To champion family-friendly values and a harmonious community, SJM organised a series of Lunar New Year parent-child activities. In January, 32 parents and children from the Centro de Serviços Integrados de Apoio à Família - Fonte de Alegria e de Energia, Caritas Macau visited Kam Pek Market, where they created Year of the Horse bamboo ornaments together and enjoyed afternoon tea." },
-  { type: "body", text: 'In February, SJM hosted the "Joyful New Year Baking Parent‑Child Workshop", which attracted 10 family groups of employees and their children. Through hands‑on baking, participants strengthened parent‑child bonds in a joyful setting. Later in the month, SJM also invited employees and their children, along with elderly members of the Women\'s General Association of Macau to visit the Lisboa: The Story of Macao exhibition at the Grand Lisboa Palace Art Gallery. The guided tour was followed by a themed workshop, offering families an engaging cultural experience and opportunities to connect through shared learning.' },
+  { type: "body", text: "To champion family-friendly values and a harmonious community, SJM organised a series of Lunar New Year parent-child activities. In January, 32 parents and children from the Centro de Servi\u00E7os Integrados de Apoio \u00E0 Fam\u00EDlia - Fonte de Alegria e de Energia, Caritas Macau visited Kam Pek Market, where they created Year of the Horse bamboo ornaments together and enjoyed afternoon tea." },
+  { type: "body", text: 'In February, SJM hosted the \u201CJoyful New Year Baking Parent\u2011Child Workshop\u201D, which attracted 10 family groups of employees and their children. Through hands\u2011on baking, participants strengthened parent\u2011child bonds in a joyful setting. Later in the month, SJM also invited employees and their children, along with elderly members of the Women\u2019s General Association of Macau to visit the Lisboa: The Story of Macao exhibition at the Grand Lisboa Palace Art Gallery. The guided tour was followed by a themed workshop, offering families an engaging cultural experience and opportunities to connect through shared learning.' },
   { type: "heading", text: "Celebrating Tradition and Giving Back" },
-  { type: "body", text: 'To promote Chinese traditional culture, SJM held its "SJM Welcomes the New Year – Calligraphy Blessings for All" event in February, featuring renowned local calligraphers including Mr. Kuan Kun Cheong. More than 1,600 fai chuns (spring couplets) were written on site and gifted to the public, bringing blessings to the community.' },
-  { type: "body", text: "During the New Year period, SJM also invited the Sheng Kung Hui Macau Social Services Coordination Office and the Association of Parents of the People with Intellectual Disabilities of Macau to set up charity booths in staff back‑of‑house areas to display and sell handicrafts and festive products created by service users. All proceeds support the organisations' operations and development, enabling SJM team members to contribute to the community while preparing for the New Year." },
+  { type: "body", text: 'To promote Chinese traditional culture, SJM held its \u201CSJM Welcomes the New Year \u2013 Calligraphy Blessings for All\u201D event in February, featuring renowned local calligraphers including Mr. Kuan Kun Cheong. More than 1,600 fai chuns (spring couplets) were written on site and gifted to the public, bringing blessings to the community.' },
+  { type: "body", text: "During the New Year period, SJM also invited the Sheng Kung Hui Macau Social Services Coordination Office and the Association of Parents of the People with Intellectual Disabilities of Macau to set up charity booths in staff back\u2011of\u2011house areas to display and sell handicrafts and festive products created by service users. All proceeds support the organisations\u2019 operations and development, enabling SJM team members to contribute to the community while preparing for the New Year." },
 ];
 
 export function generateStaticParams() {
@@ -98,38 +98,33 @@ export default function CsrEventDetailPage() {
       <Header logoSrc={IMAGES.logo} />
 
       {/* Green Banner */}
-      <section className="h-[140px] bg-[#009b79]" />
+      <section className="h-[100px] bg-[#009b79] sm:h-[120px] lg:h-[140px]" />
 
       {/* Article Content */}
       <section className="bg-[#f7f6f0]">
-        <div className="mx-auto flex w-full max-w-[1680px] flex-col items-center gap-[60px] px-5 py-[60px] sm:px-8 lg:px-[120px]">
+        <div className="mx-auto flex w-full max-w-[1680px] flex-col items-center gap-10 px-5 py-10 sm:px-8 lg:gap-[60px] lg:px-[60px] lg:py-[60px] xl:px-[120px]">
 
-          {/* Frame 46 — Title + Social Icons (centered) */}
+          {/* Title + Date */}
           <div className="flex w-full flex-col items-center gap-5">
-            <h1 className="text-center font-petrona text-[36px] font-extralight leading-[1.13] text-[#231f20]">
+            <h1 className="text-center font-petrona text-[28px] font-extralight leading-tight text-[#231f20] sm:text-[32px] lg:text-[36px]">
               SJM Joins Hands with the Community to Celebrate the Year of the Horse
             </h1>
-            <div className="flex gap-4">
-              <IconBorder><FacebookIcon /></IconBorder>
-              <IconBorder><TwitterIcon /></IconBorder>
-              <IconBorder><InstagramIcon /></IconBorder>
-              <IconBorder><EmailIcon /></IconBorder>
-              <IconBorder><FileTextIcon /></IconBorder>
-              <IconBorder><PrinterIcon /></IconBorder>
-            </div>
+            <p className="text-[14px] leading-[18px] text-[#8e9590] sm:text-[16px]">
+              24 Feb 2026
+            </p>
           </div>
 
-          {/* Frame 45 — Body text (left) + Images column (right) */}
-          <div className="flex w-full justify-center gap-[60px]">
+          {/* Body text (left) + Images column (right) */}
+          <div className="flex w-full flex-col gap-8 lg:flex-row lg:gap-[60px]">
             {/* Body Text */}
-            <div className="w-full max-w-[800px] shrink-0">
+            <div className="w-full lg:w-[800px] lg:shrink-0">
               {articleParagraphs.map((block, idx) =>
                 block.type === "heading" ? (
-                  <p key={idx} className="mt-6 text-[16px] font-medium leading-[1.625] text-[#231f20] first:mt-0">
+                  <p key={idx} className="mt-6 text-[16px] font-medium leading-[26px] text-[#231f20] first:mt-0">
                     {block.text}
                   </p>
                 ) : (
-                  <p key={idx} className="mt-4 text-[16px] leading-[1.625] text-[#231f20] first:mt-0">
+                  <p key={idx} className="mt-3 text-[16px] leading-[26px] text-[#231f20] first:mt-0">
                     {block.text}
                   </p>
                 )
@@ -137,9 +132,9 @@ export default function CsrEventDetailPage() {
             </div>
 
             {/* Images Column */}
-            <div className="hidden flex-1 flex-col gap-4 lg:flex">
+            <div className="flex flex-1 flex-col gap-4">
               {galleryImages.map((src, idx) => (
-                <div key={src} className="relative w-full overflow-hidden" style={{ height: 379 }}>
+                <div key={src} className="relative aspect-791/600 w-full overflow-hidden">
                   <Image
                     src={src}
                     alt={`CSR event photo ${idx + 1}`}
@@ -150,6 +145,16 @@ export default function CsrEventDetailPage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Social Icons (bottom) */}
+          <div className="flex gap-4">
+            <IconBorder><FacebookIcon /></IconBorder>
+            <IconBorder><TwitterIcon /></IconBorder>
+            <IconBorder><InstagramIcon /></IconBorder>
+            <IconBorder><EmailIcon /></IconBorder>
+            <IconBorder><FileTextIcon /></IconBorder>
+            <IconBorder><PrinterIcon /></IconBorder>
           </div>
 
         </div>
