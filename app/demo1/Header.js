@@ -86,6 +86,7 @@ export default function Header({ logoSrc }) {
   const [isScrollingUp, setIsScrollingUp] = useState(false);
   const [isNavHovered, setIsNavHovered] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const searchInputRef = useRef(null);
 
   const lastScrollTopRef = useRef(0);
@@ -316,21 +317,108 @@ export default function Header({ logoSrc }) {
 
               <button
                 type="button"
-                className="rounded-full px-4 py-1.5 text-[12px] uppercase tracking-wider xl:hidden"
-                style={{
-                  color: useLightTheme ? "#3f4644" : "white",
-                  borderColor: useLightTheme
-                    ? "rgba(63,70,68,0.25)"
-                    : "rgba(255,255,255,0.25)",
-                  borderWidth: 1,
-                  borderStyle: "solid",
-                  transition: TRANSITION,
-                }}
+                className="cursor-pointer px-4 py-3 xl:hidden"
+                onClick={() => setIsMobileMenuOpen(true)}
+                aria-label="Open menu"
               >
-                Menu
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" fill="none" aria-hidden="true">
+                  <g clipPath="url(#hamburger-a)">
+                    <path
+                      d="M0 3.5c0-.553.447-1 1-1h12a.999.999 0 1 1 0 2H1c-.553 0-1-.447-1-1m2 5c0-.553.447-1 1-1h12a.999.999 0 1 1 0 2H3c-.553 0-1-.447-1-1m12 5c0 .553-.447 1-1 1H1a.999.999 0 1 1 0-2h12c.553 0 1 .447 1 1"
+                      fill={useLightTheme ? "#3f4644" : "white"}
+                      style={{ transition: TRANSITION }}
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="hamburger-a">
+                      <path fill="#fff" d="M0 .5h16v16H0z" />
+                    </clipPath>
+                  </defs>
+                </svg>
               </button>
             </>
           )}
+        </div>
+      </div>
+
+      {/* ── Mobile Menu Drawer ── */}
+      <div
+        className="fixed inset-0 z-60 xl:hidden"
+        style={{
+          pointerEvents: isMobileMenuOpen ? "auto" : "none",
+        }}
+      >
+        {/* Overlay */}
+        <div
+          className="absolute inset-0 bg-black/50"
+          style={{
+            opacity: isMobileMenuOpen ? 1 : 0,
+            transition: "opacity 300ms ease",
+          }}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+
+        {/* Drawer */}
+        <div
+          className="absolute bottom-0 right-0 top-0 flex w-[300px] max-w-[85vw] flex-col bg-[#001e1e]"
+          style={{
+            transform: isMobileMenuOpen ? "translateX(0)" : "translateX(100%)",
+            transition: "transform 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
+        >
+          <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
+            <span className="text-[14px] uppercase tracking-[2px] text-white/60">
+              {/* Menu */}
+            </span>
+            <button
+              type="button"
+              className="flex h-8 w-8 items-center justify-center text-white/60 transition hover:text-white"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <CloseIcon className="h-3.5 w-3.5" />
+            </button>
+          </div>
+
+          <nav className="flex flex-1 flex-col overflow-y-auto px-6 py-4">
+            {navItems.map((item) => {
+              const Tag = item.href ? "a" : "button";
+              const extraProps = item.href
+                ? { href: item.href }
+                : { type: "button" };
+              return (
+                <Tag
+                  key={item.label}
+                  {...extraProps}
+                  className="border-b border-white/5 py-4 text-left text-[14px] uppercase leading-[20px] text-white/80 transition hover:text-[#a8996e]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Tag>
+              );
+            })}
+          </nav>
+
+          <div className="flex flex-col gap-4 border-t border-white/10 px-6 py-5">
+            <button
+              type="button"
+              className="flex items-center gap-2 text-[14px] uppercase leading-[19.2px] text-white/80 transition hover:text-[#a8996e]"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                window.location.href = "/search";
+              }}
+            >
+              <SearchIcon className="h-[15px] w-[15px]" />
+              Search
+            </button>
+            <button
+              type="button"
+              className="flex items-center gap-2 text-[14px] uppercase leading-[19.2px] text-white/80 transition hover:text-[#a8996e]"
+            >
+              <GlobeIcon className="h-[14px] w-[14px]" />
+              中文
+            </button>
+          </div>
         </div>
       </div>
     </header>
