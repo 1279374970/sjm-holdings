@@ -420,7 +420,7 @@ export default function Demo1Page() {
             <div className="anim-fade-up anim-delay-500">
               <button
                 type="button"
-                className="inline-flex items-center gap-3 rounded-full border border-[#a8996e] px-[33px] py-[15px] text-[12px] font-medium leading-[16px] uppercase tracking-[2.4px] text-[#a8996e] transition hover:bg-[#a8996e] hover:text-[#072121]"
+                className="inline-flex items-center gap-3 border border-[#a8996e] px-[33px] py-[15px] text-[12px] font-medium leading-[16px] uppercase tracking-[2.4px] text-[#a8996e] transition hover:bg-[#a8996e] hover:text-[#072121]"
               >
                 Investor Relations
               </button>
