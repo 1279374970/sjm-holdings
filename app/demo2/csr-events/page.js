@@ -301,7 +301,7 @@ export default function CsrEventsPage() {
 
             <div className="w-full lg:w-[380px] lg:shrink-0">
               <div className="border border-[rgba(35,31,32,0.08)] p-[24px]">
-                <p className="text-[12px] uppercase leading-[1.5em] tracking-[0.225em] text-[#a8996e]">
+                <p className="text-[14px] uppercase leading-[1.5em] tracking-[0.225em] text-[#a8996e]">
                   PUBLISHED YEAR
                 </p>
 
