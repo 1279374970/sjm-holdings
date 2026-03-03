@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Header from "./Header";
+import PropertySection from "./PropertySection";
 
 const IMAGES = {
   logo: "/demo1/sjm-logo.png",
@@ -527,69 +528,7 @@ export default function Demo1Page() {
       </section>
 
       {/* ── Properties ── */}
-      <section
-        className="relative overflow-hidden"
-        style={{
-          backgroundImage: `url('${IMAGES.greenPattern}'), linear-gradient(90deg, #004433 0%, #004433 100%)`,
-          backgroundSize: "1020px 1361px, auto auto",
-          backgroundPosition: "left top",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1680px] px-5 sm:px-8 lg:px-[60px]">
-          <div className="flex flex-col lg:flex-row">
-            {/* Info panel */}
-            <div className="flex w-full flex-col justify-between bg-[rgba(0,30,30,0.85)] px-6 py-10 backdrop-blur-[5px] sm:px-12 sm:py-[60px] lg:w-[440px] lg:shrink-0">
-              <div className="flex flex-col gap-7">
-                <div className="flex flex-col gap-2">
-                  <p className="text-[12px] leading-[18px] uppercase tracking-[2.7px] text-[#a8996e]">
-                    MACAU COTAI
-                  </p>
-                  <p className="font-petrona text-[28px] font-extralight uppercase leading-[41.6px] tracking-[3.2px] text-white sm:text-[32px]">
-                    GRAND LISBOA
-                    <br />
-                    PALACE
-                  </p>
-                </div>
-                <p className="max-w-[344px] text-[14px] leading-[22.75px] text-white/80">
-                  A prominent integrated resort that celebrates Macau&apos;s
-                  legendary cross-cultural heritage, where European and
-                  Chinoiserie-inspired opulence meld seamlessly with
-                  sophisticated, world-class.
-                </p>
-                <DividerLink color="gold">LEARN MORE</DividerLink>
-              </div>
-
-              <div className="mt-8 flex gap-3.5">
-                <button
-                  type="button"
-                  className="flex h-[34px] w-[34px] items-center justify-center rounded-full border border-white text-white transition hover:bg-white/10"
-                  aria-label="Previous"
-                >
-                  <ChevronIcon left className="h-4 w-4" />
-                </button>
-                <button
-                  type="button"
-                  className="flex h-[34px] w-[34px] items-center justify-center rounded-full border border-white text-white transition hover:bg-white/10"
-                  aria-label="Next"
-                >
-                  <ChevronIcon className="h-4 w-4" />
-                </button>
-              </div>
-            </div>
-
-            {/* Property image */}
-            <div className="relative min-h-[260px] flex-1 sm:min-h-[360px] lg:h-[560px] lg:min-h-0">
-              <Image
-                src={IMAGES.propertyMain}
-                alt="Grand Lisboa Palace exterior"
-                fill
-                sizes="(max-width: 1024px) 100vw, 960px"
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <PropertySection greenPattern={IMAGES.greenPattern} />
 
       {/* ── Press Releases ── */}
       <section className="bg-[#f7f6f0]">
