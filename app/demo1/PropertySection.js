@@ -161,7 +161,7 @@ export default function PropertySection({ greenPattern }) {
       <div className="mx-auto w-full max-w-[1680px] px-5 sm:px-8 lg:px-[60px]">
         <div className="flex flex-col lg:flex-row">
           {/* Info panel */}
-          <div className="relative flex w-full flex-col justify-between overflow-hidden bg-[rgba(0,30,30,0.85)] px-6 py-10 backdrop-blur-[5px] sm:px-12 sm:py-[60px] lg:w-[440px] lg:shrink-0">
+          <div className="relative flex w-full flex-col justify-between overflow-hidden bg-[rgba(0,30,30,0.85)] p-6 backdrop-blur-[5px] sm:p-12 lg:w-[460px] lg:shrink-0 lg:p-[60px]">
             <div className="relative w-full" style={{ minHeight: 240 }}>
               {properties.map((prop, idx) => {
                 const style = getSlideStyle(idx, activeIndex, prevIndex, animating);

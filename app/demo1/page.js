@@ -21,45 +21,19 @@ const statsItems = [
 ];
 
 const pressReleases = [
-  {
-    id: 1,
-    date: "24 Feb 2026",
-    title:
-      "SJM Rings in the Chinese New Year with Auspicious Lion Dance Parades",
-    tag: "Events",
-    tagColor: "green",
-  },
-  {
-    id: 2,
-    date: "22 Feb 2026",
-    title:
-      "SJM Leads Asian Wine Scene with Seven Awards at Star Wine List 2026",
-    tag: "Awards",
-    tagColor: "green",
-  },
-  {
-    id: 3,
-    date: "11 Feb 2026",
-    title:
-      "SJM\u2019s Grand Lisboa Palace Resort Macau Becomes the Only Integrated Resort in the World with All Hotels Forbes Travel Guide Five-Star Rated",
-    tag: "Awards",
-    tagColor: "green",
-  },
-  {
-    id: 4,
-    date: "04 Feb 2026",
-    title:
-      "SJM Presents Macau Debut of World-Renowned Magician and Mentalist Drummond Money-Coutts",
-    tag: "Entertainment",
-    tagColor: "green",
-  },
+  { id: 1, date: "23 Feb 2026", title: "SJM Rings in the Chinese New Year with Auspicious Lion Dance Parades" },
+  { id: 2, date: "20 Feb 2026", title: "SJM Leads Asian Wine Scene with Seven Awards at Star Wine List 2026" },
+  { id: 3, date: "04 Feb 2026", title: "SJM\u2019s Grand Lisboa Palace Resort Macau Becomes the Only Integrated Resort in the World with All Hotels Forbes Travel Guide Five-Star Rated" },
+  { id: 4, date: "19 Jan 2026", title: "SJM Presents Macau Debut of World-Renowned Magician and Mentalist Drummond Money-Coutts" },
+  { id: 5, date: "16 Jan 2026", title: "SJM Shines with Four Prestigious Accolades on Harper\u2019s BAZAAR HK\u2019s Annual Lists" },
+  { id: 6, date: "15 Jan 2026", title: "SJM Shines with Top Honours at China\u2019s Hotel and Restaurant Awards" },
 ];
 
-const pressCategories = [
-  { name: "Awards", count: 107, pct: 88 },
-  { name: "Events", count: 93, pct: 78 },
-  { name: "Entertainment", count: 91, pct: 74 },
-  { name: "Corporate", count: 82, pct: 63 },
+const pressStats = [
+  { value: "127", label: "Awards" },
+  { value: "96", label: "Events" },
+  { value: "241", label: "Entertainment" },
+  { value: "114", label: "Corporate" },
 ];
 
 const investorAnnouncements = [
@@ -106,28 +80,24 @@ const investorLinks = [
 const communityArticles = [
   {
     id: 1,
-    date: "24 Feb",
-    title:
-      "SJM Joins Hands with the Community to Celebrate the Year of the Horse",
+    date: "23 Feb 2026",
+    title: "\u201CSJM Talent Development Programme\u201D Graduation Ceremony Highlights Local Talent Development Achievements",
     featured: true,
   },
   {
     id: 2,
-    date: "24 Feb",
-    title:
-      "SJM Volunteer Team 10th Anniversary Celebration Dinner | A Decade of Unity and Giving Back",
+    date: "23 Feb 2026",
+    title: "SJM Joins Hands with the Community to Celebrate the Year of the Horse",
   },
   {
     id: 3,
-    date: "24 Feb",
-    title:
-      "SJM Supports the USJ SDG Week 2026 to Explore the Future of Sustainable Development",
+    date: "23 Feb 2026",
+    title: "SJM Volunteer Team 10th Anniversary Celebration Dinner | A Decade of Unity and Giving Back",
   },
   {
     id: 4,
-    date: "24 Feb",
-    title:
-      '\u201CSJM Talent Development Programme\u201D Graduation Ceremony Highlights Local Talent Development Achievements',
+    date: "23 Feb 2026",
+    title: "SJM Supports the USJ SDG Week 2026 to Explore the Future of Sustainable Development",
   },
 ];
 
@@ -428,8 +398,8 @@ export default function Demo1Page() {
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,30,30,0.7)] via-[rgba(0,30,30,0.4)] to-[rgba(0,30,30,0.9)]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,30,30,0.6)] via-transparent to-transparent" />
 
-        <div className="relative mx-auto flex w-full max-w-[1680px] flex-1 flex-col justify-center px-5 pb-24 sm:px-8 lg:px-[60px] xl:px-[120px]">
-          <div className="flex max-w-[1280px] flex-col gap-[30px] pt-[60px] lg:pt-[95px] lg:px-[80px]">
+        <div className="relative mx-auto flex w-full max-w-[1680px] flex-1 flex-col justify-center px-5 pb-24 sm:px-8 lg:px-[40px]">
+          <div className="flex max-w-[1280px] flex-col gap-[30px] pt-[60px] lg:px-[80px] lg:pt-[95px]">
             <h1 className="anim-fade-up anim-delay-200 font-petrona text-[42px] font-extralight leading-[1] tracking-[-1px] text-white sm:text-[54px] sm:tracking-[-1.5px] lg:text-[80px] lg:leading-[80px] lg:tracking-[-2.25px]">
               <span className="block">Welcome to</span>
               <span className="block text-[#a8996e]">SJM Holdings</span>
@@ -530,128 +500,40 @@ export default function Demo1Page() {
       {/* ── Properties ── */}
       <PropertySection greenPattern={IMAGES.greenPattern} />
 
-      {/* ── Press Releases ── */}
-      <section className="bg-[#f7f6f0]">
-        <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-10 px-5 py-14 sm:px-8 lg:px-[60px] lg:py-[80px] xl:px-[120px]">
-          <h2 className="font-petrona text-[36px] font-extralight leading-[48px] text-[#231f20] sm:text-[44px] lg:text-[48px]">
-            Latest <span className="text-[#009b79]">Press Releases.</span>
-          </h2>
-
-          <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
-            {/* Articles list */}
-            <div className="flex-1">
-              <div className="flex flex-col">
-                {pressReleases.map((item) => (
-                  <Link
-                    key={item.id}
-                    href={`/announcements/${item.id}`}
-                    className="flex gap-4 border-b border-[rgba(35,31,32,0.1)] py-6 transition-colors duration-200 hover:bg-[rgba(0,0,0,0.02)] sm:gap-6"
-                  >
-                    <p className="w-[80px] shrink-0 text-right text-[12px] leading-[18px] text-[#8e9590]">
-                      {item.date}
-                    </p>
-                    <div className="flex flex-1 flex-col gap-2">
-                      <span
-                        className={`inline-block w-fit px-2 py-0.5 text-[12px] leading-[18px] uppercase tracking-[0.9px] ${
-                          item.tagColor === "green"
-                            ? "bg-[rgba(0,155,121,0.1)] text-[#009b79]"
-                            : "bg-[rgba(168,153,110,0.1)] text-[#a8996e]"
-                        }`}
-                      >
-                        {item.tag}
-                      </span>
-                      <p className="text-[14px] leading-[22.75px] text-[#231f20]">
-                        {item.title}
-                      </p>
-                    </div>
-                    <div className="flex shrink-0 items-center">
-                      <ChevronRightIcon className="h-4 w-4 text-[#8e9590]" />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-
-              <div className="pt-4">
-                <DividerLink color="accent" href="/press-releases">All Press Releases</DividerLink>
-              </div>
-            </div>
-
-            {/* Categories sidebar */}
-            <div className="w-full lg:w-[380px] lg:shrink-0">
-              <div className="border border-[rgba(35,31,32,0.08)] bg-white p-6">
-                <p className="text-[12px] leading-[18px] uppercase tracking-[2.7px] text-[#a8996e]">
-                  Categories
-                </p>
-                <div className="mt-6 flex flex-col gap-4">
-                  {pressCategories.map((cat, idx) => (
-                    <div key={cat.name}>
-                      <div className="flex flex-col gap-3">
-                        <div className="flex items-center justify-between">
-                          <span className="text-[14px] leading-[18px] text-[#8e9590]">
-                            {cat.name}
-                          </span>
-                          <span className="text-[14px] font-medium leading-[18px] text-[#8e9590]">
-                            {cat.count}
-                          </span>
-                        </div>
-                        <div className="h-2 w-full bg-[rgba(0,155,121,0.1)]">
-                          <div
-                            className="h-full bg-[#009b79]"
-                            style={{ width: `${cat.pct}%` }}
-                          />
-                        </div>
-                      </div>
-                      {idx < pressCategories.length - 1 && (
-                        <div className="mt-4 h-px bg-[rgba(35,31,32,0.06)]" />
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── Investor Relations ── */}
-      <section className="bg-[#001e1e]">
-        <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-10 px-5 py-14 sm:px-8 lg:px-[60px] lg:py-[80px] xl:px-[120px]">
-          <h2 className="font-petrona text-[36px] font-extralight leading-[48px] text-white sm:text-[44px] lg:text-[48px]">
+      <section className="bg-[#f7f6f0]">
+        <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-8 px-5 py-14 sm:px-8 lg:gap-[40px] lg:px-[60px] lg:py-[80px] xl:px-[120px]">
+          <h2 className="font-petrona text-[36px] font-extralight leading-[48px] text-[#231f20] sm:text-[44px] lg:text-[48px]">
             Transparent.
             <br />
             Accountable.{" "}
-            <span className="text-[#a8996e]">Investor-first.</span>
+            <span className="text-[#009b79]">Investor-first.</span>
           </h2>
 
-          <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
-            {/* Announcements */}
-            <div className="flex-1">
+          <div className="flex flex-col gap-10 lg:flex-row lg:gap-[64px]">
+            <div className="flex flex-1 flex-col gap-6">
               <div className="flex flex-col">
                 {investorAnnouncements.map((item) => (
                   <Link
                     key={item.id}
                     href={`/announcements/${item.id}`}
-                    className="flex gap-4 border-b border-white/[0.08] py-5 transition-colors duration-200 hover:bg-white/[0.04] sm:gap-6"
+                    className="flex items-center gap-4 border-b border-[rgba(35,31,32,0.08)] pb-[21px] pt-[20px] transition-colors duration-200 hover:bg-[rgba(0,0,0,0.02)] sm:gap-6"
                   >
-                    <p className="w-[80px] shrink-0 text-right text-[12px] leading-[15px] text-[#8e9590]">
+                    <p className="w-[80px] shrink-0 text-right text-[13px] leading-[22.8px] text-[#8e9590] sm:w-[100px] sm:text-[14px]">
                       {item.date}
                     </p>
-                    <p className="flex-1 text-[14px] leading-[22.75px] text-white/80">
+                    <p className="flex-1 text-[15px] leading-[24px] text-[rgba(35,31,32,0.8)] sm:text-[16px]">
                       {item.title}
                     </p>
-                    <div className="flex shrink-0 items-start pt-0.5">
-                      <ChevronRightIcon className="h-4 w-4 text-[rgba(255,255,255,0.2)]" />
+                    <div className="flex shrink-0 items-center">
+                      <ChevronRightIcon className="h-4 w-4 text-[rgba(35,31,32,0.25)]" />
                     </div>
                   </Link>
                 ))}
               </div>
-
-              <div className="pt-4">
-                <DividerLink color="gold" href="/announcements">ALL Investor Relations</DividerLink>
-              </div>
+              <DividerLink color="accent" href="/announcements">ALL Investor Relations</DividerLink>
             </div>
 
-            {/* Sidebar links + IR Contact */}
             <div className="flex w-full flex-col gap-4 lg:w-[380px] lg:shrink-0">
               {investorLinks.map((link) => {
                 const IconComp = sidebarIconMap[link.icon];
@@ -659,38 +541,33 @@ export default function Demo1Page() {
                   <button
                     type="button"
                     key={link.label}
-                    className="flex items-center gap-4 border border-white/[0.08] bg-white/[0.05] px-[17px] py-[15px] text-left transition hover:border-[#a8996e]/40 hover:bg-white/[0.08]"
+                    className="flex items-center gap-4 border border-[rgba(0,155,121,0.2)] bg-[rgba(0,155,121,0.05)] px-[17px] py-[15px] text-left transition hover:border-[#009b79]/40 hover:bg-[rgba(0,155,121,0.1)]"
                   >
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center text-[#a8996e]">
-                      {IconComp && <IconComp className="h-4 w-4" />}
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center text-[#009b79]">
+                      {IconComp && <IconComp className="h-5 w-5" />}
                     </span>
-                    <span className="flex-1 text-[12px] leading-[16px] tracking-[0.3px] text-white/80">
+                    <span className="flex-1 text-[15px] leading-[24px] text-[rgba(35,31,32,0.8)] sm:text-[16px]">
                       {link.label}
                     </span>
-                    <ChevronRightIcon className="h-3.5 w-3.5 shrink-0 text-[#a8996e]" />
+                    <ChevronRightIcon className="h-3.5 w-3.5 shrink-0 text-[rgba(35,31,32,0.4)]" />
                   </button>
                 );
               })}
 
-              {/* IR Contact */}
-              <div className="flex flex-col gap-3 border border-[rgba(168,153,110,0.3)] bg-[rgba(168,153,110,0.05)] px-[21px] pb-[23px] pt-[21px]">
-                <p className="text-[12px] leading-[18px] uppercase tracking-[2.7px] text-[#a8996e]">
+              <div className="flex flex-col gap-3 border border-[rgba(0,155,121,0.2)] bg-[rgba(0,155,121,0.05)] px-[25px] pb-[23px] pt-[21px]">
+                <p className="text-[14px] uppercase tracking-[2.7px] text-[#009b79]">
                   IR CONTACT
                 </p>
-                <p className="text-[12px] leading-[19.5px] text-white/60">
-                  If you have any additional questions for our Investor Relations
+                <p className="pb-2 text-[14px] leading-[20px] text-[rgba(35,31,32,0.6)]">
+                  If you have any questions for our Investor Relations
                   Department, please contact us.
                 </p>
-                <div className="flex items-start gap-3">
-                  <EmailIcon className="mt-0.5 h-4 w-4 shrink-0 text-[#a8996e]" />
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[12px] leading-[18px] uppercase tracking-[0.9px] text-white/40">
-                      Email
-                    </span>
-                    <span className="text-[12px] leading-[16px] text-white/80">
-                      media@sjmholdings.com
-                    </span>
-                  </div>
+                <div className="h-px bg-[rgba(35,31,32,0.06)]" />
+                <div className="flex items-center gap-6 pt-2">
+                  <EmailIcon className="h-5 w-5 shrink-0 text-[rgba(35,31,32,0.4)]" />
+                  <span className="text-[16px] leading-[24px] text-[rgba(35,31,32,0.8)]">
+                    media@sjmholdings.com
+                  </span>
                 </div>
               </div>
             </div>
@@ -698,7 +575,7 @@ export default function Demo1Page() {
         </div>
       </section>
 
-      {/* ── Community / Impact ── */}
+      {/* ── Press Releases ── */}
       <section
         className="relative overflow-hidden"
         style={{
@@ -707,21 +584,74 @@ export default function Demo1Page() {
           backgroundPosition: "left top",
         }}
       >
-        <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-14 px-5 py-14 sm:px-8 lg:px-[60px] lg:py-[80px] xl:px-[120px]">
+        <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-8 px-5 py-14 sm:px-8 lg:gap-[40px] lg:px-[60px] lg:py-[80px] xl:px-[120px]">
           <h2 className="font-petrona text-[36px] font-extralight leading-[48px] text-white sm:text-[44px] lg:text-[48px]">
-            Responsible. Impact-driven.
-            <br />
-            <span className="text-[#a8996e]">Community-focused.</span>
+            Latest <span className="text-[#a8996e]">Press Releases.</span>
           </h2>
 
-          <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
-            {/* Articles */}
-            <div className="flex-1">
-              <div className="flex flex-col gap-6 lg:flex-row lg:gap-16">
-                {/* Featured article with image */}
+          <div className="flex flex-col gap-10 lg:flex-row lg:gap-[64px]">
+            <div className="flex flex-1 flex-col gap-6">
+              <div className="flex flex-col">
+                {pressReleases.map((item) => (
+                  <Link
+                    key={item.id}
+                    href={`/press-releases/${item.id}`}
+                    className="flex items-center gap-4 border-b border-white/8 pb-[21px] pt-[20px] transition-colors duration-200 hover:bg-white/5 sm:gap-6"
+                  >
+                    <p className="w-[80px] shrink-0 text-right text-[13px] leading-[22.8px] text-[#8e9590] sm:w-[100px] sm:text-[14px]">
+                      {item.date}
+                    </p>
+                    <p className="flex-1 text-[15px] leading-[24px] text-white/80 sm:text-[16px]">
+                      {item.title}
+                    </p>
+                    <div className="flex shrink-0 items-center">
+                      <ChevronRightIcon className="h-4 w-4 text-white/20" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              <DividerLink color="gold" href="/press-releases">ALL Investor Relations</DividerLink>
+            </div>
+
+            <div className="flex w-full flex-col gap-6 lg:w-[380px] lg:shrink-0">
+              <div className="grid flex-1 grid-cols-2 gap-4">
+                {pressStats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="flex flex-col justify-center border border-[rgba(168,153,110,0.3)] bg-[rgba(168,153,110,0.05)] px-[25px] pb-[23px] pt-[21px]"
+                  >
+                    <p className="font-petrona text-[32px] font-light text-white/80 sm:text-[40px]">
+                      {stat.value}
+                    </p>
+                    <p className="mt-3 text-[13px] uppercase leading-[20px] tracking-[1px] text-[#a8996e] sm:text-[14px]">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-[12px] uppercase tracking-[2.4px] text-[#a8996e]">
+                DATA SINCE 2008
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Community / Impact ── */}
+      <section className="overflow-hidden bg-[#f7f6f0]">
+        <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-8 px-5 py-14 sm:px-8 lg:gap-[40px] lg:px-[60px] lg:py-[80px] xl:px-[120px]">
+          <h2 className="font-petrona text-[36px] font-extralight leading-[48px] text-[#231f20] sm:text-[44px] lg:text-[48px]">
+            Responsible. Impact-driven.
+            <br />
+            <span className="text-[#009b79]">Community-focused.</span>
+          </h2>
+
+          <div className="flex flex-col gap-10 lg:flex-row lg:gap-[64px]">
+            <div className="flex flex-1 flex-col gap-6">
+              <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
                 <Link
                   href={`/csr-events/${communityArticles[0].id}`}
-                  className="group w-full border-b border-white/[0.08] pb-5 transition-colors duration-200 hover:bg-white/[0.04] lg:w-[540px] lg:shrink-0"
+                  className="group w-full border-b border-[rgba(35,31,32,0.08)] pb-5 transition-colors duration-200 hover:bg-[rgba(0,0,0,0.02)] lg:w-[540px] lg:shrink-0"
                 >
                   <div className="relative mb-3 h-[200px] w-full overflow-hidden sm:h-[260px] lg:h-[317px]">
                     <Image
@@ -732,64 +662,76 @@ export default function Demo1Page() {
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   </div>
-                  <p className="text-[12px] leading-[15px] text-[#8e9590]">
-                    {communityArticles[0].date}
-                  </p>
-                  <p className="mt-3 text-[14px] leading-[22.75px] text-white/80">
-                    {communityArticles[0].title}
-                  </p>
+                  <div className="flex flex-col gap-0.5">
+                    <p className="text-[14px] leading-[22.8px] text-[#8e9590]">
+                      {communityArticles[0].date}
+                    </p>
+                    <p className="text-[16px] leading-[24px] text-[rgba(35,31,32,0.8)]">
+                      {communityArticles[0].title}
+                    </p>
+                  </div>
                 </Link>
 
-                {/* Text-only articles */}
-                <div className="flex flex-1 flex-col gap-5 justify-between lg:gap-0">
-                  {communityArticles.slice(1).map((item) => (
-                    <Link
-                      key={item.id}
-                      href={`/csr-events/${item.id}`}
-                      className="flex flex-col gap-3 border-b border-white/[0.08] pb-5 transition-colors duration-200 hover:bg-white/[0.04]"
-                    >
-                      <p className="text-[12px] leading-[15px] text-[#8e9590]">
-                        {item.date}
-                      </p>
-                      <p className="text-[14px] leading-[22.75px] text-white/80">
-                        {item.title}
-                      </p>
-                    </Link>
-                  ))}
-                </div>
-                {/* Stats grid */}
-                <div className="grid w-full grid-cols-2 gap-4 lg:w-[380px] lg:shrink-0">
-                  {communityStats.map((stat) => (
-                    <div
-                      key={stat.label}
-                      className="flex flex-col justify-center border border-[rgba(168,153,110,0.3)] bg-[rgba(168,153,110,0.05)] px-6 py-5"
-                    >
-                      <p className="font-petrona text-[32px] font-extralight text-white/80 sm:text-[40px]">
-                        {stat.value}
-                      </p>
-                      <p className="mt-3 text-[11px] uppercase leading-[18px] tracking-[2.7px] text-[#a8996e] sm:text-[12px]">
-                        {stat.label}
-                      </p>
+                <div className="flex flex-1 flex-col justify-between">
+                  {communityArticles.slice(1).map((item, idx) => (
+                    <div key={item.id}>
+                      <Link
+                        href={`/csr-events/${item.id}`}
+                        className="flex flex-col gap-0.5 py-5 transition-colors duration-200 hover:bg-[rgba(0,0,0,0.02)]"
+                      >
+                        <p className="text-[14px] leading-[22.8px] text-[#8e9590]">
+                          {item.date}
+                        </p>
+                        <p className="text-[16px] leading-[24px] text-[rgba(35,31,32,0.8)]">
+                          {item.title}
+                        </p>
+                      </Link>
+                      {idx < communityArticles.length - 2 && (
+                        <div className="h-px bg-[rgba(35,31,32,0.06)]" />
+                      )}
                     </div>
                   ))}
                 </div>
               </div>
+              <DividerLink color="accent" href="/csr-events">ALL Investor Relations</DividerLink>
+            </div>
 
-              <div className="pt-4">
-                <DividerLink color="gold" href="/csr-events">
-                  ALL Investor Relations
-                </DividerLink>
+            <div className="flex w-full flex-col gap-6 lg:w-[380px] lg:shrink-0">
+              <div className="grid flex-1 grid-cols-2 gap-4">
+                {communityStats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="flex flex-col justify-center border border-[rgba(0,155,121,0.2)] bg-[rgba(0,155,121,0.05)] px-[25px] pb-[23px] pt-[21px]"
+                  >
+                    <p className="font-petrona text-[32px] font-light text-[rgba(0,155,121,0.8)] sm:text-[40px]">
+                      {stat.value}
+                    </p>
+                    <p className="mt-3 text-[13px] uppercase leading-[20px] tracking-[1px] text-[rgba(35,31,32,0.5)] sm:text-[14px]">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
               </div>
+              <p className="text-[12px] uppercase tracking-[2.4px] text-[#009b79]">
+                DATA SINCE 2018
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── ESG ── */}
-      <section className="bg-[#f7f6f0]">
-        <div className="mx-auto w-full max-w-[1680px] px-5 py-14 sm:px-8 lg:px-[60px] lg:py-[80px] xl:px-[120px]">
-          <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
-            <div className="relative h-[220px] w-full overflow-hidden sm:h-[280px] lg:h-[339px] lg:flex-1">
+      <section
+        className="relative overflow-hidden"
+        style={{
+          backgroundImage: `url('${IMAGES.greenPattern}'), linear-gradient(90deg, #004433 0%, #004433 100%)`,
+          backgroundSize: "1020px 1361px, auto auto",
+          backgroundPosition: "left top",
+        }}
+      >
+        <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-10 px-5 py-14 sm:px-8 lg:gap-[60px] lg:px-[60px] lg:py-[80px] xl:px-[120px]">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-[32px]">
+            <div className="relative h-[220px] w-full overflow-hidden sm:h-[280px] lg:h-[340px] lg:flex-1">
               <Image
                 src={IMAGES.esgMain}
                 alt="ESG initiative"
@@ -799,53 +741,54 @@ export default function Demo1Page() {
               />
             </div>
 
-            <div className="flex flex-1 flex-col gap-6">
+            <div className="flex flex-1 flex-col gap-8">
               <div>
-                <p className="font-petrona text-[36px] font-extralight leading-[60px] text-[#231f20] sm:text-[44px] lg:text-[48px]">
+                <p className="font-petrona text-[36px] font-extralight leading-[60px] text-white sm:text-[44px] lg:text-[48px]">
                   Building an ESG-driven
                 </p>
-                <p className="font-petrona text-[36px] font-extralight leading-[60px] text-[#009b79] sm:text-[44px] lg:text-[48px]">
+                <p className="font-petrona text-[36px] font-extralight leading-[60px] text-[#a8996e] sm:text-[44px] lg:text-[48px]">
                   future for Macau.
                 </p>
               </div>
               <div className="h-px w-16 bg-[#a8996e]" />
-              <p className="text-[14px] leading-[22.75px] text-[#231f20]">
-                SJM Holdings embraces its responsibility as a major corporate
-                citizen in Macau. Our sustainability strategy integrates
-                environmental stewardship, social responsibility, and rigorous
-                governance across every aspect of our operations.
-              </p>
-              <p className="text-[14px] leading-[22.75px] text-[#8e9590]">
-                Our annual ESG Report, published in accordance with the HKEX ESG
-                Reporting Guide, provides full transparency on our progress and
-                commitments to all stakeholders.
-              </p>
+              <div className="flex flex-col gap-4 text-[15px] leading-[24px] text-white/80 sm:text-[16px]">
+                <p>
+                  SJM Holdings embraces its responsibility as a major corporate
+                  citizen in Macau. Our sustainability strategy integrates
+                  environmental stewardship, social responsibility, and rigorous
+                  governance across every aspect of our operations.
+                </p>
+                <p>
+                  Our annual ESG Report, published in accordance with the HKEX
+                  ESG Reporting Guide, provides full transparency on our progress
+                  and commitments to all stakeholders.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* ESG Cards */}
-          <div className="mt-[60px] grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:gap-8 xl:grid-cols-4">
             {esgCards.map((card) => {
-                const EsgIcon = esgIconMap[card.icon];
-                return (
+              const EsgIcon = esgIconMap[card.icon];
+              return (
                 <article
                   key={card.title}
-                  className="flex flex-col gap-5 border border-[rgba(35,31,32,0.1)] bg-white p-[25px] transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                  className="flex flex-col gap-5 border border-[rgba(168,153,110,0.3)] bg-[rgba(168,153,110,0.05)] p-[25px] transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(168,153,110,0.5)]"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center border border-[rgba(0,155,121,0.05)] bg-[rgba(0,155,121,0.05)] text-[#009b79]">
+                  <div className="flex h-10 w-10 items-center justify-center border border-[rgba(168,153,110,0.05)] bg-[rgba(168,153,110,0.05)] text-[#a8996e]">
                     {EsgIcon && <EsgIcon className="h-4 w-4" />}
                   </div>
                   <div className="flex flex-col gap-3">
-                    <h3 className="text-[14px] font-medium leading-[20px] tracking-[0.35px] text-[#231f20]">
+                    <h3 className="text-[16px] font-medium leading-[24px] tracking-[0.35px] text-white/80">
                       {card.title}
                     </h3>
-                    <p className="text-[12px] leading-[19.5px] text-[#8e9590]">
+                    <p className="text-[14px] leading-[22.8px] text-white/80">
                       {card.body}
                     </p>
                   </div>
-                  <DividerLink color="accent">LEARN MORE</DividerLink>
+                  <DividerLink color="gold">LEARN MORE</DividerLink>
                 </article>
-                );
+              );
             })}
           </div>
         </div>
