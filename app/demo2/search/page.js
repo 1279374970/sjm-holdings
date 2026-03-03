@@ -6,62 +6,64 @@ import Demo2Header from "../Header";
 
 const searchResults = [
   {
-    title: "Date of Board Meeting",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    date: "24 Feb 2026",
+    category: "Financial Reports",
+    title:
+      "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/01/2026",
   },
   {
+    date: "24 Feb 2026",
+    category: "Financial Reports",
     title:
       "Settlement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
+    date: "24 Feb 2026",
+    category: "Announcements, Notices & Returns",
+    title:
+      "Publication of Offering Memorandum - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031",
+  },
+  {
+    date: "24 Feb 2026",
+    category: "Financial Reports",
     title:
       "Notice of Listing on The Stock Exchange of Hong Kong Limited - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
+    date: "24 Feb 2026",
+    category: "Announcements, Notices & Returns",
+    title:
+      "Closing of the Issuance of USD540,000,000 6.500% Senior Notes Due 2031",
+  },
+  {
+    date: "24 Feb 2026",
+    category: "Financial Reports",
     title:
       "Results of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
+    date: "24 Feb 2026",
+    category: "CSR Events",
+    title:
+      "Issuance of USD540,000,000 6.500% Senior Notes Due 2031 and Disclosure Pursuant to Rule 13.18 of the Listing Rules & Exempted Connected Transaction in relation to the Partial Subscription of the Notes by a Connected Person",
+  },
+  {
+    date: "24 Feb 2026",
+    category: "Announcements, Notices & Returns",
     title:
       "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/12/2025",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
+    date: "24 Feb 2026",
+    category: "Financial Reports",
+    title:
+      "Commencement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026",
+  },
+  {
+    date: "24 Feb 2026",
+    category: "CSR Events",
     title:
       "Inside Information Proposed Issuance of U.S. Dollar Denominated Senior Notes",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title:
-      "Poll Results of the Extraordinary General Meeting Held on 15 December 2025",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "Notice of Extraordinary General Meeting",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title:
-      "Voluntary Announcement Termination of Gaming Operations with Casino Ponte 16",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title:
-      "2025 Third Quarter and Year-to-date Selected Unaudited Key Performance Indicators",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
 ];
 
@@ -110,6 +112,27 @@ function ChevronRightIcon({ className = "" }) {
   );
 }
 
+function FilterArrowIcon({ className = "" }) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      className={className}
+      aria-hidden
+    >
+      <path
+        d="M5.25 3.5L8.75 7L5.25 10.5"
+        stroke="currentColor"
+        strokeWidth="1.17"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function Demo2SearchPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [keyword, setKeyword] = useState("Awards");
@@ -120,10 +143,7 @@ export default function Demo2SearchPage() {
     <main className="min-h-screen bg-[#f7f6f0] font-sans text-[#231f20]">
       <Demo2Header />
 
-      {/* ── Hero + Search Bar ── */}
-      {/* Figma: column gap:-70px padding:0 40px, image is in-flow at 575px, container overlaps 70px */}
       <section className="bg-[#f7f6f0]">
-        {/* Background image — in flow */}
         <div className="relative h-[240px] w-full md:h-[380px] lg:h-[575px]">
           <Image
             src="/demo2/search-hero.png"
@@ -135,28 +155,25 @@ export default function Demo2SearchPage() {
           />
         </div>
 
-        {/* Outer wrap with section-level side padding (Figma: 40px), reveals cream bg on sides */}
         <div className="relative z-10 -mt-[70px] px-4 md:px-8 lg:px-[40px]">
-          {/* White box with internal content padding (Figma: 40px 60px) */}
           <div className="bg-white px-4 py-10 md:px-8 lg:px-[60px] lg:py-[40px]">
-            <h1 className="font-petrona text-[36px] font-extralight leading-[1.12] tracking-[-0.047em] text-black md:text-[48px]">
+            <h1 className="font-petrona text-[36px] font-extralight leading-[1.128em] tracking-[-0.047em] text-black md:text-[48px]">
               Search Results
             </h1>
 
-            {/* Search input row — max-w 700px */}
-            <div className="mt-8 flex max-w-[700px] items-stretch gap-4">
+            <div className="mt-[32px] flex h-[48px] max-w-[700px] items-stretch gap-[16px]">
               <div className="flex flex-1 items-center border border-[#001625]">
                 <input
                   type="text"
                   value={keyword}
                   onChange={(e) => setKeyword(e.target.value)}
-                  className="h-12 w-full bg-transparent px-6 text-[14px] leading-5 text-[#231f20] outline-none placeholder:text-[#8e9590]"
+                  className="h-full w-full bg-transparent px-[24px] text-[14px] leading-[1.29em] text-[#231f20] outline-none placeholder:text-[#8e9590]"
                   placeholder="Enter keywords..."
                 />
               </div>
               <button
                 type="button"
-                className="border border-[#001625] px-6 py-3 text-[14px] font-medium leading-5 text-[#001625] transition hover:bg-[#001625] hover:text-white"
+                className="border border-[#001625] px-[24px] text-[14.3px] font-medium leading-[1.4em] text-[#001625] transition hover:bg-[#001625] hover:text-white"
               >
                 SEARCH
               </button>
@@ -165,39 +182,43 @@ export default function Demo2SearchPage() {
         </div>
       </section>
 
-      {/* ── Results + Sidebar ── */}
       <section className="bg-[#f7f6f0]">
-        <div className="mx-auto max-w-[1440px] px-4 py-10 md:px-8 lg:px-[60px] lg:py-[40px]">
-          <div className="flex flex-col gap-10 lg:flex-row lg:gap-10">
-            {/* Results column */}
-            <div className="flex flex-1 flex-col gap-10">
-              <p className="text-[14px] leading-[1.625] text-[#231f20]">
-                Results 1‑9 of 9 in 1.43 seconds
-              </p>
-
+        <div className="mx-auto w-full max-w-[1600px] px-4 py-10 md:px-8 lg:px-[100px] lg:py-[40px]">
+          <div className="flex flex-col gap-10 lg:flex-row lg:gap-[40px]">
+            <div className="flex flex-1 flex-col gap-[40px]">
               <div className="flex flex-col">
                 {searchResults.map((item, idx) => (
-                  <div key={`${item.title.slice(0, 20)}-${idx}`}>
-                    <div className="flex flex-col gap-2">
-                      <h2 className="font-petrona text-[20px] font-extralight leading-[1.4] text-[#141414]">
+                  <div key={`${item.title.slice(0, 30)}-${idx}`}>
+                    <button
+                      type="button"
+                      className="flex w-full flex-col gap-[8px] rounded-[2px] py-[10px] text-left transition-colors hover:bg-[#f0efea]"
+                    >
+                      <div className="flex items-center gap-[8px]">
+                        <span className="text-[13.1px] font-semibold uppercase leading-[1.22em] tracking-[0.021em] text-[#001625]">
+                          {item.date}
+                        </span>
+                        <span className="text-[13.1px] uppercase leading-[1.22em] tracking-[0.021em] text-[#001625]">
+                          /
+                        </span>
+                        <span className="text-[13.1px] uppercase leading-[1.22em] tracking-[0.021em] text-[#001625]">
+                          {item.category}
+                        </span>
+                      </div>
+                      <p className="font-petrona text-[20px] font-extralight leading-[1.4em] text-[#141414]">
                         {item.title}
-                      </h2>
-                      <p className="text-[14px] leading-[1.625] text-[#231f20]">
-                        {item.description}
                       </p>
-                    </div>
+                    </button>
                     {idx < searchResults.length - 1 && (
-                      <div className="my-5 h-px bg-[rgba(35,31,32,0.06)]" />
+                      <div className="my-[10px] h-px bg-[rgba(35,31,32,0.06)]" />
                     )}
                   </div>
                 ))}
               </div>
 
-              {/* Pagination */}
-              <div className="flex items-center justify-center gap-1 pt-2">
+              <div className="flex items-center justify-center gap-[4px]">
                 <button
                   type="button"
-                  className="flex h-10 w-10 items-center justify-center text-[#8e9590] transition hover:text-[#001625]"
+                  className="flex h-[40px] w-[40px] items-center justify-center text-[#8e9590] transition hover:text-[#001625]"
                   aria-label="Previous page"
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                 >
@@ -209,7 +230,7 @@ export default function Demo2SearchPage() {
                     <button
                       key={page}
                       type="button"
-                      className={`flex h-10 w-10 items-center justify-center text-[12px] uppercase tracking-[0.075em] transition ${
+                      className={`flex h-[40px] w-[40px] items-center justify-center text-[14px] uppercase leading-[1.5em] tracking-[0.064em] transition ${
                         page === currentPage
                           ? "border border-[#001625] text-[#001625]"
                           : "text-[#8e9590] hover:text-[#001625]"
@@ -218,62 +239,65 @@ export default function Demo2SearchPage() {
                     >
                       {page}
                     </button>
-                  )
+                  ),
                 )}
 
                 <button
                   type="button"
-                  className="flex h-10 w-10 items-center justify-center text-[#8e9590] transition hover:text-[#001625]"
+                  className="flex h-[40px] w-[40px] items-center justify-center text-[#8e9590] transition hover:text-[#001625]"
                   aria-label="Next page"
-                  onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                  onClick={() =>
+                    setCurrentPage((p) => Math.min(totalPages, p + 1))
+                  }
                 >
                   <ChevronRightIcon className="h-4 w-4" />
                 </button>
               </div>
             </div>
 
-            {/* Filter sidebar */}
-            <div className="w-full border border-[rgba(35,31,32,0.08)] px-8 py-6 lg:w-[360px] lg:shrink-0 lg:self-start">
-              <p className="text-[14px] uppercase leading-[1.57] tracking-[0.143em] text-[#a8996e]">
-                FILTER
-              </p>
+            <div className="w-full lg:w-[280px] lg:shrink-0">
+              <div className="border border-[rgba(35,31,32,0.08)] p-[24px]">
+                <p className="text-[12px] uppercase leading-[1.5em] tracking-[0.225em] text-[#a8996e]">
+                  FILTER
+                </p>
 
-              <div className="mt-6 flex flex-col gap-4">
-                {filterCategories.map((cat, idx) => (
-                  <div key={cat.name}>
-                    {idx > 0 && (
-                      <div className="mb-4 h-px bg-[rgba(35,31,32,0.06)]" />
-                    )}
-                    <button
-                      type="button"
-                      className="flex w-full items-center justify-between transition"
-                      onClick={() => setActiveFilter(cat.name)}
-                    >
-                      <span
-                        className={`text-[14px] leading-[1.29] transition ${
-                          activeFilter === cat.name
-                            ? "font-medium text-[#231f20]"
-                            : "text-[#231f20] hover:opacity-70"
-                        }`}
+                <div className="mt-[20px] flex flex-col gap-[16px]">
+                  {filterCategories.map((cat, idx) => (
+                    <div key={cat.name}>
+                      {idx > 0 && (
+                        <div className="mb-[16px] h-px bg-[rgba(35,31,32,0.06)]" />
+                      )}
+                      <button
+                        type="button"
+                        className="flex w-full items-center gap-[8px] transition"
+                        onClick={() => setActiveFilter(cat.name)}
                       >
-                        {cat.name}
-                      </span>
-                      <span className="text-[14px] leading-[1.29] text-[#a8996e]">
-                        {cat.count}
-                      </span>
-                    </button>
-                  </div>
-                ))}
+                        <span
+                          className={`flex-1 text-left text-[14px] leading-[1.29em] transition ${
+                            activeFilter === cat.name
+                              ? "font-medium text-[#231f20]"
+                              : "text-[#231f20] hover:opacity-70"
+                          }`}
+                        >
+                          {cat.name}
+                        </span>
+                        <span className="text-[14px] font-medium leading-[1.29em] text-[#8e9590]">
+                          {cat.count}
+                        </span>
+                        <FilterArrowIcon className="h-[14px] w-[14px] shrink-0 text-[rgba(35,31,32,0.2)]" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Footer ── */}
       <footer className="bg-[#001e1e] text-white">
-        <div className="mx-auto w-full max-w-[1440px] px-4 py-10 md:px-8 lg:px-[100px] lg:py-[40px]">
-          <div className="flex flex-col items-center justify-center gap-12 lg:flex-row lg:gap-[48px]">
+        <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center gap-[32px] px-4 py-10 md:px-8 lg:px-[100px] lg:py-[40px]">
+          <div className="flex w-full flex-col items-center gap-6 lg:flex-row lg:justify-center lg:gap-[48px]">
             <div className="relative h-[52px] w-[227px] shrink-0">
               <Image
                 src="/demo2/sjm-logo.png"
@@ -283,18 +307,18 @@ export default function Demo2SearchPage() {
                 className="object-contain"
               />
             </div>
-            <div className="hidden w-px self-stretch bg-white/10 lg:block" />
-            <div className="flex flex-wrap items-center justify-center gap-[48px]">
+            <div className="hidden h-[52px] w-px bg-white/10 lg:block" />
+            <div className="flex flex-1 flex-wrap items-center justify-center gap-6 lg:gap-[48px]">
               {brandLogos.map((brand) => (
                 <div
                   key={brand.alt}
-                  className="relative h-[112px] w-[80px]"
+                  className="relative h-[80px] w-[80px] flex-1 md:h-[113px]"
                 >
                   <Image
                     src={brand.src}
                     alt={brand.alt}
                     fill
-                    sizes="80px"
+                    sizes="(max-width: 768px) 80px, 120px"
                     className="object-contain"
                   />
                 </div>
@@ -302,11 +326,11 @@ export default function Demo2SearchPage() {
             </div>
           </div>
 
-          <div className="mt-8 border-t border-white/10 pt-8 text-center">
-            <p className="text-[12px] leading-[2] tracking-[0.02em] text-[#a78a5d]">
+          <div className="w-full border-t border-white/10 pt-[32px] text-center">
+            <p className="text-[12px] leading-[2em] tracking-[0.02em] text-[#a78a5d]">
               Privacy Statement &amp; Disclaimer
             </p>
-            <p className="text-[12px] leading-[2] tracking-[0.02em] text-white">
+            <p className="text-[12px] leading-[2em] tracking-[0.02em] text-white">
               Copyright 2026 &copy; SJM Holdings Limited. All rights reserved.
             </p>
           </div>
