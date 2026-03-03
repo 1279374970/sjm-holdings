@@ -435,7 +435,9 @@ export default function Demo1Page() {
               {statsItems.map((item, idx) => (
                 <div
                   key={item.label}
-                  className={`anim-fade-up flex flex-col items-center py-3 ${idx > 0 ? "border-l border-white/10" : ""}`}
+                  className={`anim-fade-up flex flex-col items-center border-white/10 py-3 ${
+                    idx % 2 !== 0 ? "border-l" : idx > 0 ? "sm:border-l" : ""
+                  } ${idx >= 2 ? "border-t sm:border-t-0" : ""}`}
                   style={{ animationDelay: `${0.5 + idx * 0.1}s` }}
                 >
                   <p className="font-petrona text-[20px] font-extralight text-[#a8996e] sm:text-[24px] sm:leading-[32px]">
