@@ -705,7 +705,7 @@ export default function Demo1Page() {
                   <div className="flex h-10 w-10 items-center justify-center border border-[rgba(168,153,110,0.05)] bg-[rgba(168,153,110,0.05)] text-[#a8996e]">
                     {EsgIcon && <EsgIcon className="h-4 w-4" />}
                   </div>
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-1 flex-col gap-3">
                     <h3 className="text-[16px] font-medium leading-[24px] tracking-[0.35px] text-white/80">
                       {card.title}
                     </h3>
