@@ -71,10 +71,10 @@ const investorAnnouncements = [
 ];
 
 const investorLinks = [
-  { label: "Financial Reports", icon: "doc" },
-  { label: "Environmental, Social and Governance Reports", icon: "leaf" },
-  { label: "Circulars, Proxy Forms, Letters & Documents on Display", icon: "folder" },
-  { label: "Stock Information", icon: "chart" },
+  { label: "Financial Reports", icon: "/demo1/icongroup/icon-reports.svg" },
+  { label: "Environmental, Social and Governance Reports", icon: "/demo1/icongroup/icon-esg.svg" },
+  { label: "Circulars, Proxy Forms, Letters & Documents on Display", icon: "/demo1/icongroup/icon-circulars.svg" },
+  { label: "Stock Information", icon: "/demo1/icongroup/icon-stock.svg" },
 ];
 
 const communityArticles = [
@@ -194,25 +194,6 @@ function LinkArrowIcon({ className = "" }) {
   );
 }
 
-function DocIcon({ className = "" }) {
-  return (
-    <svg
-      viewBox="0 0 16 16"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M4 2H9.5L12 4.5V14H4V2Z"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-      />
-      <path d="M6 7H10M6 9.5H10M6 12H8" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 function LeafIcon({ className = "" }) {
   return (
     <svg
@@ -233,39 +214,6 @@ function LeafIcon({ className = "" }) {
         strokeWidth="1.1"
         strokeLinecap="round"
       />
-    </svg>
-  );
-}
-
-function FolderIcon({ className = "" }) {
-  return (
-    <svg
-      viewBox="0 0 16 16"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M2 4.5V12.5H14V6H8L6.5 4.5H2Z"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ChartIcon({ className = "" }) {
-  return (
-    <svg
-      viewBox="0 0 16 16"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M3 13V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M7 13V4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M11 13V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -326,26 +274,6 @@ function FileIcon({ className = "" }) {
   );
 }
 
-function EmailIcon({ className = "" }) {
-  return (
-    <svg
-      viewBox="0 0 16 16"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <rect x="2" y="3.5" width="12" height="9" rx="1" stroke="currentColor" strokeWidth="1.2" />
-      <path d="M2 4.5L8 9L14 4.5" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-const sidebarIconMap = {
-  doc: DocIcon,
-  leaf: LeafIcon,
-  folder: FolderIcon,
-  chart: ChartIcon,
-};
 
 const esgIconMap = {
   leaf: LeafIcon,
@@ -537,24 +465,21 @@ export default function Demo1Page() {
             </div>
 
             <div className="flex w-full flex-col gap-4 lg:w-[380px] lg:shrink-0">
-              {investorLinks.map((link) => {
-                const IconComp = sidebarIconMap[link.icon];
-                return (
+              {investorLinks.map((link) => (
                   <button
                     type="button"
                     key={link.label}
                     className="flex items-center gap-4 border border-[rgba(0,155,121,0.2)] bg-[rgba(0,155,121,0.05)] px-[17px] py-[15px] text-left transition hover:border-[#009b79]/40 hover:bg-[rgba(0,155,121,0.1)]"
                   >
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center text-[#009b79]">
-                      {IconComp && <IconComp className="h-5 w-5" />}
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center">
+                      <img src={link.icon} alt="" width={20} height={20} draggable={false} />
                     </span>
                     <span className="flex-1 text-[15px] leading-[24px] text-[rgba(35,31,32,0.8)] sm:text-[16px]">
                       {link.label}
                     </span>
                     <ChevronRightIcon className="h-3.5 w-3.5 shrink-0 text-[rgba(35,31,32,0.4)]" />
                   </button>
-                );
-              })}
+              ))}
 
               <div className="flex flex-col gap-3 border border-[rgba(0,155,121,0.2)] bg-[rgba(0,155,121,0.05)] px-[25px] pb-[23px] pt-[21px]">
                 <p className="text-[14px] uppercase tracking-[2.7px] text-[#009b79]">
@@ -566,7 +491,7 @@ export default function Demo1Page() {
                 </p>
                 <div className="h-px bg-[rgba(35,31,32,0.06)]" />
                 <div className="flex items-center gap-6 pt-2">
-                  <EmailIcon className="h-5 w-5 shrink-0 text-[rgba(35,31,32,0.4)]" />
+                  <img src="/demo1/icongroup/icon-email.svg" alt="" width={20} height={20} className="shrink-0" draggable={false} />
                   <span className="text-[16px] leading-[24px] text-[rgba(35,31,32,0.8)]">
                     media@sjmholdings.com
                   </span>
