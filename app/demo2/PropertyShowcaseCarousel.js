@@ -220,6 +220,7 @@ export default function PropertyShowcaseCarousel() {
   }, [activeSlide, slideCount]);
 
   const activeDotIndex = ((activeSlide - 1 + slideCount) % slideCount) + 1;
+  const currentSlide = propertySlides[activeDotIndex - 1] || propertySlides[0];
 
   return (
     <section className="bg-white pb-12 md:pb-14 lg:pb-16">
@@ -236,6 +237,7 @@ export default function PropertyShowcaseCarousel() {
         onMouseLeave={() => setIsHovered(false)}
         onClickCapture={handleClickCapture}
       >
+        {/* Sliding images only */}
         <div
           className="flex h-full"
           style={{
@@ -248,56 +250,69 @@ export default function PropertyShowcaseCarousel() {
           onTransitionEnd={handleTransitionEnd}
         >
           {extendedSlides.map((slide, index) => (
-            <div key={`${slide.src}-${index}`} className="group relative h-full w-full shrink-0">
+            <div key={`${slide.src}-${index}`} className="relative h-full w-full shrink-0">
               <Image
                 src={slide.src}
                 alt={slide.alt}
                 fill
                 sizes="100vw"
                 draggable={false}
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                className="object-cover"
                 priority={index === 1}
               />
-              <div
-                className="absolute inset-0 flex items-end text-white"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.2) 64%, rgba(0, 0, 0, 0.4) 76%, rgba(0, 0, 0, 0.7) 88%, rgb(0, 0, 0) 100%)",
-                }}
-              >
-                <div className="w-full border-t border-white/70">
-                  <div className="mx-auto flex w-full max-w-[1600px] items-end justify-between gap-4 px-4 py-5 md:px-8 md:py-7 lg:px-[60px] lg:py-[40px] xl:px-[100px]">
-                    <div className="flex w-full max-w-[790px] flex-col gap-[20px]">
-                      <p className="font-petrona text-[24px] font-extralight leading-[1.1875em] md:text-[32px] md:leading-[1.1875em]">
-                        {slide.label}
-                      </p>
-                      <div className="flex items-center gap-[8px]">
-                        {propertySlides.map((dotSlide, dotIndex) => (
-                          <span
-                            key={`${dotSlide.src}-${dotIndex}`}
-                            className={`h-[5px] rounded-[2px] transition-all duration-300 ${
-                              activeDotIndex === dotIndex + 1
-                                ? "w-[50px] bg-white"
-                                : "w-[16px] bg-white/50"
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <a
-                      href={slide.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onPointerDown={(e) => e.stopPropagation()}
-                      className="hidden shrink-0 border border-white px-[16px] py-[12px] text-[14.6px] font-medium leading-[1.37em] text-white transition hover:bg-white hover:text-[#001625] md:flex"
-                    >
-                      Learn More
-                    </a>
-                  </div>
-                </div>
-              </div>
             </div>
           ))}
+        </div>
+
+        {/* Fixed overlay — does not slide */}
+        <div
+          className="pointer-events-none absolute inset-0 flex items-end text-white"
+          style={{
+            backgroundImage:
+              "linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.2) 64%, rgba(0, 0, 0, 0.4) 76%, rgba(0, 0, 0, 0.7) 88%, rgb(0, 0, 0) 100%)",
+          }}
+        >
+          <div className="pointer-events-auto w-full border-t border-white/70">
+            <div className="mx-auto flex w-full max-w-[1600px] items-end justify-between gap-4 px-4 py-5 md:px-8 md:py-7 lg:px-[60px] lg:py-[40px] xl:px-[100px]">
+              <div className="flex w-full max-w-[790px] flex-col gap-[20px]">
+                <div className="relative h-[30px] overflow-hidden md:h-[38px]">
+                  {propertySlides.map((slide, idx) => (
+                    <p
+                      key={slide.label}
+                      className="absolute inset-0 font-petrona text-[24px] font-extralight leading-[1.1875em] md:text-[32px] md:leading-[1.1875em]"
+                      style={{
+                        opacity: activeDotIndex === idx + 1 ? 1 : 0,
+                        transition: "opacity 400ms ease",
+                      }}
+                    >
+                      {slide.label}
+                    </p>
+                  ))}
+                </div>
+                <div className="flex items-center gap-[8px]">
+                  {propertySlides.map((dotSlide, dotIndex) => (
+                    <span
+                      key={`${dotSlide.src}-${dotIndex}`}
+                      className={`h-[5px] rounded-[2px] transition-all duration-300 ${
+                        activeDotIndex === dotIndex + 1
+                          ? "w-[50px] bg-white"
+                          : "w-[16px] bg-white/50"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+              <a
+                href={currentSlide.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onPointerDown={(e) => e.stopPropagation()}
+                className="hidden shrink-0 border border-white px-[16px] py-[12px] text-[14.6px] font-medium leading-[1.37em] text-white transition hover:bg-white hover:text-[#001625] md:flex"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
