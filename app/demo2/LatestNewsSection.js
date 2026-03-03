@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -99,25 +99,44 @@ function ArrowIcon({ className = "" }) {
   );
 }
 
-const ITEMS_PER_PAGE = 5;
-
 export default function LatestNewsSection() {
-  const [page, setPage] = useState(0);
-  const totalPages = Math.ceil(newsItems.length / ITEMS_PER_PAGE);
-  const trackRef = useRef(null);
-  const [trackHeight, setTrackHeight] = useState(0);
+  const leftRef = useRef(null);
+  const scrollRef = useRef(null);
+  const [syncHeight, setSyncHeight] = useState(0);
+  const [canScrollUp, setCanScrollUp] = useState(false);
+  const [canScrollDown, setCanScrollDown] = useState(true);
 
   useEffect(() => {
-    if (!trackRef.current) return;
-    const firstPage = trackRef.current.children[0];
-    if (firstPage) {
-      const ro = new ResizeObserver(([entry]) => {
-        setTrackHeight(entry.contentRect.height);
-      });
-      ro.observe(firstPage);
-      return () => ro.disconnect();
-    }
+    if (!leftRef.current) return;
+    const ro = new ResizeObserver(([entry]) => {
+      setSyncHeight(entry.contentRect.height);
+    });
+    ro.observe(leftRef.current);
+    return () => ro.disconnect();
   }, []);
+
+  const updateScrollState = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollUp(el.scrollTop > 1);
+    setCanScrollDown(el.scrollTop + el.clientHeight < el.scrollHeight - 1);
+  }, []);
+
+  useEffect(() => {
+    updateScrollState();
+  }, [syncHeight, updateScrollState]);
+
+  const scrollPage = useCallback(
+    (direction) => {
+      const el = scrollRef.current;
+      if (!el) return;
+      el.scrollBy({
+        top: direction * el.clientHeight,
+        behavior: "smooth",
+      });
+    },
+    [],
+  );
 
   return (
     <>
@@ -126,7 +145,7 @@ export default function LatestNewsSection() {
       </h2>
 
       <div className="grid gap-5 lg:grid-cols-[1fr_1fr] lg:gap-[32px]">
-        <article className="min-h-[420px] lg:min-h-[580px]">
+        <article ref={leftRef} className="aspect-20/17">
           <Link
             href={featuredNews.href}
             className="group relative block h-full overflow-hidden"
@@ -150,58 +169,38 @@ export default function LatestNewsSection() {
         </article>
 
         <div
-          className="overflow-hidden"
-          style={{ height: trackHeight || "auto" }}
+          ref={scrollRef}
+          className="flex flex-col gap-[12px] overflow-y-auto scrollbar-hide"
+          style={syncHeight ? { height: syncHeight } : { height: 420 }}
+          onScroll={updateScrollState}
         >
-          <div
-            ref={trackRef}
-            style={{
-              transform: `translateY(-${page * trackHeight}px)`,
-              transition: "transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-            }}
-          >
-            {Array.from({ length: totalPages }, (_, pageIdx) => {
-              const pageItems = newsItems.slice(
-                pageIdx * ITEMS_PER_PAGE,
-                (pageIdx + 1) * ITEMS_PER_PAGE,
-              );
-              return (
-                <div
-                  key={pageIdx}
-                  className="flex flex-col gap-[12px]"
-                  style={{ height: trackHeight || "auto" }}
-                >
-                  {pageItems.map((item) => (
-                    <Link
-                      key={item.id}
-                      href="/announcements/1"
-                      className="group flex flex-col gap-[16px] rounded-[2px] bg-white p-[20px] transition-colors duration-200 hover:bg-[#f0efea]"
-                    >
-                      <p className="text-[13px] font-semibold uppercase leading-[1.22em] tracking-[0.02em] text-[#001625]">
-                        {item.date}
-                      </p>
-                      <div className="flex items-end gap-[24px]">
-                        <p className="flex-1 font-petrona text-[20px] font-extralight leading-[1.4em] text-[#141414]">
-                          {item.title}
-                        </p>
-                        <div className="flex h-[48px] w-[48px] shrink-0 items-center justify-center bg-[#004433] text-white transition-colors duration-200 group-hover:bg-[#005840]">
-                          <ArrowIcon className="h-3 w-3" />
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
+          {newsItems.map((item) => (
+            <Link
+              key={item.id}
+              href="/announcements/1"
+              className="group flex shrink-0 flex-col gap-[16px] rounded-[2px] bg-white p-[20px] transition-colors duration-200 hover:bg-[#f0efea]"
+            >
+              <p className="text-[13px] font-semibold uppercase leading-[1.22em] tracking-[0.02em] text-[#001625]">
+                {item.date}
+              </p>
+              <div className="flex items-end gap-[24px]">
+                <p className="flex-1 font-petrona text-[20px] font-extralight leading-[1.4em] text-[#141414]">
+                  {item.title}
+                </p>
+                <div className="flex h-[48px] w-[48px] shrink-0 items-center justify-center bg-[#004433] text-white transition-colors duration-200 group-hover:bg-[#005840]">
+                  <ArrowIcon className="h-3 w-3" />
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
 
       <div className="flex items-center justify-end gap-[16px]">
         <button
           type="button"
-          onClick={() => setPage((p) => Math.max(0, p - 1))}
-          disabled={page === 0}
+          onClick={() => scrollPage(-1)}
+          disabled={!canScrollUp}
           className="flex h-[46px] w-[46px] items-center justify-center border border-[#001625] text-[#001625] transition hover:bg-[#001625] hover:text-white disabled:cursor-not-allowed disabled:border-[#cccac4] disabled:text-[#7b7770] disabled:hover:bg-transparent disabled:hover:text-[#7b7770]"
           aria-label="Previous page"
         >
@@ -209,9 +208,9 @@ export default function LatestNewsSection() {
         </button>
         <button
           type="button"
-          onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-          disabled={page === totalPages - 1}
-          className="flex h-[46px] w-[46px] items-center justify-center border border-[#001625] text-[#001625] transition hover:bg-[#001625] hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+          onClick={() => scrollPage(1)}
+          disabled={!canScrollDown}
+          className="flex h-[46px] w-[46px] items-center justify-center border border-[#001625] text-[#001625] transition hover:bg-[#001625] hover:text-white disabled:cursor-not-allowed disabled:border-[#cccac4] disabled:text-[#7b7770] disabled:hover:bg-transparent disabled:hover:text-[#7b7770]"
           aria-label="Next page"
         >
           <ChevronDownIcon className="h-[6px] w-[10px]" />
