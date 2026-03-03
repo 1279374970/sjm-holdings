@@ -94,30 +94,35 @@ export default function PropertyShowcaseCarousel() {
   }, []);
 
   useEffect(() => {
-    if (slideCount <= 1 || isDragging || isHovered) {
+    if (slideCount <= 1 || isDragging || isHovered || !isTransitionEnabled) {
       return undefined;
     }
 
-    const timer = window.setInterval(() => {
+    const timer = window.setTimeout(() => {
       goToNext();
     }, AUTO_PLAY_DELAY);
 
     return () => {
-      window.clearInterval(timer);
+      window.clearTimeout(timer);
     };
-  }, [goToNext, isDragging, isHovered, slideCount]);
+  }, [activeSlide, goToNext, isDragging, isHovered, isTransitionEnabled, slideCount]);
 
   useEffect(() => {
     if (isTransitionEnabled) {
       return undefined;
     }
 
-    const frame = window.requestAnimationFrame(() => {
-      setIsTransitionEnabled(true);
+    let outer;
+    let inner;
+    outer = window.requestAnimationFrame(() => {
+      inner = window.requestAnimationFrame(() => {
+        setIsTransitionEnabled(true);
+      });
     });
 
     return () => {
-      window.cancelAnimationFrame(frame);
+      window.cancelAnimationFrame(outer);
+      if (inner) window.cancelAnimationFrame(inner);
     };
   }, [isTransitionEnabled]);
 

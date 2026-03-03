@@ -188,11 +188,11 @@ export default function Demo2Page() {
             </aside>
           </div>
 
-          <div className="flex flex-col gap-3 bg-[var(--demo-cream)] px-[24px] py-[12px] md:flex-row md:items-center md:gap-[24px]">
-            <p className="text-[14px] font-semibold uppercase leading-[1.5em] text-[var(--demo-gold)]">
+          <div className="flex flex-col gap-3 bg-[var(--demo-cream)] px-5 py-3 md:flex-row md:items-center md:gap-[24px] md:px-[32px] md:py-[20px]">
+            <p className="text-[14px] font-semibold uppercase text-[var(--demo-gold)] md:text-[16px] md:leading-normal">
               Important Warnings / Clarifications
             </p>
-            <p className="text-[14px] leading-[1.5em] text-[#3f4644]">
+            <p className="text-[14px] text-[#3f4644] md:text-[16px] md:leading-normal">
               Fraudulent Competitions, Prizes and Lucky Draws NOT authorised by
               SJM
             </p>
