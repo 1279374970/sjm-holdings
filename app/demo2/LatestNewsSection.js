@@ -202,7 +202,7 @@ export default function LatestNewsSection() {
           type="button"
           onClick={() => setPage((p) => Math.max(0, p - 1))}
           disabled={page === 0}
-          className="flex h-[46px] w-[46px] items-center justify-center border border-[#cccac4] text-[#7b7770] transition hover:border-[#9f9a91] hover:text-[#4f4c46] disabled:cursor-not-allowed disabled:opacity-40"
+          className="flex h-[46px] w-[46px] items-center justify-center border border-[#001625] text-[#001625] transition hover:bg-[#001625] hover:text-white disabled:cursor-not-allowed disabled:border-[#cccac4] disabled:text-[#7b7770] disabled:hover:bg-transparent disabled:hover:text-[#7b7770]"
           aria-label="Previous page"
         >
           <ChevronDownIcon className="h-[6px] w-[10px] rotate-180" />

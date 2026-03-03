@@ -192,7 +192,7 @@ export default function CsrEventsPaginated() {
           type="button"
           onClick={goPrev}
           disabled={page === 0}
-          className="flex h-[46px] w-[46px] items-center justify-center border border-white/50 text-white/70 transition hover:border-white hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+          className="flex h-[46px] w-[46px] items-center justify-center border border-white text-white transition hover:bg-white hover:text-[#001625] disabled:cursor-not-allowed disabled:border-white/50 disabled:text-white/70 disabled:hover:bg-transparent disabled:hover:text-white/70"
           aria-label="Previous CSR event"
         >
           <ArrowRightIcon className="h-[10px] w-[6px] rotate-180" />
