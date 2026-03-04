@@ -189,10 +189,7 @@ export default function Demo2SearchPage() {
               <div className="flex flex-col">
                 {searchResults.map((item, idx) => (
                   <div key={`${item.title.slice(0, 30)}-${idx}`}>
-                    <a
-                      href="/announcements/2"
-                      className="flex w-full flex-col gap-[8px] rounded-[2px] py-[10px] text-left transition-colors hover:bg-[#f0efea]"
-                    >
+                    <div className="flex w-full flex-col gap-[8px] rounded-[2px] py-[10px]">
                       <div className="flex items-center gap-[8px]">
                         <span className="text-[13.1px] font-semibold uppercase leading-[1.22em] tracking-[0.021em] text-[#001625]">
                           {item.date}
@@ -207,7 +204,7 @@ export default function Demo2SearchPage() {
                       <p className="font-petrona text-[20px] font-extralight leading-[1.4em] text-[#141414]">
                         {item.title}
                       </p>
-                    </a>
+                    </div>
                     {idx < searchResults.length - 1 && (
                       <div className="my-[10px] h-px bg-[rgba(35,31,32,0.06)]" />
                     )}

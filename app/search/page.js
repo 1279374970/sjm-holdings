@@ -102,10 +102,7 @@ export default function SearchPage() {
                 <div className="flex flex-col gap-5">
                   {searchResults.map((item, idx) => (
                     <div key={`${item.title.slice(0, 40)}-${idx}`}>
-                      <a
-                        href="/announcements/2"
-                        className="group flex flex-col gap-0.5 rounded-sm transition-colors hover:bg-[rgba(0,0,0,0.02)]"
-                      >
+                      <div className="flex flex-col gap-0.5 rounded-sm">
                         <p className="flex flex-wrap items-center gap-2 text-[13px] leading-[22.8px] text-[#8e9590] sm:text-[14px]">
                           <span>{item.date}</span>
                           <span>/</span>
@@ -114,7 +111,7 @@ export default function SearchPage() {
                         <p className="text-[15px] leading-[24px] text-[#141414] sm:text-[16px]">
                           {item.title}
                         </p>
-                      </a>
+                      </div>
                       {idx < searchResults.length - 1 && (
                         <div className="mt-5 h-px bg-[rgba(35,31,32,0.06)]" />
                       )}
