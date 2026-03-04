@@ -11,24 +11,25 @@ const IMAGES = {
 };
 
 const announcements = [
-  { date: "24 Feb 2026", category: "Entertainment", title: "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/01/2026" },
-  { date: "24 Feb 2026", category: "Awards", title: "Settlement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
-  { date: "24 Feb 2026", category: "Events", title: "Publication of Offering Memorandum - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031" },
-  { date: "24 Feb 2026", category: "Corporate", title: "Notice of Listing on The Stock Exchange of Hong Kong Limited - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031" },
-  { date: "24 Feb 2026", category: "Entertainment", title: "Closing of the Issuance of USD540,000,000 6.500% Senior Notes Due 2031" },
-  { date: "24 Feb 2026", category: "Events", title: "Results of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
-  { date: "24 Feb 2026", category: "Entertainment", title: "Issuance of USD540,000,000 6.500% Senior Notes Due 2031 and Disclosure Pursuant to Rule 13.18 of the Listing Rules & Exempted Connected Transaction in relation to the Partial Subscription of the Notes by a Connected Person" },
-  { date: "24 Feb 2026", category: "Corporate", title: "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/12/2025" },
-  { date: "24 Feb 2026", category: "Events", title: "Commencement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
-  { date: "24 Feb 2026", category: "Events", title: "Inside Information Proposed Issuance of U.S. Dollar Denominated Senior Notes" },
+  { date: "24 Feb 2026", category: "Financial Reports & Returns", title: "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/01/2026" },
+  { date: "24 Feb 2026", category: "Investor Communications", title: "Settlement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
+  { date: "24 Feb 2026", category: "Investor Communications", title: "Publication of Offering Memorandum - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031" },
+  { date: "24 Feb 2026", category: "Regulatory Notices", title: "Notice of Listing on The Stock Exchange of Hong Kong Limited - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031" },
+  { date: "24 Feb 2026", category: "Investor Communications", title: "Closing of the Issuance of USD540,000,000 6.500% Senior Notes Due 2031" },
+  { date: "24 Feb 2026", category: "Investor Communications", title: "Results of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
+  { date: "24 Feb 2026", category: "Regulatory Notices", title: "Issuance of USD540,000,000 6.500% Senior Notes Due 2031 and Disclosure Pursuant to Rule 13.18 of the Listing Rules & Exempted Connected Transaction in relation to the Partial Subscription of the Notes by a Connected Person" },
+  { date: "24 Feb 2026", category: "Financial Reports & Returns", title: "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/12/2025" },
+  { date: "24 Feb 2026", category: "Investor Communications", title: "Commencement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
+  { date: "24 Feb 2026", category: "Regulatory Notices", title: "Inside Information Proposed Issuance of U.S. Dollar Denominated Senior Notes" },
 ];
 
 const articleCategories = [
   { name: "All", count: 59 },
-  { name: "Awards", count: 24 },
-  { name: "Events", count: 16 },
-  { name: "Entertainment", count: 19 },
-  { name: "Corporate", count: 27 },
+  { name: "Corporate Announcements", count: 12 },
+  { name: "Financial Reports & Returns", count: 15 },
+  { name: "Regulatory Notices", count: 11 },
+  { name: "Operational Updates", count: 8 },
+  { name: "Investor Communications", count: 13 },
 ];
 
 const publishedYears = [
