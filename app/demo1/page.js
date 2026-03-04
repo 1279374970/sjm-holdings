@@ -447,7 +447,7 @@ export default function Demo1Page() {
                   <Link
                     key={item.id}
                     href={`/announcements/${item.id}`}
-                    className="flex items-center gap-4 border-b border-[rgba(35,31,32,0.08)] pb-[21px] pt-[20px] transition-colors duration-200 hover:bg-[rgba(0,0,0,0.02)] sm:gap-6"
+                    className="flex items-center gap-4 border-b border-[rgba(35,31,32,0.08)] pb-[21px] pt-[20px] sm:gap-6"
                   >
                     <p className="w-[80px] shrink-0 text-right text-[13px] leading-[22.8px] text-[#8e9590] sm:w-[100px] sm:text-[14px]">
                       {item.date}
@@ -523,7 +523,7 @@ export default function Demo1Page() {
                   <Link
                     key={item.id}
                     href={`/press-releases/${item.id}`}
-                    className="flex items-center gap-4 border-b border-white/8 pb-[21px] pt-[20px] transition-colors duration-200 hover:bg-white/5 sm:gap-6"
+                    className="flex items-center gap-4 border-b border-white/8 pb-[21px] pt-[20px] sm:gap-6"
                   >
                     <p className="w-[80px] shrink-0 text-right text-[13px] leading-[22.8px] text-[#8e9590] sm:w-[100px] sm:text-[14px]">
                       {item.date}
@@ -578,7 +578,7 @@ export default function Demo1Page() {
               <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
                 <Link
                   href={`/csr-events/${communityArticles[0].id}`}
-                  className="group w-full border-b border-[rgba(35,31,32,0.08)] pb-5 transition-colors duration-200 hover:bg-[rgba(0,0,0,0.02)] lg:w-[540px] lg:shrink-0"
+                  className="group w-full border-b border-[rgba(35,31,32,0.08)] pb-5 lg:w-[540px] lg:shrink-0"
                 >
                   <div className="relative mb-3 h-[200px] w-full overflow-hidden sm:h-[260px] lg:h-[317px]">
                     <Image
@@ -586,7 +586,7 @@ export default function Demo1Page() {
                       alt={communityArticles[0].title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 540px"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      className="object-cover"
                     />
                   </div>
                   <div className="flex flex-col gap-0.5">
@@ -604,7 +604,7 @@ export default function Demo1Page() {
                     <div key={item.id}>
                       <Link
                         href={`/csr-events/${item.id}`}
-                        className="flex flex-col gap-0.5 py-5 transition-colors duration-200 hover:bg-[rgba(0,0,0,0.02)]"
+                        className="flex flex-col gap-0.5 py-5"
                       >
                         <p className="text-[14px] leading-[22.8px] text-[#8e9590]">
                           {item.date}
