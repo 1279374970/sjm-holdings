@@ -613,9 +613,7 @@ export default function Demo1Page() {
                           {item.title}
                         </p>
                       </Link>
-                      {idx < communityArticles.length - 2 && (
-                        <div className="h-px bg-[rgba(35,31,32,0.06)]" />
-                      )}
+                      <div className="h-px bg-[rgba(35,31,32,0.06)]" />
                     </div>
                   ))}
                 </div>
