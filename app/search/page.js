@@ -165,17 +165,18 @@ export default function SearchPage() {
                     <p className="text-[14px] uppercase tracking-[2.7px] text-[#a8996e]">
                       keyword SEARCH
                     </p>
-                    <div className="flex items-center border border-[rgba(35,31,32,0.1)]">
+                    <div className="flex h-[44px] items-stretch overflow-hidden border border-[rgba(35,31,32,0.1)]">
                       <input
                         type="text"
                         value={keyword}
                         onChange={(e) => setKeyword(e.target.value)}
-                        className="h-[44px] flex-1 bg-transparent px-4 text-[14px] leading-[18px] text-[#231f20] outline-none placeholder:text-[#8e9590]"
+                        className="min-w-0 flex-1 bg-transparent px-4 text-[14px] text-[#231f20] outline-none placeholder:text-[#8e9590]"
                         placeholder="Enter keywords..."
                       />
                       <button
                         type="button"
-                        className="flex h-[44px] shrink-0 items-center justify-center border-l border-[rgba(35,31,32,0.1)] px-4 text-[12px] font-medium uppercase text-[#a8996e] transition hover:bg-[rgba(168,153,110,0.05)]"
+                        style={{ WebkitAppearance: "none", appearance: "none" }}
+                        className="shrink-0 border-l border-[rgba(35,31,32,0.1)] px-4 text-[12px] font-medium uppercase text-[#a8996e] transition hover:bg-[rgba(168,153,110,0.05)]"
                       >
                         SEARCH
                       </button>
