@@ -11,16 +11,19 @@ const IMAGES = {
 };
 
 const pressReleases = [
-  { date: "24 Feb 2026", title: "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/01/2026" },
-  { date: "24 Feb 2026", title: "Settlement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
-  { date: "24 Feb 2026", title: "Publication of Offering Memorandum - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031" },
-  { date: "24 Feb 2026", title: "Notice of Listing on The Stock Exchange of Hong Kong Limited - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031" },
-  { date: "24 Feb 2026", title: "Closing of the Issuance of USD540,000,000 6.500% Senior Notes Due 2031" },
-  { date: "24 Feb 2026", title: "Results of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
-  { date: "24 Feb 2026", title: "Issuance of USD540,000,000 6.500% Senior Notes Due 2031 and Disclosure Pursuant to Rule 13.18 of the Listing Rules & Exempted Connected Transaction in relation to the Partial Subscription of the Notes by a Connected Person" },
-  { date: "24 Feb 2026", title: "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/12/2025" },
-  { date: "24 Feb 2026", title: "Commencement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
-  { date: "24 Feb 2026", title: "Inside Information Proposed Issuance of U.S. Dollar Denominated Senior Notes" },
+  { date: "03 Mar 2026", title: "SJM Enhances Parental Benefits" },
+  { date: "24 Feb 2026", title: "SJM Rings in the Chinese New Year with Auspicious Lion Dance Parades" },
+  { date: "22 Feb 2026", title: "SJM Leads Asian Wine Scene with Seven Awards at Star Wine List 2026" },
+  { date: "11 Feb 2026", title: "SJM\u2019s Grand Lisboa Palace Resort Macau Becomes the Only Integrated Resort in the World with All Hotels Forbes Travel Guide Five-Star Rated" },
+  { date: "04 Feb 2026", title: "SJM Presents Macau Debut of World-Renowned Magician and Mentalist Drummond Money-Coutts" },
+  { date: "30 Jan 2026", title: "SJM Shines with Four Prestigious Accolades on Harper\u2019s BAZAAR HK\u2019s Annual Lists" },
+  { date: "22 Jan 2026", title: "SJM Shines with Top Honours at China\u2019s Hotel and Restaurant Awards" },
+  { date: "04 Jan 2026", title: "SJM Resorts Presents \u201cTV Awards Presentation 2025\u201d at Grand Lisboa Palace for the Third Consecutive Year" },
+  { date: "30 Dec 2025", title: "SJM Celebrates a New Chapter for L\u2019Arc Hotel" },
+  { date: "26 Dec 2025", title: "SJM Restaurants and Bar Recognised in \u201cT+L Tastemakers 2025/26\u201d" },
+  { date: "26 Dec 2025", title: "SJM Resorts Confirms Completion of L\u2019Arc Acquisition and Receives Government Approval for Direct Operations of Casino L\u2019Arc Macau by SJM Resorts" },
+  { date: "23 Dec 2025", title: "SJM Hosts Global Tourism Economy Forum 2025 as Sub-Venue" },
+  { date: "18 Dec 2025", title: "SJM Tops Golden Phoenix Tree China Restaurant Guide Again with Five Starred Restaurants in Macau" },
 ];
 
 const articleCategories = [
