@@ -7,7 +7,7 @@ import Header from "../demo1/Header";
 
 const IMAGES = {
   logo: "/demo1/sjm-logo.png",
-  hero: "/demo1/announcements-hero.png",
+  hero: "/announcements-hero.png",
 };
 
 const announcements = [
