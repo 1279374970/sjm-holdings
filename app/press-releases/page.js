@@ -21,9 +21,6 @@ const pressReleases = [
   { date: "04 Jan 2026", category: "Entertainment", title: "SJM Resorts Presents \u201cTV Awards Presentation 2025\u201d at Grand Lisboa Palace for the Third Consecutive Year" },
   { date: "30 Dec 2025", category: "Corporate", title: "SJM Celebrates a New Chapter for L\u2019Arc Hotel" },
   { date: "26 Dec 2025", category: "Awards", title: "SJM Restaurants and Bar Recognised in \u201cT+L Tastemakers 2025/26\u201d" },
-  { date: "26 Dec 2025", category: "Corporate", title: "SJM Resorts Confirms Completion of L\u2019Arc Acquisition and Receives Government Approval for Direct Operations of Casino L\u2019Arc Macau by SJM Resorts" },
-  { date: "23 Dec 2025", category: "Events", title: "SJM Hosts Global Tourism Economy Forum 2025 as Sub-Venue" },
-  { date: "18 Dec 2025", category: "Awards", title: "SJM Tops Golden Phoenix Tree China Restaurant Guide Again with Five Starred Restaurants in Macau" },
 ];
 
 const articleCategories = [
