@@ -241,7 +241,7 @@ export default function CsrEventDetailPage() {
       </section>
 
       <section className="bg-[#f7f6f0]">
-        <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center gap-[40px] px-4 py-10 md:px-8 lg:px-[40px] lg:py-[40px]">
+        <div className="mx-auto flex w-full max-w-[1600px] flex-col items-center gap-[40px] px-4 py-10 md:px-8 lg:px-[60px] lg:py-[40px] xl:px-[100px]">
           <div className="grid w-full grid-cols-1 gap-[16px] sm:grid-cols-3">
             {galleryImages.map((img) => (
               <div
@@ -261,17 +261,10 @@ export default function CsrEventDetailPage() {
 
           <div className="w-full max-w-[960px]">
             {articleParagraphs.map((block, idx) =>
-              block.type === "heading" ? (
-                <h2
-                  key={idx}
-                  className="mb-3 mt-8 font-petrona text-[20px] font-extralight leading-[1.4em] text-[#141414] first:mt-0"
-                >
-                  {block.text}
-                </h2>
-              ) : (
+              (
                 <p
                   key={idx}
-                  className="mb-4 text-[16px] leading-[1.5em] text-[#231f20]"
+                  className="mb-4 text-[14px] leading-[1.57] text-[#231f20]"
                 >
                   {block.text}
                 </p>
