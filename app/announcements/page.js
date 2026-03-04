@@ -11,16 +11,16 @@ const IMAGES = {
 };
 
 const announcements = [
-  { date: "24 Feb 2026", title: "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/01/2026" },
-  { date: "24 Feb 2026", title: "Settlement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
-  { date: "24 Feb 2026", title: "Publication of Offering Memorandum - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031" },
-  { date: "24 Feb 2026", title: "Notice of Listing on The Stock Exchange of Hong Kong Limited - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031" },
-  { date: "24 Feb 2026", title: "Closing of the Issuance of USD540,000,000 6.500% Senior Notes Due 2031" },
-  { date: "24 Feb 2026", title: "Results of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
-  { date: "24 Feb 2026", title: "Issuance of USD540,000,000 6.500% Senior Notes Due 2031 and Disclosure Pursuant to Rule 13.18 of the Listing Rules & Exempted Connected Transaction in relation to the Partial Subscription of the Notes by a Connected Person" },
-  { date: "24 Feb 2026", title: "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/12/2025" },
-  { date: "24 Feb 2026", title: "Commencement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
-  { date: "24 Feb 2026", title: "Inside Information Proposed Issuance of U.S. Dollar Denominated Senior Notes" },
+  { date: "24 Feb 2026", category: "Entertainment", title: "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/01/2026" },
+  { date: "24 Feb 2026", category: "Awards", title: "Settlement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
+  { date: "24 Feb 2026", category: "Events", title: "Publication of Offering Memorandum - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031" },
+  { date: "24 Feb 2026", category: "Corporate", title: "Notice of Listing on The Stock Exchange of Hong Kong Limited - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031" },
+  { date: "24 Feb 2026", category: "Entertainment", title: "Closing of the Issuance of USD540,000,000 6.500% Senior Notes Due 2031" },
+  { date: "24 Feb 2026", category: "Events", title: "Results of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
+  { date: "24 Feb 2026", category: "Entertainment", title: "Issuance of USD540,000,000 6.500% Senior Notes Due 2031 and Disclosure Pursuant to Rule 13.18 of the Listing Rules & Exempted Connected Transaction in relation to the Partial Subscription of the Notes by a Connected Person" },
+  { date: "24 Feb 2026", category: "Corporate", title: "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/12/2025" },
+  { date: "24 Feb 2026", category: "Events", title: "Commencement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026" },
+  { date: "24 Feb 2026", category: "Events", title: "Inside Information Proposed Issuance of U.S. Dollar Denominated Senior Notes" },
 ];
 
 const articleCategories = [
@@ -158,9 +158,11 @@ export default function AnnouncementsPage() {
                         href={`/announcements/${idx + 1}`}
                         className="group flex flex-col gap-0.5 rounded-sm transition hover:opacity-80"
                       >
-                        <p className="text-[14px] leading-[22.8px] text-[#8e9590]">
-                          {item.date}
-                        </p>
+                        <div className="flex items-center gap-[8px] text-[14px] leading-[22.8px] text-[#8e9590]">
+                          <span>{item.date}</span>
+                          <span>/</span>
+                          <span>{item.category}</span>
+                        </div>
                         <p className="text-[16px] leading-[24px] text-[#141414]">
                           {item.title}
                         </p>

@@ -11,19 +11,19 @@ const IMAGES = {
 };
 
 const pressReleases = [
-  { date: "03 Mar 2026", title: "SJM Enhances Parental Benefits" },
-  { date: "24 Feb 2026", title: "SJM Rings in the Chinese New Year with Auspicious Lion Dance Parades" },
-  { date: "22 Feb 2026", title: "SJM Leads Asian Wine Scene with Seven Awards at Star Wine List 2026" },
-  { date: "11 Feb 2026", title: "SJM\u2019s Grand Lisboa Palace Resort Macau Becomes the Only Integrated Resort in the World with All Hotels Forbes Travel Guide Five-Star Rated" },
-  { date: "04 Feb 2026", title: "SJM Presents Macau Debut of World-Renowned Magician and Mentalist Drummond Money-Coutts" },
-  { date: "30 Jan 2026", title: "SJM Shines with Four Prestigious Accolades on Harper\u2019s BAZAAR HK\u2019s Annual Lists" },
-  { date: "22 Jan 2026", title: "SJM Shines with Top Honours at China\u2019s Hotel and Restaurant Awards" },
-  { date: "04 Jan 2026", title: "SJM Resorts Presents \u201cTV Awards Presentation 2025\u201d at Grand Lisboa Palace for the Third Consecutive Year" },
-  { date: "30 Dec 2025", title: "SJM Celebrates a New Chapter for L\u2019Arc Hotel" },
-  { date: "26 Dec 2025", title: "SJM Restaurants and Bar Recognised in \u201cT+L Tastemakers 2025/26\u201d" },
-  { date: "26 Dec 2025", title: "SJM Resorts Confirms Completion of L\u2019Arc Acquisition and Receives Government Approval for Direct Operations of Casino L\u2019Arc Macau by SJM Resorts" },
-  { date: "23 Dec 2025", title: "SJM Hosts Global Tourism Economy Forum 2025 as Sub-Venue" },
-  { date: "18 Dec 2025", title: "SJM Tops Golden Phoenix Tree China Restaurant Guide Again with Five Starred Restaurants in Macau" },
+  { date: "03 Mar 2026", category: "Corporate", title: "SJM Enhances Parental Benefits" },
+  { date: "24 Feb 2026", category: "Events", title: "SJM Rings in the Chinese New Year with Auspicious Lion Dance Parades" },
+  { date: "22 Feb 2026", category: "Awards", title: "SJM Leads Asian Wine Scene with Seven Awards at Star Wine List 2026" },
+  { date: "11 Feb 2026", category: "Awards", title: "SJM\u2019s Grand Lisboa Palace Resort Macau Becomes the Only Integrated Resort in the World with All Hotels Forbes Travel Guide Five-Star Rated" },
+  { date: "04 Feb 2026", category: "Entertainment", title: "SJM Presents Macau Debut of World-Renowned Magician and Mentalist Drummond Money-Coutts" },
+  { date: "30 Jan 2026", category: "Awards", title: "SJM Shines with Four Prestigious Accolades on Harper\u2019s BAZAAR HK\u2019s Annual Lists" },
+  { date: "22 Jan 2026", category: "Awards", title: "SJM Shines with Top Honours at China\u2019s Hotel and Restaurant Awards" },
+  { date: "04 Jan 2026", category: "Entertainment", title: "SJM Resorts Presents \u201cTV Awards Presentation 2025\u201d at Grand Lisboa Palace for the Third Consecutive Year" },
+  { date: "30 Dec 2025", category: "Corporate", title: "SJM Celebrates a New Chapter for L\u2019Arc Hotel" },
+  { date: "26 Dec 2025", category: "Awards", title: "SJM Restaurants and Bar Recognised in \u201cT+L Tastemakers 2025/26\u201d" },
+  { date: "26 Dec 2025", category: "Corporate", title: "SJM Resorts Confirms Completion of L\u2019Arc Acquisition and Receives Government Approval for Direct Operations of Casino L\u2019Arc Macau by SJM Resorts" },
+  { date: "23 Dec 2025", category: "Events", title: "SJM Hosts Global Tourism Economy Forum 2025 as Sub-Venue" },
+  { date: "18 Dec 2025", category: "Awards", title: "SJM Tops Golden Phoenix Tree China Restaurant Guide Again with Five Starred Restaurants in Macau" },
 ];
 
 const articleCategories = [
@@ -161,9 +161,11 @@ export default function PressReleasesPage() {
                         href={`/announcements/${idx + 1}`}
                         className="group flex flex-col gap-0.5 rounded-sm transition hover:opacity-80"
                       >
-                        <p className="text-[14px] leading-[22.8px] text-[#8e9590]">
-                          {item.date}
-                        </p>
+                        <div className="flex items-center gap-[8px] text-[14px] leading-[22.8px] text-[#8e9590]">
+                          <span>{item.date}</span>
+                          <span>/</span>
+                          <span>{item.category}</span>
+                        </div>
                         <p className="text-[16px] leading-[24px] text-[#141414]">
                           {item.title}
                         </p>
