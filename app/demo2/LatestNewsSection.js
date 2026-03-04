@@ -14,49 +14,42 @@ const newsItems = [
   {
     id: 1,
     date: "24 Feb 2026",
-    title: "SJM Joins Hands with the Community to Celebrate the Year of the Horse",
+    title: "SJM Rings in the Chinese New Year with Auspicious Lion Dance Parades",
   },
   {
     id: 2,
     date: "22 Feb 2026",
-    title:
-      "SJM Volunteer Team 10th Anniversary Celebration Dinner | A Decade of Unity and Giving Back",
+    title: "SJM Leads Asian Wine Scene with Seven Awards at Star Wine List 2026",
   },
   {
     id: 3,
     date: "11 Feb 2026",
-    title:
-      "SJM Supports the USJ SDG Week 2026 to Explore the Future of Sustainable Development",
+    title: "SJM's Grand Lisboa Palace Resort Macau Becomes the Only Integrated Resort in the World with All Hotels Forbes Travel Guide Five-Star Rated",
   },
   {
     id: 4,
     date: "04 Feb 2026",
-    title:
-      '\u201cSJM Talent Development Programme\u201d Graduation Ceremony Highlights Local Talent Development Achievements',
+    title: "SJM Presents Macau Debut of World-Renowned Magician and Mentalist Drummond Money-Coutts",
   },
   {
     id: 5,
-    date: "04 Feb 2026",
-    title:
-      "SJM Presents Macau Debut of World-Renowned Magician and Mentalist Drummond Money-Coutts",
+    date: "28 Jan 2026",
+    title: "SJM Volunteer Team 10th Anniversary Celebration Dinner | A Decade of Unity and Giving Back",
   },
   {
     id: 6,
-    date: "28 Jan 2026",
-    title:
-      "SJM Holdings Reports Record Visitor Engagement Across Grand Lisboa Palace Resort Macau",
+    date: "15 Jan 2026",
+    title: "SJM Supports the USJ SDG Week 2026 to Explore the Future of Sustainable Development",
   },
   {
     id: 7,
-    date: "15 Jan 2026",
-    title:
-      "SJM Celebrates 55th Anniversary with a Series of Community and Charity Initiatives",
+    date: "08 Jan 2026",
+    title: "SJM Holdings Reports Record Visitor Engagement Across Grand Lisboa Palace Resort Macau",
   },
   {
     id: 8,
-    date: "08 Jan 2026",
-    title:
-      "SJM Holdings Announces Strategic Expansion Plan for Grand Lisboa Palace Phase II",
+    date: "02 Jan 2026",
+    title: "SJM Holdings Announces Strategic Expansion Plan for Grand Lisboa Palace Phase II",
   },
 ];
 

@@ -8,63 +8,53 @@ import Demo2Header from "../Header";
 const newsItems = [
   {
     id: 1,
-    date: "24 Feb 2026",
-    title:
-      "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/01/2026",
+    date: "03 May 2026",
+    title: "SJM Enhances Parental Benefits",
   },
   {
     id: 2,
     date: "24 Feb 2026",
-    title:
-      "Settlement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026",
+    title: "SJM Rings in the Chinese New Year with Auspicious Lion Dance Parades",
   },
   {
     id: 3,
-    date: "24 Feb 2026",
-    title:
-      "Publication of Offering Memorandum - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031",
+    date: "22 Feb 2026",
+    title: "SJM Leads Asian Wine Scene with Seven Awards at Star Wine List 2026",
   },
   {
     id: 4,
-    date: "24 Feb 2026",
-    title:
-      "Notice of Listing on The Stock Exchange of Hong Kong Limited - SJM International Limited - USD540,000,000 6.500% Senior Notes Due 2031",
+    date: "11 Feb 2026",
+    title: "SJM's Grand Lisboa Palace Resort Macau Becomes the Only Integrated Resort in the World with All Hotels Forbes Travel Guide Five-Star Rated",
   },
   {
     id: 5,
-    date: "24 Feb 2026",
-    title:
-      "Closing of the Issuance of USD540,000,000 6.500% Senior Notes Due 2031",
+    date: "04 Feb 2026",
+    title: "SJM Presents Macau Debut of World-Renowned Magician and Mentalist Drummond Money-Coutts",
   },
   {
     id: 6,
-    date: "24 Feb 2026",
-    title:
-      "Results of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026",
+    date: "30 Jan 2026",
+    title: "SJM Shines with Four Prestigious Accolades at Harper's BAZAAR UK's Annual Gala",
   },
   {
     id: 7,
-    date: "24 Feb 2026",
-    title:
-      "Issuance of USD540,000,000 6.500% Senior Notes Due 2031 and Disclosure Pursuant to Rule 13.18 of the Listing Rules & Exempted Connected Transaction in relation to the Partial Subscription of the Notes by a Connected Person",
+    date: "22 Jan 2026",
+    title: "SJM Shines with Top Honours at China's Hotel and Restaurant Awards",
   },
   {
     id: 8,
-    date: "24 Feb 2026",
-    title:
-      "Monthly Return of Equity Issuer on Movements in Securities for the Month Ended 31/12/2025",
+    date: "04 Jan 2026",
+    title: "SJM Resorts Presents \u201cTV Awards Presentation 2025\u201d at Grand Lisboa Palace for the Third Consecutive Year",
   },
   {
     id: 9,
-    date: "24 Feb 2026",
-    title:
-      "Commencement of Offer to Purchase for Cash any and all of the Outstanding 4.500% Senior Notes Due 2026",
+    date: "30 Dec 2025",
+    title: "SJM Celebrates a New Chapter for L'Arc Hotel",
   },
   {
     id: 10,
-    date: "24 Feb 2026",
-    title:
-      "Inside Information Proposed Issuance of U.S. Dollar Denominated Senior Notes",
+    date: "26 Dec 2025",
+    title: "SJM Restaurants and Bar Recognised in \u201cT+L Tastemakers 2025/26\u201d",
   },
 ];
 
@@ -76,7 +66,7 @@ const allNewsItems = Array.from({ length: 5 }, (_, p) =>
 const yearFilters = [
   { name: "All", count: 59 },
   { name: "2026", count: 4 },
-  { name: "2025", count: 16 },
+  { name: "2025", count: 18 },
   { name: "2024", count: 19 },
   { name: "2023", count: 27 },
 ];
@@ -183,7 +173,7 @@ export default function Demo2NewsPage() {
         <div className="relative z-10 -mt-[70px] px-4 md:px-8 lg:px-[40px]">
           <div className="bg-white px-4 py-10 md:px-8 lg:px-[60px] lg:py-[40px]">
             <h1 className="font-petrona text-[36px] font-extralight leading-[1.128em] tracking-[-0.047em] text-black md:text-[48px]">
-              Announcements, Notices &amp; Returns
+              Latest News
             </h1>
           </div>
         </div>
